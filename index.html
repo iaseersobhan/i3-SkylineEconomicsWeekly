@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> I3 Skyline Economics </title>
+
+<style>
+body{
+  font-family: Times New Roman;
+  background:#0e1117;
+  color:white;
+  margin:0;
+}
+header{
+
+  padding:40px;
+  text-align:center;
+  border-bottom:1px solid #222;
+}
+h1{margin:0;font-size:32px;}
+.subtitle{color:#aaa;margin-top:10px;}
+
+.container{
+  max-width:900px;
+  margin:40px auto;
+  padding:20px;
+}
+
+.post{
+  background:#161b22;
+  padding:20px;
+  border-radius:12px;
+  margin-bottom:20px;
+  cursor:pointer;
+  border:1px solid #222;
+}
+.post:hover{border:1px solid #3b82f6;}
+
+.post-title{font-size:20px;margin:0;}
+.post-date{color:#888;font-size:14px;margin-top:6px;}
+.post-summary{color:#bbb;margin-top:12px;}
+
+.article{
+  line-height:1.7;
+  font-size:17px;
+  display:none;
+  background:#161b22;
+  padding:30px;
+  border-radius:12px;
+  border:1px solid #222;
+  font-weight: normal;
+
+}
+
+
+.article h2{
+  font-size:46px;
+  margin-bottom:10px;
+
+
+}
+
+
+
+.back{
+  margin-bottom:20px;
+  color:#3b82f6;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  padding:40px;
+  color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+
+  <h1>I3: Skyline Economics Weekly </h1>
+  <div class="subtitle">By Iaseer Sobhan — Economics, Law, Policy & Real Estate</div>
+</header>
+<header>
+  
+<div class="container">
+
+<div id="blogList">
+
+  <div class="post" onclick="openPost('post1')">
+    <div class="post-title">Who Really Owns A City? Property Rights, Legal Frameworks and the Price of Urban Land</div>
+    <div class="post-date">13/02/2026</div>
+    <div class="post-summary">
+      Analyzing how property law and state regulation determines who really controls urban land and its value.
+    </div>
+  </div>
+
+
+</div>
+
+<div id="article" class="article"></div>
+
+</div>
+
+<footer>
+  © 2026 Ahmed Iaseer Sobhan — I3 Skyline Economics
+</footer>
+
+<script>
+const posts = {
+  post1: `
+  <div class="back" onclick="goBack()">← Back</div>
+ <h2>Who Really Owns A City?  </h2>
+<div class="author">
+
+ </p>
+
+By Ahmed Iaseer Sobhan</div>
+
+ </p>
+ </p>
+
+Throughout many decades, urban land has revealed itself as one of the most valuable economic assets in the world. Global cities such as London, New York and Singapore have experienced substantial increases in property prices, often at a rate surpassing that of income growth, ultimately resulting in significant affordability pressures for consumers. Although land is commonly viewed as privately owned, urban property ownership is far more complex in actuality. This is because property rights are essentially a mere subsection of the legal frameworks that allow governments to regulate and manipulate how land is developed, used and exchanged. As a result, the question of “who really owns a city?” refers more to the domain of law and public policy than just a private title. 
+
+  </p>
+  <p>
+ Initially, ownership seems simple and straightforward. Individuals and firms hold the legal access to land through either freehold or leasing systems, effectively allowing them to buy, sell and develop property. Unfortunately, these rights are never absolute. Planning permissions, zoning laws and development controls are significant determinants of what landowners are permitted to do with “their own” land. Even if a landowner possesses formal ownership of a central plot, decisions in regard to building height, usage and density are determined by administrative institutions, most commonly the government. This makes it clear how legal systems and institutions are able to demonstrate influence over urban land despite the existence of private ownership. 
+  </p>
+  <p>
+Additionally, this suggests that the housing markets of modern cities are constantly molded by ongoing negotiations between private property owners and regulatory institutions. Land may be owned privately, but its value and uses are fundamentally structured by law. Therefore, it can be argued that the true owner of a city is not the individuals who hold a legal title, but the institutions that define and enforce the rights of the title. 
+  </p>
+  <p>
+
+  </p>
+  `,
+
+};
+
+function openPost(id){
+  document.getElementById("blogList").style.display="none";
+  const article = document.getElementById("article");
+  article.innerHTML = posts[id];
+  article.style.display="block";
+  window.scrollTo(0,0);
+}
+
+function goBack(){
+  document.getElementById("article").style.display="none";
+  document.getElementById("blogList").style.display="block";
+}
+</script>
+
+</body>
+</html>
