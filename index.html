@@ -416,6 +416,68 @@
     color: var(--accent);
   }
 
+  /* ── BIBLIOGRAPHY ── */
+  .bibliography {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    max-width: 680px;
+  }
+
+  .bibliography-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .bibliography-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .bibliography-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .bibliography-list li {
+    font-family: 'Spectral', serif;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--muted);
+    padding-left: 16px;
+    border-left: 2px solid var(--border);
+    transition: border-color 0.15s;
+  }
+
+  .bibliography-list li:hover {
+    border-left-color: var(--accent-dim);
+    color: #a09c94;
+  }
+
+  .bibliography-list a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .bibliography-list a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent-dim);
+  }
+
   /* ── ABOUT AUTHOR ── */
   #about {
     display: none;
@@ -706,6 +768,19 @@
 
     <div class="post-list">
 
+      <div class="post" onclick="openPost('post4')">
+        <div>
+          <div class="post-meta">
+            <span class="post-date">6 Mar 2026</span>
+            <span class="post-dot"></span>
+            <span class="post-tag">Property Law</span>
+          </div>
+          <div class="post-title">Adverse Possession: Legal Theft or Economic Necessity?</div>
+          <div class="post-summary">Examining how English property law permits squatters to claim ownership — and whether the doctrine serves justice or undermines it.</div>
+        </div>
+        <span class="post-arrow">→</span>
+      </div>
+
       <div class="post" onclick="openPost('post3')">
         <div>
           <div class="post-meta">
@@ -771,7 +846,7 @@
 
       <div class="about-stats">
         <div class="about-stat">
-          <div class="about-stat-value">3</div>
+          <div class="about-stat-value">4</div>
           <div class="about-stat-label">Articles Published</div>
         </div>
         <div class="about-stat">
@@ -809,6 +884,45 @@
 
 <script>
 const posts = {
+
+  post4: {
+    date: '6 Mar 2026',
+    tag: 'Property Law',
+    title: 'Adverse Possession: Legal Theft or Economic Necessity?',
+    body: `
+      <p>Adverse possession refers to the occupation of land with the intention of possession, despite another person owning the property (Oxford, 2025). Initially, this appears to be one of the most counterintuitive principles in English property law. According to the Limitation Act of 1980, a squatter who publicly occupies land continuously without the owner's consent for twelve years, can claim legal ownership of the property (legislation.gov.uk, 2011).</p>
+      <p>Supporters of the doctrine argue that it is legally coherent and an economically rational progression in property ownership. This is justified through the belief that possession of land should indicate productive engagement with land, as a lack of engagement causes social costs through passed up opportunities for productivity (Epstein, 1979). Although this argument appears airtight, it proves too much, the same logic could be used to justify one occupying any asset by claiming that they can make more productive use of it. As the law does not apply this reasoning to other assets, its exclusive application to land is rooted in the immovability of land, which can be argued is not a significant enough reason to justify theft. The defence of adverse possession typically invokes Blackstone's Commentaries, arguing that occupancy is the true determinant of property ownership title (Blackstone, 1776). However, it must be taken into account that Blackstone's principles are outdated and are only in reference to the original acquisition of unknown land and not the reallocation of privately held land.</p>
+      <p>Additionally, the case of Pye V Graham exposes the significant faults and implications involved with adverse possession (Balli, 2002). This case revolves around Pye, who was a registered landowner that lost over £10 million worth of land due to administrative issues regarding a grazing license. Upon this, the Graham family moved into the land but did not purchase it, were not gifted it and made no attempt to negotiate for it, they were simply occupying the land. Nonetheless, by way of following doctrines, the House of Lords appointed the land to be under the Graham family name. A critical detail of this case is that Lord Brown Wilkinson himself said that the outcome of the case was unjust, thus illustrating an indictment of the adverse possession doctrine.</p>
+      <p>As concluded by the UK Law Commission, the balance between a squatter and landowner needed fundamental altering and significant adjustment (Law Commission, 2002). This led to the Land Registration act of 2002, which contained necessary corrections through the implementation of more complex mechanisms such as applicants being required to notify registered land owners as well as allowing the recovery of ownership when property titles have changed due to squatting. This clarifies the purpose of legal institutions, it emphasizes that the protection and security of paper titles is not just another component of the system, but instead the fundamental purpose.</p>
+      <p>In all, it can be said that adverse possession is not an economic necessity. As of today, It is nothing more than a legal policy that amounts to nothing greater than the legal transfer of property from absent owners to determined occupiers.</p>
+    `,
+    bibliography: [
+      {
+        text: '"Avalon Project - Blackstone\'s Commentaries on the Laws of England - Book the Second - Chapter the First : Of Property in General." Yale Law School, 2024.',
+        url: 'https://avalon.law.yale.edu/18th_century/blackstone_bk2ch1.asp'
+      },
+      {
+        text: '"Commentaries on the Laws of England. ... By William Blackstone, ... 1766 : Blackstone, Sir William." Internet Archive, 2023.',
+        url: 'https://archive.org/details/bim_eighteenth-century_commentaries-on-the-laws_blackstone-sir-william_1766'
+      },
+      {
+        text: '"J a Pye (Oxford) Ltd & Ors v Graham & Anor [2002] UKHL 30 (4 July 2002)." Balli.',
+        url: 'https://www.bailii.org/uk/cases/UKHL/2002/30.html'
+      },
+      {
+        text: '"Land Registration Act 2002." Legislation.gov.uk, 2020.',
+        url: 'https://www.legislation.gov.uk/ukpga/2002/9/contents'
+      },
+      {
+        text: '"Limitation Act 1980." Legislation.gov.uk, 2011.',
+        url: 'https://www.legislation.gov.uk/ukpga/1980/58/contents'
+      },
+      {
+        text: '"Oxford Languages." Oxford Languages, Oxford University Press, 2025.',
+        url: 'https://languages.oup.com/google-dictionary-en/'
+      }
+    ]
+  },
 
   post3: {
     date: '27 Feb 2026',
@@ -855,6 +969,22 @@ function openPost(id) {
   const post = posts[id];
   const el = document.getElementById('article');
 
+  let bibliographyHTML = '';
+  if (post.bibliography && post.bibliography.length > 0) {
+    const items = post.bibliography.map(ref => {
+      if (ref.url) {
+        return `<li>${ref.text} <a href="${ref.url}" target="_blank" rel="noopener">${ref.url}</a></li>`;
+      }
+      return `<li>${ref.text}</li>`;
+    }).join('');
+    bibliographyHTML = `
+      <div class="bibliography">
+        <div class="bibliography-label">Bibliography</div>
+        <ul class="bibliography-list">${items}</ul>
+      </div>
+    `;
+  }
+
   el.innerHTML = `
     <div class="article-header">
       <div class="back" onclick="goBack()">Back to all articles</div>
@@ -875,6 +1005,7 @@ function openPost(id) {
     <div class="article-body">
       ${post.body}
       <div class="ornament"><span>◆</span></div>
+      ${bibliographyHTML}
     </div>
   `;
 
@@ -896,7 +1027,6 @@ function openAbout() {
 
 function goBackFromAbout() {
   document.getElementById('about').style.display = 'none';
-  // If there's an active article, go back to it; otherwise go home
   const article = document.getElementById('article');
   if (article.innerHTML.trim() !== '') {
     article.style.display = 'block';
