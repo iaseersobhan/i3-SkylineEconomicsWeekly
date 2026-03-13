@@ -449,6 +449,19 @@ footer {
       </div>
       <div class="post-list">
 
+<div class="post" onclick="openPost('post5')">
+  <div>
+    <div class="post-meta">
+      <span class="post-date">13 Mar 2026</span>
+      <span class="post-dot"></span>
+      <span class="post-tag">Commodities</span>
+    </div>
+    <div class="post-title">Are We Running Out of Natural Rubber?</div>
+    <div class="post-summary">Investigating how years of climate change and market neglect threaten to collapse a commodity the world cannot live without.</div>
+  </div>
+  <span class="post-arrow">→</span>
+</div>
+
         <div class="post" onclick="openPost('post4')">
           <div class="post-content">
             <div class="post-meta">
@@ -555,6 +568,48 @@ footer {
 <script>
 const posts = {
 
+
+post5: {
+  date: '13 Mar 2026',
+  tag: 'Commodities',
+  title: 'Are We Running Out of Natural Rubber?',
+  body:  `
+
+  <p>Natural rubber is a key component in the essential goods that allow the modern world to function. Whether this be the planes we fly on, the ships that carry our goods, the cars we sit in every day, and even medical equipment we trust our lives with, rubber sits quietly as a foundation for all of them. Despite this, the millions of small farmers throughout Southeast Asia producing it are barely surviving, earning less than ever before, and slowly starting to abandon their crops. Over a decade of depressed prices, climate shocks and unstable weather patterns have resulted in a tightening of natural rubber supply. This is no longer a distant warning - it is an early sign of a global commodity crisis.  </p>
+
+ <p>For over a decade now, natural rubber prices have remained consistently low. This trend has been long interpreted as a sign of stability, abundant supply, and thus low concern. In reality, it is quite the opposite. Continuously low prices were a sign of farmers unable to maintain crops, invest in future crops or replace aging trees, ultimately slowing production and weakening the foundations of the industry. Global manufacturers and industries overlooked these low prices as nothing but advantageous for their production, continuing to benefit from cheap natural rubber prices for as long as they could while overlooking the long term detriment to natural rubber supply. The consequences are starting to reveal themselves as a hollow supply base alongside significant structural weaknesses, which have served as strong indicators for past global commodity crises, such as the 2022 global wheat crisis.  </p>
+
+
+ <p>Unlike other commodities in which production is structured around large firms, approximately 80% of natural rubber is produced by millions of smallhold farmers working in small plots. Also, these farmers do not have any market power whatsoever, meaning they are unable to simply stop production or reduce production output when natural rubber prices fall. Instead, they are forced to continue operating at a loss or simply abandon their crops (ANRPC, 2025). This relation creates an imbalance while posing as a sustainable dynamic. Global markets benefit from low natural rubber prices, however, adjustment risks the livelihoods of those that are most essential to production and can bear it the least. In the coming years, this unstable and neglectful relationship will weaken the foundations of the natural rubber supply chain and depict an even stronger warning sign for imminent structural failure.</p>
+
+<p>A clear example of this can be seen in Indonesia. Natural rubber output fell by approximately 20% in the four years leading up to and including 2023, this was mainly attributed to farmers switching to crops that were proving to be more profitable, such as palm oil (Moss, 2025). Combined with the extensive time required for rubber trees to mature (5-7 years), a fast recovery to typical production rates is therefore unattainable. As of 2026, it has now been forecasted that an annual supply deficit for natural rubber will reach around 600,000 to 800,000 tonnes, which will most likely persist until 2028 and potentially onwards (Herve, 2026). Additionally, supply deficits are already being experienced globally as 2026 alone saw demand outstrip supply by roughly 400,000 tonnes (Herve, 2026). </p>
+
+
+ <p>Environmental conditions also play a significant role in the production of rubber. Rubber trees are highly susceptible to weather changes, they require temperatures to be precisely between 25℃ and 28℃ combined with consistent rainfall, unfortunately these previously reliable weather conditions are becoming increasingly unpredictable across Southeast Asia (Diwyanjalee, 2024). Some of the most common emerging environmental unpredictabilities include droughts and excessive rainfall. Researchers in Thailand discovered that during prolonged periods of drought and dry spells cause more than half of the trees on rubber farms to be incapable of being tapped, with roughly 5% of the trees dying outright (Chin, 2023). Excessive rain raises an entirely different problem, it causes the fungal pathogens that thrive in humidity to become plentiful and destroy entire plantations at a time (Lim, 2023). </p>
+
+<p>Climate change, with specific regards to rising temperatures can also be considered a driving disease for natural rubber supply shortages. A study in 2023 found a strong positive correlation between rising temperatures and rubber leaf fall disease, an occurrence that causes premature death in previously unaffected rubber trees (Azizan, 2023). Considering all of this, it can be suggested that without rapid adaptation, natural rubber production will decline despite increases in global demand (Gohet, 2021). </p>
+
+<p> This projection follows a similar pattern that has been observed in previous years. For instance, years of continuous underinvestment result in a nonexistent commodity supply base, and when markets can react, it is already too late. Rubber prices spiked by 24-50% in some Asian markets throughout 2024 causing prices to reach a brief seven year high (Moss, 2025). The price surge in 2024 is not just a random peak, it is instead the market finally responding to the structural reality of natural rubber shortages. </p>
+
+
+<p>The main fix for rubber shortages (although it may seem obvious) is the replanting of subsidies for smallhold farmers, manufacturers allocating greater funding to the supply chains, and greater investment in climate-resilient tree types. Up to that time, every glove, every tyre, every aircraft will be built on a crumbling foundation. </p>
+
+ `,
+    bib: `
+
+<div class="bib-entry">ANRPC (2025) 'Why is the global rubber market likely to see shortages in 2025?'. Available at: <a href="https://www.anrpc.org/news/why-is-the-global-rubber-market-likely-to-see-shortages-in-2025%3F" target="_blank">anrpc.org</a></div>
+<div class="bib-entry">Azizan, F.A., Astuti, I.S., Young, A. and Abdul Aziz, A. (2023) 'Rubber leaf fall phenomenon linked to increased temperature', <em>Agriculture, Ecosystems & Environment</em>, 352, p.108531. Available at: <a href="https://doi.org/10.1016/j.agee.2023.108531" target="_blank">doi.org</a></div>
+<div class="bib-entry">Chai-Chin, N. (2020) 'Drought, deluge, disease: How should the natural rubber industry respond to climate change?', <em>Eco-Business</em>. Available at: <a href="https://www.eco-business.com/news/drought-deluge-disease-how-should-the-natural-rubber-industry-respond-to-climate-change/" target="_blank">eco-business.com</a></div>
+<div class="bib-entry">Diwyanjalee, R. (2024) 'The Impact of Climate Change on Rubber Cultivation: Challenges, Adaptations, and Sustainability', <em>Climate Fact Checks</em>. Available at: <a href="https://climatefactchecks.org/the-impact-of-climate-change-on-rubber-cultivation-challenges-adaptations-and-sustainability/" target="_blank">climatefactchecks.org</a></div>
+<div class="bib-entry">Gohet, E., Thaler, P., Nouvellon, Y. and Gay, F. (2021) 'Worldwide climate typologies of rubber tree cultivation: Risks and opportunities linked to climate change', <em>ResearchGate</em>. Available at: <a href="https://www.researchgate.net/publication/351903599_Worldwide_climate_typologies_of_rubber_tree_cultivation_Risks_and_opportunities_linked_to_climate_change" target="_blank">researchgate.net</a></div>
+<div class="bib-entry">Herve (2026) 'Natural Rubber Deficit 2026: 400,000 Tons Missing on the Global Market', <em>CAPMAD</em>. Available at: <a href="https://www.capmad.com/agribusiness-en/natural-rubber-deficit-2026-400000-tons-missing-on-the-global-market/" target="_blank">capmad.com</a></div>
+<div class="bib-entry">Lim, J.A., Yaacob, J.S., Mohd, A., Eyahmalay, J.E., El, A. and Mohd (2023) 'Mitigating the repercussions of climate change on diseases affecting important crop commodities in Southeast Asia', <em>Frontiers in Sustainable Food Systems</em>, 6. Available at: <a href="https://doi.org/10.3389/fsufs.2022.1030540" target="_blank">doi.org</a></div>
+<div class="bib-entry">Moss, J. (2025) 'Will Rubber Prices Continue Their Slide from Seven-Year Highs This Year?', <em>International Banker</em>. Available at: <a href="https://internationalbanker.com/brokerage/will-rubber-prices-continue-their-slide-from-seven-year-highs-this-year/" target="_blank">internationalbanker.com</a></div>
+
+  `
+
+},   
+
   post4: {
     date: '6 Mar 2026', tag: 'Property Law',
     title: 'Adverse Possession: Legal Theft or Economic Necessity?',
@@ -564,7 +619,7 @@ const posts = {
       <p>Additionally, the case of Pye V Graham exposes the significant faults and implications involved with adverse possession (Balli, 2002). This case revolves around Pye, who was a registered landowner that lost over £10 million worth of land due to administrative issues regarding a grazing license. Upon this, the Graham family moved into the land but did not purchase it, were not gifted it and made no attempt to negotiate for it, they were simply occupying the land. Nonetheless, by way of following doctrines, the House of Lords appointed the land to be under the Graham family name. A critical detail of this case is that Lord Brown Wilkinson himself said that the outcome of the case was unjust, thus illustrating an indictment of the adverse possession doctrine. </p>
       <p>The doctrine does retain one defensible application: genuine boundary disputes, where neighbouring owners have disagreed for decades over the precise location of a dividing feature and no paper title can resolve it. The Law Commission explicitly designed the 2002 exceptions with this scenario in mind (Law Commission, 2001). Beyond this narrow circumstance, the justification collapses entirely.</p>
       <p>As concluded by the UK Law Commission, the balance between a squatter and landowner needed fundamental altering and significant adjustment (Law Commission, 2002). This led to the Land Registration act of 2002, which contained necessary corrections through the implementation of more complex mechanisms such as applicants being required to notify registered land owners as well as allowing the recovery of ownership when property titles have changed due to squatting. This clarifies the purpose of legal institutions, it emphasizes that the protection and security of paper titles is not just another component of the system, but instead the fundamental purpose, </p>
-      <p In all, it can be said that adverse possession is not an economic necessity. As of today, It is nothing more than a legal policy that amounts to nothing greater than the legal transfer of property from absent owners to determined occupiers. 
+     <p> In all, it can be said that adverse possession is not an economic necessity. As of today, It is nothing more than a legal policy that amounts to nothing greater than the legal transfer of property from absent owners to determined occupiers. 
 </p>
     `,
     bib: `
@@ -575,6 +630,7 @@ const posts = {
       <div class="bib-entry">Law Commission and HM Land Registry (2001) <em>Land Registration for the Twenty-First Century: A Conveyancing Revolution</em>, Law Com No. 271. Available at: <a href="https://lawcom.gov.uk/wp-content/uploads/2015/04/Lc271.pdf" target="_blank">lawcom.gov.uk</a></div>
       <div class="bib-entry">Limitation Act 1980. Available at: <a href="https://www.legislation.gov.uk/ukpga/1980/58/contents" target="_blank">legislation.gov.uk</a></div>
       <div class="bib-entry">Oxford University Press (2025) 'Adverse Possession', <em>Oxford Reference</em>. Available at: <a href="https://www.oxfordreference.com" target="_blank">oxfordreference.com</a></div>
+
     `
   },
 
