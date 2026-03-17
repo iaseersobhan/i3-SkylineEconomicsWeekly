@@ -1,0 +1,41 @@
+name: Send Newsletter
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+
+jobs:
+  newsletter:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Send newsletter if new article
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+          AIRTABLE_BASE_ID: appJoWUJkkxocFeYt
+        run: python .github/scripts/send_newsletter.py
+
+      - name: Commit last_notified update
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .github/last_notified.txt
+          git diff --staged --quiet || git commit -m "chore: update last notified post"
+          git push
