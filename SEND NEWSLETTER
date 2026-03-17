@@ -34,7 +34,7 @@ if latest_id == last_notified:
 token = os.environ['AIRTABLE_TOKEN']
 base  = os.environ['AIRTABLE_BASE_ID']
 key   = os.environ['RESEND_API_KEY']
-url   = 'https://iaseersobhan.github.io/i3-SkylineEconomicsWeekly/'
+url   = 'https://i3skylineeconomics.com/'
 
 resp = requests.get(
     f'https://api.airtable.com/v0/{base}/Subscribers',
