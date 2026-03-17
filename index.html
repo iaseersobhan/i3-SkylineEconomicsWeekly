@@ -4,7 +4,61 @@
 <meta name="google-site-verification" content="IRMiZWbtGPWnWIi4jbqtghEWwz96m1248sIwSjmf9Rg" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>I3 Skyline Economics</title>
+
+<!-- ═══════════════════════════════════════════
+     SEO — primary
+════════════════════════════════════════════ -->
+<title>I3 Skyline Economics Weekly — Independent Commentary on Economics, Law &amp; Property</title>
+<meta name="description" content="Independent weekly commentary on economics, law, property and real estate — drawing on primary legal sources, academic literature and empirical evidence. By Ahmed Iaseer Sobhan.">
+<meta name="author" content="Ahmed Iaseer Sobhan">
+<meta name="keywords" content="economics, property law, land economics, tax policy, urban land, real estate, institutional economics, law and governance, adverse possession, inheritance tax">
+<link rel="canonical" href="https://iaseersobhan.github.io/i3-SkylineEconomicsWeekly/">
+
+<!-- ═══════════════════════════════════════════
+     Open Graph (LinkedIn, WhatsApp, Facebook)
+════════════════════════════════════════════ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="I3 Skyline Economics Weekly">
+<meta property="og:title" content="I3 Skyline Economics Weekly">
+<meta property="og:description" content="Independent weekly commentary on economics, law, property and real estate — by Ahmed Iaseer Sobhan.">
+<meta property="og:url" content="https://iaseersobhan.github.io/i3-SkylineEconomicsWeekly/">
+
+<!-- ═══════════════════════════════════════════
+     Twitter / X Card
+════════════════════════════════════════════ -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="I3 Skyline Economics Weekly">
+<meta name="twitter:description" content="Independent weekly commentary on economics, law, property and real estate — by Ahmed Iaseer Sobhan.">
+<!-- Replace YOUR-X-HANDLE below once you have one -->
+<!-- <meta name="twitter:site" content="@YOUR-X-HANDLE"> -->
+
+<!-- ═══════════════════════════════════════════
+     Structured Data — Blog + Person
+════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Blog",
+      "name": "I3 Skyline Economics Weekly",
+      "url": "https://iaseersobhan.github.io/i3-SkylineEconomicsWeekly/",
+      "description": "Independent weekly commentary on economics, law, property and real estate.",
+      "inLanguage": "en",
+      "author": { "@id": "#author" }
+    },
+    {
+      "@type": "Person",
+      "@id": "#author",
+      "name": "Ahmed Iaseer Sobhan",
+      "url": "https://iaseersobhan.github.io/i3-SkylineEconomicsWeekly/",
+      "jobTitle": "Writer",
+      "knowsAbout": ["Economics", "Property Law", "Tax Policy", "Urban Land", "Institutional Analysis"]
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -180,6 +234,16 @@ nav {
   border: 1px solid var(--acc3); background: rgba(200,164,90,0.05);
   padding: 2px 7px; border-radius: 2px;
 }
+
+/* CITATION BADGE */
+.post-refs {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px; letter-spacing: 0.1em;
+  color: var(--muted2);
+  border: 1px solid var(--border2);
+  padding: 2px 6px; border-radius: 2px;
+}
+
 .post-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(16px, 2.4vw, 20px); font-weight: 500;
@@ -291,6 +355,28 @@ nav {
 .bib-entry a { color: var(--acc2); text-decoration: none; border-bottom: 1px solid var(--acc3); }
 .bib-entry a:hover { color: var(--accent); }
 
+/* SHARE BAR */
+.share-bar {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 36px; padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.share-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted2); margin-right: 4px;
+}
+.share-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.1em;
+  color: var(--muted); background: none;
+  border: 1px solid var(--border2); border-radius: 3px;
+  padding: 5px 11px; cursor: pointer;
+  text-decoration: none; transition: color 0.15s, border-color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.share-btn:hover { color: var(--accent); border-color: var(--acc2); }
+
 /* ORNAMENT */
 .ornament { display: flex; align-items: center; gap: 14px; margin: 44px 0 0; }
 .ornament::before, .ornament::after { content: ''; flex: 1; height: 1px; background: var(--border); }
@@ -388,6 +474,63 @@ footer {
   font-size: 9px; color: var(--muted2); letter-spacing: 0.1em;
 }
 
+/* SOCIAL LINKS */
+.footer-social { display: flex; align-items: center; gap: 8px; }
+.social-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted2); text-decoration: none;
+  border: 1px solid var(--border); border-radius: 2px;
+  padding: 4px 10px; transition: color 0.15s, border-color 0.15s;
+}
+.social-link:hover { color: var(--accent); border-color: var(--acc2); }
+
+/* NEWSLETTER BAR */
+.footer-newsletter {
+  max-width: 1080px; margin: 20px auto 0;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  padding-top: 20px; border-top: 1px solid var(--border);
+}
+.newsletter-left {
+  display: flex; flex-direction: column; gap: 4px;
+}
+.newsletter-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px; font-weight: 400; color: var(--text);
+}
+.newsletter-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted2);
+}
+.newsletter-form { display: flex; gap: 0; }
+.newsletter-input {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 0.08em;
+  color: var(--text); background: var(--surface);
+  border: 1px solid var(--border2); border-right: none;
+  border-radius: 2px 0 0 2px;
+  padding: 8px 14px; width: 220px; outline: none;
+  transition: border-color 0.15s;
+}
+.newsletter-input::placeholder { color: var(--muted2); }
+.newsletter-input:focus { border-color: var(--acc2); }
+.newsletter-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--bg); background: var(--accent);
+  border: none; border-radius: 0 2px 2px 0;
+  padding: 8px 18px; cursor: pointer;
+  white-space: nowrap; transition: opacity 0.15s; flex-shrink: 0;
+}
+.newsletter-btn:hover { opacity: 0.85; }
+.newsletter-success {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
 /* ── MOBILE ── */
 @media (max-width: 600px) {
   .nav-right { display: none; }
@@ -412,6 +555,9 @@ footer {
   .stat-lbl { font-size: 7px; }
   .bib-entry { font-size: 11px; }
   footer { padding: 24px 20px; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  .footer-newsletter { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .share-bar { flex-wrap: wrap; }
+  .footer-social { flex-wrap: wrap; }
 }
 @media (max-width: 360px) {
   .hero h1 { font-size: 38px; }
@@ -455,6 +601,8 @@ footer {
       <span class="post-date">13 Mar 2026</span>
       <span class="post-dot"></span>
       <span class="post-tag">Commodities</span>
+      <span class="post-dot"></span>
+      <span class="post-refs">8 sources</span>
     </div>
     <div class="post-title">Are We Running Out of Natural Rubber?</div>
     <div class="post-summary">Investigating how years of climate change and market neglect threaten to collapse a commodity the world cannot live without.</div>
@@ -468,6 +616,8 @@ footer {
               <span class="post-date">6 Mar 2026</span>
               <span class="post-dot"></span>
               <span class="post-tag">Property Law</span>
+              <span class="post-dot"></span>
+              <span class="post-refs">7 sources</span>
             </div>
             <div class="post-title">Adverse Possession: Legal Theft or Economic Necessity?</div>
             <div class="post-summary">Examining whether squatters' rights represent institutional theft or an economically rational correction.</div>
@@ -537,7 +687,7 @@ footer {
           <p>Each week, Iaseer explores how institutions, incentives and legal frameworks shape the economic world — from inheritance tax and land ownership to climate governance and market failure. His writing draws on primary legal sources, academic literature and empirical evidence.</p>
           <p>I3 Skyline Economics reflects an ongoing commitment to independent, evidence-driven commentary on the forces that govern modern economic life.</p>
           <div class="about-stats">
-            <div class="about-stat"><div class="stat-val">4</div><div class="stat-lbl">Articles</div></div>
+            <div class="about-stat"><div class="stat-val">5</div><div class="stat-lbl">Articles</div></div>
             <div class="about-stat"><div class="stat-val">2026</div><div class="stat-lbl">Est.</div></div>
             <div class="about-stat"><div class="stat-val">Weekly</div><div class="stat-lbl">Cadence</div></div>
           </div>
@@ -561,7 +711,24 @@ footer {
 <footer>
   <div class="footer-inner">
     <span class="footer-brand">I3 Skyline Economics</span>
+    <!-- REPLACE href values with your actual profiles -->
+    <div class="footer-social">
+      <a class="social-link" href="https://www.linkedin.com/in/iaseer-sobhan-4430273b8/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="social-link" href="https://www.instagram.com/iaseersobhan09" target="_blank" rel="noopener">Instagram</a>
+    </div>
     <span class="footer-copy">© 2026 Ahmed Iaseer Sobhan</span>
+  </div>
+
+  <div class="footer-newsletter">
+    <div class="newsletter-left">
+      <span class="newsletter-heading">Get new articles in your inbox</span>
+      <span class="newsletter-sub">Weekly · Free · No spam</span>
+    </div>
+    <div class="newsletter-form" id="newsletterForm">
+      <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="your@email.com" autocomplete="email">
+      <button class="newsletter-btn" onclick="subscribeNewsletter()">Subscribe →</button>
+    </div>
+    <span class="newsletter-success" id="newsletterSuccess" style="display:none;">✓ Check your inbox to confirm</span>
   </div>
 </footer>
 
@@ -614,8 +781,8 @@ post5: {
     date: '6 Mar 2026', tag: 'Property Law',
     title: 'Adverse Possession: Legal Theft or Economic Necessity?',
     body: `
-      <p>Adverse possession refers to the occupation of land with the intention of possession, despite another person owning the property (Oxford, 2025). Initially, this appears to be one of the most counterintuitive principles in English property law. According to the Limitation Act of 1980, a squatter who publicly occupies land continuously without the owner’s consent for twelve years, can claim legal ownership of the property (legislation.gov.uk, 2011). </p>
-      <p>Supporters of the doctrine argue that it is legally coherent and an economically rational progression in property ownership. This is justified through the belief that possession of land should indicate productive engagement with land, as a lack of engagement causes social costs through passed up opportunities for productivity (Epstein, 1979). Although this argument appears airtight, it proves too much, the same logic could be used to justify one occupying any asset by claiming that they can make more productive use of it. As the law does not apply this reasoning to other assets, its exclusive application to land is rooted in the immovability of land, which can be argued is not a significant enough reason to justify theft. The defence of adverse possession typically invokes Blackstone’s Commentaries, arguing that occupancy is the true determinant of property ownership title (Blackstone, 1776). However, it must be taken into account that Blackstone’s principles are outdated and are only in reference to the original acquisition of unknown land and not the reallocation of privately held land.  .</p>
+      <p>Adverse possession refers to the occupation of land with the intention of possession, despite another person owning the property (Oxford, 2025). Initially, this appears to be one of the most counterintuitive principles in English property law. According to the Limitation Act of 1980, a squatter who publicly occupies land continuously without the owner's consent for twelve years, can claim legal ownership of the property (legislation.gov.uk, 2011). </p>
+      <p>Supporters of the doctrine argue that it is legally coherent and an economically rational progression in property ownership. This is justified through the belief that possession of land should indicate productive engagement with land, as a lack of engagement causes social costs through passed up opportunities for productivity (Epstein, 1979). Although this argument appears airtight, it proves too much, the same logic could be used to justify one occupying any asset by claiming that they can make more productive use of it. As the law does not apply this reasoning to other assets, its exclusive application to land is rooted in the immovability of land, which can be argued is not a significant enough reason to justify theft. The defence of adverse possession typically invokes Blackstone's Commentaries, arguing that occupancy is the true determinant of property ownership title (Blackstone, 1776). However, it must be taken into account that Blackstone's principles are outdated and are only in reference to the original acquisition of unknown land and not the reallocation of privately held land.  .</p>
       <p>Additionally, the case of Pye V Graham exposes the significant faults and implications involved with adverse possession (Balli, 2002). This case revolves around Pye, who was a registered landowner that lost over £10 million worth of land due to administrative issues regarding a grazing license. Upon this, the Graham family moved into the land but did not purchase it, were not gifted it and made no attempt to negotiate for it, they were simply occupying the land. Nonetheless, by way of following doctrines, the House of Lords appointed the land to be under the Graham family name. A critical detail of this case is that Lord Brown Wilkinson himself said that the outcome of the case was unjust, thus illustrating an indictment of the adverse possession doctrine. </p>
       <p>The doctrine does retain one defensible application: genuine boundary disputes, where neighbouring owners have disagreed for decades over the precise location of a dividing feature and no paper title can resolve it. The Law Commission explicitly designed the 2002 exceptions with this scenario in mind (Law Commission, 2001). Beyond this narrow circumstance, the justification collapses entirely.</p>
       <p>As concluded by the UK Law Commission, the balance between a squatter and landowner needed fundamental altering and significant adjustment (Law Commission, 2002). This led to the Land Registration act of 2002, which contained necessary corrections through the implementation of more complex mechanisms such as applicants being required to notify registered land owners as well as allowing the recovery of ownership when property titles have changed due to squatting. This clarifies the purpose of legal institutions, it emphasizes that the protection and security of paper titles is not just another component of the system, but instead the fundamental purpose, </p>
@@ -677,6 +844,9 @@ function openPost(id) {
   const el = document.getElementById('article');
   const bib = p.bib ? `<div class="article-bib"><div class="bib-label">Bibliography</div>${p.bib}</div>` : '';
 
+  const pageUrl = encodeURIComponent(window.location.href);
+  const shareText = encodeURIComponent(p.title + ' — I3 Skyline Economics Weekly');
+
   el.innerHTML = `
     <div class="article-wrap">
       <div class="article-top">
@@ -699,15 +869,33 @@ function openPost(id) {
       <div class="article-body">
         ${p.body}
         ${bib}
+        <div class="share-bar">
+          <span class="share-label">Share</span>
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=${shareText}&url=${pageUrl}" target="_blank" rel="noopener">X / Twitter</a>
+          <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}" target="_blank" rel="noopener">LinkedIn</a>
+          <button class="share-btn" id="copyLinkBtn" onclick="copyLink(this)">Copy link</button>
+        </div>
         <div class="ornament"><span>◆</span></div>
       </div>
     </div>
   `;
 
+  // Update page title for better sharing metadata
+  document.title = p.title + ' — I3 Skyline Economics Weekly';
+
   document.getElementById('blogList').style.display = 'none';
   document.getElementById('heroSection').style.display = 'none';
   el.style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function copyLink(btn) {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    btn.textContent = 'Copied ✓';
+    setTimeout(() => { btn.textContent = 'Copy link'; }, 2000);
+  }).catch(() => {
+    btn.textContent = 'Copy link';
+  });
 }
 
 function openAbout() {
@@ -735,7 +923,33 @@ function goBack() {
   document.getElementById('article').style.display = 'none';
   document.getElementById('blogList').style.display = 'block';
   document.getElementById('heroSection').style.display = 'block';
+  document.title = 'I3 Skyline Economics Weekly — Independent Commentary on Economics, Law & Property';
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+async function subscribeNewsletter() {
+  const email = document.getElementById('newsletterEmail').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('newsletterEmail').focus();
+    return;
+  }
+  const btn = document.querySelector('.newsletter-btn');
+  btn.textContent = '...'; btn.disabled = true;
+  try {
+    const res = await fetch('https://i3-subscribe.iaseersobhan333.workers.dev', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    if (res.ok) {
+      document.getElementById('newsletterForm').style.display = 'none';
+      document.getElementById('newsletterSuccess').style.display = 'inline';
+    } else {
+      btn.textContent = 'Try again'; btn.disabled = false;
+    }
+  } catch(e) {
+    btn.textContent = 'Try again'; btn.disabled = false;
+  }
 }
 
 function goHome() {
@@ -743,6 +957,7 @@ function goHome() {
   document.getElementById('about').style.display = 'none';
   document.getElementById('blogList').style.display = 'block';
   document.getElementById('heroSection').style.display = 'block';
+  document.title = 'I3 Skyline Economics Weekly — Independent Commentary on Economics, Law & Property';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
