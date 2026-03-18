@@ -803,13 +803,21 @@ footer {
 <div id="page-about" class="page">
   <div class="back" onclick="showHome()">Back to home</div>
   <div class="about-wrap">
-    <div class="about-top">
-      <div class="about-eyebrow">About the Author</div>
-      <div class="about-identity">
-        <div class="about-avatar-lg">AIS</div>
-        <div class="about-name-block">
-          <h2>Ahmed Iaseer Sobhan</h2>
-          <div class="about-role">Writer · I3 Skyline Economics Weekly</div>
+    <div class="about-top" style="position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-20px;right:-20px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(200,164,90,0.08),transparent 70%);pointer-events:none;"></div>
+      <div class="about-eyebrow" style="font-size:10px;letter-spacing:0.3em;">The Team</div>
+      <div style="margin-bottom:28px;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--acc2);margin-bottom:12px;">Founder · Lead Writer</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:300;letter-spacing:-0.02em;line-height:0.95;color:var(--accent);"><em>Ahmed Iaseer Sobhan</em></h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="width:6px;height:6px;border-radius:50%;background:var(--accent);"></div>
+          <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">I3 Skyline Economics Weekly</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <div style="width:6px;height:6px;border-radius:50%;background:var(--acc2);"></div>
+          <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Est. 2026</span>
         </div>
       </div>
     </div>
@@ -817,10 +825,11 @@ footer {
       <p>Ahmed Iaseer Sobhan is the founder of I3 Skyline Economics Weekly, an independent publication focused on the intersections of economics, law, property and public policy.</p>
       <p>Each week, Iaseer explores how institutions, incentives and legal frameworks shape the economic world — from inheritance tax and land ownership to climate governance and market failure. His writing draws on primary legal sources, academic literature and empirical evidence.</p>
       <p>I3 Skyline Economics reflects an ongoing commitment to independent, evidence-driven commentary on the forces that govern modern economic life.</p>
-      <div class="about-stats">
-        <div class="about-stat"><div class="stat-val">5</div><div class="stat-lbl">Articles</div></div>
-        <div class="about-stat"><div class="stat-val">2026</div><div class="stat-lbl">Est.</div></div>
-        <div class="about-stat"><div class="stat-val">Weekly</div><div class="stat-lbl">Cadence</div></div>
+      <div style="display:flex;align-items:center;gap:16px;margin:36px 0 28px;">
+        <div style="background:var(--surface);border:1px solid var(--border2);border-radius:3px;padding:14px 22px;text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;font-style:italic;color:var(--accent);line-height:1;">2026</div>
+          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:5px;">Founded</div>
+        </div>
       </div>
       <div class="about-tags">
         <span class="about-tag">Property Rights</span>
@@ -830,6 +839,26 @@ footer {
         <span class="about-tag">Institutional Analysis</span>
         <span class="about-tag">Law &amp; Governance</span>
         <span class="about-tag">Real Estate</span>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;padding-top:44px;border-top:1px solid var(--border);">
+      <div class="about-identity">
+        <div class="about-avatar-lg" style="background:linear-gradient(135deg,#2a4a7f,#4a7fbf);">SC</div>
+        <div class="about-name-block">
+          <h2>Siwoo Choi</h2>
+          <div class="about-role">Contributing Writer · I3 Skyline Economics Weekly</div>
+        </div>
+      </div>
+      <div class="about-body" style="margin-top:32px;">
+        <p>Siwoo Choi is a contributing writer at I3 Skyline Economics Weekly, with a focus on behavioural economics and marketing. He brings an analytical perspective on how cognitive biases, incentive structures and consumer behaviour shape economic outcomes.</p>
+        <p>His writing examines the intersection of behavioural science and real-world economic and policy questions — exploring why people and institutions consistently deviate from rational models, and what that means for markets and governance.</p>
+        <div class="about-tags" style="margin-top:20px;">
+          <span class="about-tag">Behavioural Economics</span>
+          <span class="about-tag">Marketing</span>
+          <span class="about-tag">Consumer Behaviour</span>
+          <span class="about-tag">Incentive Design</span>
+        </div>
       </div>
     </div>
   </div>
@@ -842,7 +871,7 @@ footer {
       <a class="social-link" href="https://www.linkedin.com/in/iaseer-sobhan-4430273b8/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="social-link" href="https://www.instagram.com/iaseersobhan09" target="_blank" rel="noopener">Instagram</a>
     </div>
-    <span class="footer-copy">© 2026 Ahmed Iaseer Sobhan</span>
+    <span class="footer-copy">Founded by Ahmed Iaseer Sobhan · © 2026</span>
   </div>
   <div class="footer-newsletter">
     <div class="newsletter-left">
