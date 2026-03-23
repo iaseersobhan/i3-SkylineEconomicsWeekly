@@ -912,6 +912,38 @@ footer {
 // ── DATA ──────────────────────────────────────────────────────────────────────
 const posts = {
 
+post6: {
+  img: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
+  date: '20 Mar 2026', tag: 'Property',
+  title: 'Do Housing Prices Predict Recessions?',
+  summary: 'House prices have a consistent habit of turning south before the broader economy does. Examining the wealth effect, residential construction and the credit channel, this article asks whether the relationship is coincidence, correlation, or something causally meaningful.',
+  refs: 10,
+  coauthor: 'Ronan Connolly',
+  coauthorInitials: 'RC',
+  body: `
+  <p>Economists often argue about what causes recessions, these discussions typically result in blame being pointed to inflation, interest rates and financial contagion. Despite this, one key indicator sits silently in plain sight and goes overlooked: the housing market. When looking at past recessions, housing prices have consistently turned south prior to the broader economy. It is because of this that the question regarding whether this is a coincidence, correlation, or truly a meaningful indicator becomes something more meaningful. </p>
+  <p>To effectively comprehend why it is the housing market that leads market recession cycles, three pillars in which property markets bend to macroeconomic conditions must be considered. </p>
+  <p>Firstly, the wealth effect. Developed economies typically have housing as the largest asset on household balance sheets. Therefore, if housing prices fall, consumption and net worth contracts tend to follow. A 2005 study found that the impact of housing wealth on consumption is far greater than the impact of financial wealth on consumption (Quigley, 2005). This suggests that property price declines can carry significant macroeconomic consequences even when compared to equivalent falls in equity markets. </p>
+  <p>Secondly, is residential construction. It has been argued that "housing is the business cycle" because declines in residential investment have been historically observed to precede downturns in US GDP, these declines in investment often occur several quarters prior to the full on recession (Leamer, 2007). Additionally, housing starts (the number of new residential projects that begin in a given period of time) are a component of aggregate demand that is incredibly sensitive to interest rates, indicating that housing prices respond to macroeconomic monetary tightening before the rest of the economy is able to respond. </p>
+  <p>Thirdly, and most dangerously, is the credit channel. Homes are often used as collateral. For that reason, when prices fall, resulting in borrowing capacity to shrink, ultimately causing credit conditions to tighten and thus starting a constant feedback loop. This financial framework showcases how the falling value of assets can amplify shocks through both the balance sheet of the borrower as well as the lender (Gertler, 1999). Moreover, this has been repeatedly proven to be true as across 30 countries expansions in household debt were among the most effective predictors of future recessions, through precisely this collateral and credit exchange mechanism (Mian, 2017). </p>
+  <p>When examining past major post-war recessions, a clear pattern emerges. In the early 1990s, the United Kingdom and the United States both experienced significant downturns in housing prices, which was followed by sharp GDP contractions. Regions in the UK saw housing prices drop by nearly 20% before the recession evened out (Muellbauer, 1997). However, the clearest example that exemplifies the importance of housing in regards to economic recessions can be seen in the form of the 2008 Global Financial Crisis. US housing prices peaked in early 2006, which was a full 2 years before the beginning of the recession (S&P, 2012). As found in a cross country analysis over 130 years and 18 developed economies, this was not unique to the US and was a common occurrence across time and different geographies (Reinhart, 2009). Looking back, price to rent ratios had reached historical highs in 2005, a warning sign that went overlooked and received little attention from institutions. </p>
+  <p>In spite of all this, house prices still fail to provide a fully reliable recession predictor on their own. This can mainly be attributed to reverse causality, the presence of a recession also causes house prices to fall, hindering the ability to isolate the direction of the relationship without extensive econometric analysis. The lag structures must also be taken into account before conclusions can be drawn. The timing between a housing market peak or dip and a recession can vary widely, historically this range has been anywhere from six months to over two years (Leung, 2004). </p>
+  <p>In all, house prices are not the be-all and end-all of recession indicators. But, they are more useful and require more attention than they have received. They are a structurally grounded indicator with historical records that are able to provide context as to where the economy may be going next. Continuing to ignore them as policymakers have done in the past, will only result in greater economic loss. </p>
+  `,
+  bib: `
+  <div class="bib-entry">Bernanke, B., Gertler, M. and Gilchrist, S. (1998) 'The financial accelerator in a quantitative business cycle framework', <em>NBER Working Paper No. 6455</em>. Available at: <a href="https://www.nber.org/papers/w6455" target="_blank">nber.org</a></div>
+  <div class="bib-entry">Case, K.E., Quigley, J.M. and Shiller, R.J. (2001) 'Comparing wealth effects: the stock market versus the housing market', <em>NBER Working Paper No. 8606</em>. Available at: <a href="https://www.nber.org/papers/w8606" target="_blank">nber.org</a></div>
+  <div class="bib-entry">Fratzscher, M. (2009) 'What explains global exchange rate movements during the financial crisis?', <em>Journal of International Money and Finance</em>, 28(8), pp. 1390–1407. Available at: <a href="https://doi.org/10.1016/j.jimonfin.2009.08.008" target="_blank">doi.org</a></div>
+  <div class="bib-entry">Knoll, K., Schularick, M. and Steger, T. (2017) 'No price like home: global house prices, 1870–2012', <em>American Economic Review</em>, 107(2), pp. 331–353. Available at: <a href="https://doi.org/10.1257/aer.20150501" target="_blank">doi.org</a></div>
+  <div class="bib-entry">Leamer, E.E. (2007) 'Housing is the business cycle', <em>NBER Working Paper No. 13428</em>. Available at: <a href="https://www.nber.org/papers/w13428" target="_blank">nber.org</a></div>
+  <div class="bib-entry">Leung, C. (2004) 'Macroeconomics and housing: a review of the literature', <em>Journal of Housing Economics</em>, 13(4), pp. 249–267. Available at: <a href="https://doi.org/10.1016/j.jhe.2004.09.002" target="_blank">doi.org</a></div>
+  <div class="bib-entry">Mian, A., Sufi, A. and Verner, E. (2017) 'Household debt and business cycles worldwide', <em>The Quarterly Journal of Economics</em>, 132(4), pp. 1755–1817. Available at: <a href="https://doi.org/10.1093/qje/qjx017" target="_blank">doi.org</a></div>
+  <div class="bib-entry">Muellbauer, J. and Murphy, A. (1997) 'Booms and busts in the UK housing market', <em>The Economic Journal</em>, 107(445), pp. 1701–1727. Available at: <a href="https://doi.org/10.1111/j.1468-0297.1997.tb00076.x" target="_blank">doi.org</a></div>
+  <div class="bib-entry">Reinhart, C.M. and Rogoff, K.S. (2009) <em>This Time Is Different: Eight Centuries of Financial Folly</em>. Princeton: Princeton University Press. Available at: <a href="https://press.princeton.edu/books/paperback/9780691152646/this-time-is-different" target="_blank">press.princeton.edu</a></div>
+  <div class="bib-entry">S&amp;P Dow Jones Indices (2025) 'S&amp;P Cotality Case-Shiller U.S. National Home Price NSA Index'. Available at: <a href="https://www.spglobal.com/spdji/en/indices/indicators/sp-cotality-case-shiller-us-national-home-price-nsa-index/" target="_blank">spglobal.com</a></div>
+  `
+},
+
 post5: {
   img: 'https://images.unsplash.com/photo-1580407196238-dac33f57c410?auto=format&fit=crop&w=800&q=80',
   date: '13 Mar 2026', tag: 'Commodities',
@@ -990,7 +1022,7 @@ post2: {
   <p>Climate change is often described as the greatest failure of the free market in human history. Still, this label raises a more complex question: if markets must operate within institutional and legal frameworks designed by governments and administrations, is it possible for a market to fail independently of these structures? To uncover the root of the "greatest market failure in human history" one must first closely examine the relationship between institutional design and economic incentives.</p>
   <p>Through a strictly economic perspective, climate change appears to fulfill all the criteria for a perfect example of market failure. Greenhouse gas emissions can be considered a negative externality, this is because they are a cost imposed on society that cannot be effectively or accurately reflected in the price of production or cost of consumption. Consequently, individuals and firms continue to emit carbon as it can be argued that it is economically rational, environmental costs cannot be accurately quantified, and thus cannot be internalized. When carbon carries little or no price, markets logically opt to overproduce emission intensive goods, and underinvest in more expensive clean alternatives. The result is a misallocation of resources on an international scale.</p>
   <p>However, since markets do not emerge naturally but instead through rigorous construction and adherence to legal frameworks, this diagnosis only explains the systems involved with the problem, but not its true origin. Carbon remaining underpriced is not due to markets being unable to price it, but due to the failure of legal systems in imposing truly consequential carbon-specific mechanisms on firms. This includes high carbon taxes, emissions trading systems and strict environmental regulations. From this, climate change reflects less a market failure, and more an institutional failure in correcting predictable externalities.</p>
-  <p>All governments face obvious incentives to prioritize domestic economic growth over long term environmental stability. Although international agreements have been implemented to counteract these incentives, they are often symbolic and lack enforceability. States collectively benefit from global mitigation, yet must incur the costs individually. This undermines any authority capable of imposing international environmental constraints. Markets continue to respond rationally by allocating carbon intensive production wherever regulations permit.</p>
+  <p>All governments face obvious incentives to prioritize domestic economic growth over long term environmental stability. Although international agreements  <p>All governments face obvious incentives to prioritize domestic economic growth over long term environmental stability. Although international agreements have been implemented to counteract these incentives, they are often symbolic and lack enforceability. States collectively benefit from global mitigation, yet must incur the costs individually. This undermines any authority capable of imposing international environmental constraints. Markets continue to respond rationally by allocating carbon intensive production wherever regulations permit.</p>
   <p>In all, climate change cannot be considered a simple "market failure." Markets failed to price environmental costs, but did so under the legal regulations that permitted as such. Law and governance failed to correct externalities, but their decisions were shaped by political and economic pressures. Climate change represents the systemic failure of the very institutions that coordinate modern economic life — the point at which flawed incentives, weak global governance and absent market correction mechanisms produce outcomes that are economically rational yet environmentally catastrophic.</p>
   `
 },
@@ -1009,7 +1041,7 @@ post1: {
 
 };
 
-const postOrder = ['post5','post4','post3','post2','post1'];
+const postOrder = ['post6','post5','post4','post3','post2','post1'];
 
 // ── RENDER ────────────────────────────────────────────────────────────────────
 function renderHome() {
@@ -1017,7 +1049,6 @@ function renderHome() {
   const sideIds = postOrder.slice(1, 4);
   const gridIds = postOrder;
 
-  // Featured main
   document.getElementById('featuredMain').innerHTML = `
     ${featured.img ? `<img class="featured-img" src="${featured.img}" alt="${featured.title}" loading="lazy">` : ''}
     <div style="padding:32px 40px 32px 0;">
@@ -1034,7 +1065,6 @@ function renderHome() {
   `;
   document.getElementById('featuredMain').onclick = () => openPost(postOrder[0]);
 
-  // Featured side
   document.getElementById('featuredSide').innerHTML = sideIds.map(id => {
     const p = posts[id];
     return `
@@ -1046,7 +1076,6 @@ function renderHome() {
     `;
   }).join('');
 
-  // Grid (all except featured)
   document.getElementById('articleGrid').innerHTML = gridIds.map(id => {
     const p = posts[id];
     return `
@@ -1118,6 +1147,13 @@ function openPost(id, fromCat) {
   const shareText = encodeURIComponent(p.title + ' — I3 Skyline Economics Weekly');
   const shareUrl = encodeURIComponent(url);
 
+  const coauthorHtml = p.coauthor ? `
+    <div class="byline-sep"></div>
+    <div class="author-chip" onclick="showAbout()">
+      <div class="author-avatar" style="background:linear-gradient(135deg,#1a3a2a,#2e6b4a);">${p.coauthorInitials}</div>
+      <span class="author-name-link">${p.coauthor}</span>
+    </div>` : '';
+
   document.getElementById('articleContent').innerHTML = `
     ${p.img ? `<img class="article-hero" src="${p.img}" alt="${p.title}" loading="lazy"><div class="photo-credit">Photo: Unsplash</div>` : ''}
     <div class="article-top">
@@ -1132,6 +1168,7 @@ function openPost(id, fromCat) {
           <div class="author-avatar">AIS</div>
           <span class="author-name-link">Ahmed Iaseer Sobhan</span>
         </div>
+        ${coauthorHtml}
         <div class="byline-sep"></div>
         <span class="byline-date">${p.date}</span>
       </div>
@@ -1212,7 +1249,6 @@ async function subscribeNewsletter() {
 }
 
 // ── INIT ──────────────────────────────────────────────────────────────────────
-
 renderHome();
 </script>
 </body>
