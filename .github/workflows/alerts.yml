@@ -1,8 +1,7 @@
 name: Weekly Policy Alerts
 on:
   schedule:
-    - cron: '0 7 * * 1'
-    - cron: '0 7 * * 3'
+   - cron: '0 7 * * 1-5'
   workflow_dispatch:
 jobs:
   scrape-and-alert:
