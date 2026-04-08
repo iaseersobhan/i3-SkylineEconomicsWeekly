@@ -944,6 +944,155 @@ footer {
   padding: 3px 10px; border-radius: 2px; margin-bottom: 14px;
 }
 
+/* ── PUBLISHED PAPERS SECTION ── */
+.papers-page-wrap {
+  max-width: 1200px; margin: 0 auto;
+  padding: 40px max(24px, env(safe-area-inset-left)) 80px;
+}
+.papers-page-header {
+  padding-bottom: 28px; margin-bottom: 48px;
+  border-bottom: 3px solid var(--accent);
+  display: flex; align-items: flex-end; justify-content: space-between;
+}
+.papers-page-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 400; font-style: italic;
+  color: var(--white); line-height: 1;
+}
+.papers-page-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--muted2); padding-bottom: 4px;
+}
+.papers-grid {
+  display: flex; flex-direction: column; gap: 2px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+.paper-card {
+  background: var(--surface);
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 260px;
+}
+.paper-card::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent), var(--acc2));
+  opacity: 0; transition: opacity 0.2s;
+}
+.paper-card:hover { background: var(--surf2); }
+.paper-card:hover::before { opacity: 1; }
+.paper-card:hover .paper-title { color: var(--accent); }
+.paper-img-wrap {
+  position: relative; overflow: hidden;
+}
+.paper-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%) contrast(1.1);
+  transition: filter 0.3s, transform 0.4s;
+}
+.paper-card:hover .paper-img {
+  filter: grayscale(0%) contrast(1.15);
+  transform: scale(1.03);
+}
+.paper-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 60%, var(--surface));
+  pointer-events: none;
+}
+.paper-card:hover .paper-img-overlay {
+  background: linear-gradient(90deg, transparent 60%, var(--surf2));
+}
+.paper-body {
+  padding: 36px 40px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.paper-top-meta {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 16px; flex-wrap: wrap;
+}
+.paper-type-badge {
+  font-family: 'DM Mono', monospace; font-size: 8px;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--bg); background: var(--accent);
+  padding: 3px 10px; border-radius: 2px;
+}
+.paper-journal-badge {
+  font-family: 'DM Mono', monospace; font-size: 8px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid var(--acc3);
+  background: rgba(200,164,90,0.05);
+  padding: 3px 10px; border-radius: 2px;
+}
+.paper-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 400; line-height: 1.15;
+  color: var(--white); margin-bottom: 14px;
+  transition: color 0.2s;
+  letter-spacing: -0.01em;
+}
+.paper-abstract {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px; font-weight: 300; font-style: italic;
+  color: var(--muted); line-height: 1.7;
+  margin-bottom: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.paper-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.paper-author-row {
+  display: flex; align-items: center; gap: 10px;
+}
+.paper-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Mono', monospace; font-size: 8px; font-weight: 500;
+  color: var(--bg); flex-shrink: 0;
+}
+.paper-author-info { display: flex; flex-direction: column; gap: 2px; }
+.paper-author-name {
+  font-family: 'DM Mono', monospace; font-size: 10px;
+  letter-spacing: 0.08em; color: var(--text);
+}
+.paper-author-date {
+  font-family: 'DM Mono', monospace; font-size: 8px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2);
+}
+.paper-doi {
+  font-family: 'DM Mono', monospace; font-size: 9px;
+  letter-spacing: 0.08em; color: var(--acc2);
+  border: 1px solid var(--acc3); border-radius: 2px;
+  padding: 5px 12px; background: rgba(200,164,90,0.04);
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+.paper-card:hover .paper-doi {
+  color: var(--accent); border-color: var(--acc2);
+  background: rgba(200,164,90,0.08);
+}
+@media (max-width: 900px) {
+  .paper-card { grid-template-columns: 1fr; }
+  .paper-img-wrap { height: 200px; }
+  .paper-img-overlay { background: linear-gradient(180deg, transparent 60%, var(--surface)); }
+  .paper-body { padding: 24px; }
+}
+
 @media (max-width: 768px) {
   .featured { grid-template-columns: 1fr; }
   .featured-main { padding: 28px 0; border-right: none; border-bottom: 1px solid var(--border); }
@@ -990,7 +1139,7 @@ footer {
 <nav class="cat-nav">
   <div class="cat-nav-inner">
     <button class="cat-btn active" onclick="showHome(this)">All</button>
-    <button class="cat-btn" onclick="filterCat('Published Papers', this)">Published Papers</button>
+    <button class="cat-btn" onclick="showPapers(this)">Published Papers</button>
     <button class="cat-btn" onclick="filterCat('Property', this)">Property</button>
     <button class="cat-btn" onclick="filterCat('Property Law', this)">Property Law</button>
     <button class="cat-btn" onclick="filterCat('Tax Policy', this)">Tax Policy</button>
@@ -1195,6 +1344,17 @@ footer {
   </div>
 </div>
 
+<div id="page-papers" class="page">
+  <div class="back" onclick="showHome()">Back to home</div>
+  <div class="papers-page-wrap">
+    <div class="papers-page-header">
+      <div class="papers-page-title">Published Papers</div>
+      <div class="papers-page-count" id="papersCount"></div>
+    </div>
+    <div class="papers-grid" id="papersGrid"></div>
+  </div>
+</div>
+
 <div class="modal-overlay" id="premiumModal" onclick="closeModalOutside(event)">
   <div class="modal-box" style="position:relative;">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -1233,16 +1393,19 @@ footer {
   </div>
 </footer>
 
+
 <script>
 const posts = {
 
-post7: {
+post8: {
   img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80',
   date: '08 Apr 2026', tag: 'Published Papers',
   title: 'Regulatory Design, Not Regulatory Presence: Investigating Long-Run Housing Supply Elasticity in Global Cities',
   summary: 'An extended research paper drawing on empirical evidence and comparative case studies across London, New York and Singapore to examine how regulatory design — not regulatory existence — determines long-run housing supply elasticity.',
   refs: 20,
   isResearch: true,
+  zenodoDoi: 'https://doi.org/10.5281/zenodo.19468256',
+  zenodoDoiShort: 'doi.org/10.5281/zenodo.19468256',
   body: `
   <p>This paper examines the extent to which land use regulations impact long-run housing supply elasticity in major global cities. Through comparative analysis of London, New York and Singapore, the study will combine urban economic theory with the in-depth examination of institutions to accurately assess how regulatory frameworks shape supply elasticity. In contrast to widely agreed upon literature, this paper argues that elasticity is determined less by the existence of regulations and more so by its coordination mechanisms and structural design. Evidence from London and New York indicates that overly restrictive land release and administrative barriers mitigate housing supply responsiveness and warp demand growth into higher prices. Singapore presents an opposing conclusion, the evidence suggests that state coordinated land release and streamlined administrative processes can actively enhance long run housing responsiveness. The findings suggest that hybrid regulatory models such as private development combined with coordinated state intervention may be the most effective method in maintaining a sustainable long run housing supply responsiveness in high-demand urban markets.</p>
   <p>This preprint is currently under review at the International Journal of Urban Sustainable Development (Taylor &amp; Francis).</p>
@@ -1251,6 +1414,25 @@ post7: {
   bib: `
   <div class="bib-entry">Sobhan, A. I. (2026). <em>Regulatory Design, Not Regulatory Presence: Investigating Long-Run Housing Supply Elasticity in Global Cities.</em> Zenodo. <a href="https://doi.org/10.5281/zenodo.19468256" target="_blank">doi.org/10.5281/zenodo.19468256</a></div>
   `
+},
+
+post7: {
+  img: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80',
+  date: '18 Mar 2026', tag: 'Published Papers',
+  title: 'How Neuroscience and Emotional Identification Shape Consumer Psychology',
+  summary: 'An extended research paper examining how brands exploit mirror neurons and dopamine pathways to drive purchasing decisions — and why brand loyalty is built in the limbic system, not the rational mind.',
+  refs: 0,
+  isResearch: true,
+  author: 'Siwoo Choi',
+  authorInitials: 'SC',
+  authorStyle: 'background:linear-gradient(135deg,#2a4a7f,#4a7fbf);',
+  zenodoDoi: 'https://doi.org/10.5281/zenodo.19086667',
+  zenodoDoiShort: 'doi.org/10.5281/zenodo.19086667',
+  body: `
+  <p>In this modern world, companies' marketing teams have shifted from observing external consumer behaviours to analysing internal neurological triggers, trying to maximise the consumers' brain chemistry and years of evolution. This paper explores the integration of neuroscience; especially the roles of the prefrontal cortex and the limbic system: the behavioural and emotional brain structures, with the emotional identification strategies in contemporary marketing. By examining how brands utilize mirror neurons and dopamine pathways, the research demonstrates that purchasing decisions are often the result of subconscious emotional resonance rather than rational utility. The findings suggest that emotional identification acts as a primary driver in brand loyalty, effectively bypassing the prefrontal cortex which controls the consumers' logic, and influencing long-term consumer habits.</p>
+  <p>The full paper is freely available on Zenodo: <a href="https://doi.org/10.5281/zenodo.19086667" target="_blank" rel="noopener" style="color:var(--accent);border-bottom:1px solid var(--acc2);">doi.org/10.5281/zenodo.19086667</a></p>
+  `,
+  bib: ``
 },
 
 post6: {
@@ -1274,13 +1456,11 @@ post6: {
   bib: `
   <div class="bib-entry">Bernanke, B., Gertler, M. and Gilchrist, S. (1998) 'The financial accelerator in a quantitative business cycle framework', <em>NBER Working Paper No. 6455</em>. Available at: <a href="https://www.nber.org/papers/w6455" target="_blank">nber.org</a></div>
   <div class="bib-entry">Case, K.E., Quigley, J.M. and Shiller, R.J. (2001) 'Comparing wealth effects: the stock market versus the housing market', <em>NBER Working Paper No. 8606</em>. Available at: <a href="https://www.nber.org/papers/w8606" target="_blank">nber.org</a></div>
-  <div class="bib-entry">Fratzscher, M. (2009) 'What explains global exchange rate movements during the financial crisis?', <em>Journal of International Money and Finance</em>, 28(8), pp. 1390–1407. Available at: <a href="https://doi.org/10.1016/j.jimonfin.2009.08.008" target="_blank">doi.org</a></div>
-  <div class="bib-entry">Knoll, K., Schularick, M. and Steger, T. (2017) 'No price like home: global house prices, 1870–2012', <em>American Economic Review</em>, 107(2), pp. 331–353. Available at: <a href="https://doi.org/10.1257/aer.20150501" target="_blank">doi.org</a></div>
   <div class="bib-entry">Leamer, E.E. (2007) 'Housing is the business cycle', <em>NBER Working Paper No. 13428</em>. Available at: <a href="https://www.nber.org/papers/w13428" target="_blank">nber.org</a></div>
   <div class="bib-entry">Leung, C. (2004) 'Macroeconomics and housing: a review of the literature', <em>Journal of Housing Economics</em>, 13(4), pp. 249–267. Available at: <a href="https://doi.org/10.1016/j.jhe.2004.09.002" target="_blank">doi.org</a></div>
   <div class="bib-entry">Mian, A., Sufi, A. and Verner, E. (2017) 'Household debt and business cycles worldwide', <em>The Quarterly Journal of Economics</em>, 132(4), pp. 1755–1817. Available at: <a href="https://doi.org/10.1093/qje/qjx017" target="_blank">doi.org</a></div>
   <div class="bib-entry">Muellbauer, J. and Murphy, A. (1997) 'Booms and busts in the UK housing market', <em>The Economic Journal</em>, 107(445), pp. 1701–1727. Available at: <a href="https://doi.org/10.1111/j.1468-0297.1997.tb00076.x" target="_blank">doi.org</a></div>
-  <div class="bib-entry">Reinhart, C.M. and Rogoff, K.S. (2009) <em>This Time Is Different: Eight Centuries of Financial Folly</em>. Princeton: Princeton University Press. Available at: <a href="https://press.princeton.edu/books/paperback/9780691152646/this-time-is-different" target="_blank">press.princeton.edu</a></div>
+  <div class="bib-entry">Reinhart, C.M. and Rogoff, K.S. (2009) <em>This Time Is Different: Eight Centuries of Financial Folly</em>. Princeton: Princeton University Press.</div>
   <div class="bib-entry">S&amp;P Dow Jones Indices (2025) 'S&amp;P Cotality Case-Shiller U.S. National Home Price NSA Index'. Available at: <a href="https://www.spglobal.com/spdji/en/indices/indicators/sp-cotality-case-shiller-us-national-home-price-nsa-index/" target="_blank">spglobal.com</a></div>
   `
 },
@@ -1292,24 +1472,23 @@ post5: {
   summary: 'Over a decade of depressed prices, climate shocks and market neglect threaten to collapse the global natural rubber supply chain — a commodity the modern world cannot function without.',
   refs: 8,
   body: `
-  <p>Natural rubber is a key component in the essential goods that allow the modern world to function. Whether this be the planes we fly on, the ships that carry our goods, the cars we sit in every day, and even medical equipment we trust our lives with, rubber sits quietly as a foundation for all of them. Despite this, the millions of small farmers throughout Southeast Asia producing it are barely surviving, earning less than ever before, and slowly starting to abandon their crops. Over a decade of depressed prices, climate shocks and unstable weather patterns have resulted in a tightening of natural rubber supply. This is no longer a distant warning - it is an early sign of a global commodity crisis.  </p>
-  <p>For over a decade now, natural rubber prices have remained consistently low. This trend has been long interpreted as a sign of stability, abundant supply, and thus low concern. In reality, it is quite the opposite. Continuously low prices were a sign of farmers unable to maintain crops, invest in future crops or replace aging trees, ultimately slowing production and weakening the foundations of the industry. Global manufacturers and industries overlooked these low prices as nothing but advantageous for their production, continuing to benefit from cheap natural rubber prices for as long as they could while overlooking the long term detriment to natural rubber supply. The consequences are starting to reveal themselves as a hollow supply base alongside significant structural weaknesses, which have served as strong indicators for past global commodity crises, such as the 2022 global wheat crisis.  </p>
+  <p>Natural rubber is a key component in the essential goods that allow the modern world to function. Whether this be the planes we fly on, the ships that carry our goods, the cars we sit in every day, and even medical equipment we trust our lives with, rubber sits quietly as a foundation for all of them. Despite this, the millions of small farmers throughout Southeast Asia producing it are barely surviving, earning less than ever before, and slowly starting to abandon their crops. Over a decade of depressed prices, climate shocks and unstable weather patterns have resulted in a tightening of natural rubber supply. This is no longer a distant warning - it is an early sign of a global commodity crisis.</p>
+  <p>For over a decade now, natural rubber prices have remained consistently low. This trend has been long interpreted as a sign of stability, abundant supply, and thus low concern. In reality, it is quite the opposite. Continuously low prices were a sign of farmers unable to maintain crops, invest in future crops or replace aging trees, ultimately slowing production and weakening the foundations of the industry. Global manufacturers and industries overlooked these low prices as nothing but advantageous for their production, continuing to benefit from cheap natural rubber prices for as long as they could while overlooking the long term detriment to natural rubber supply. The consequences are starting to reveal themselves as a hollow supply base alongside significant structural weaknesses, which have served as strong indicators for past global commodity crises, such as the 2022 global wheat crisis.</p>
   <p>Unlike other commodities in which production is structured around large firms, approximately 80% of natural rubber is produced by millions of smallhold farmers working in small plots. Also, these farmers do not have any market power whatsoever, meaning they are unable to simply stop production or reduce production output when natural rubber prices fall. Instead, they are forced to continue operating at a loss or simply abandon their crops (ANRPC, 2025). This relation creates an imbalance while posing as a sustainable dynamic. Global markets benefit from low natural rubber prices, however, adjustment risks the livelihoods of those that are most essential to production and can bear it the least. In the coming years, this unstable and neglectful relationship will weaken the foundations of the natural rubber supply chain and depict an even stronger warning sign for imminent structural failure.</p>
-  <p>A clear example of this can be seen in Indonesia. Natural rubber output fell by approximately 20% in the four years leading up to and including 2023, this was mainly attributed to farmers switching to crops that were proving to be more profitable, such as palm oil (Moss, 2025). Combined with the extensive time required for rubber trees to mature (5-7 years), a fast recovery to typical production rates is therefore unattainable. As of 2026, it has now been forecasted that an annual supply deficit for natural rubber will reach around 600,000 to 800,000 tonnes, which will most likely persist until 2028 and potentially onwards (Herve, 2026). Additionally, supply deficits are already being experienced globally as 2026 alone saw demand outstrip supply by roughly 400,000 tonnes (Herve, 2026). </p>
-  <p>Environmental conditions also play a significant role in the production of rubber. Rubber trees are highly susceptible to weather changes, they require temperatures to be precisely between 25℃ and 28℃ combined with consistent rainfall, unfortunately these previously reliable weather conditions are becoming increasingly unpredictable across Southeast Asia (Diwyanjalee, 2024). Some of the most common emerging environmental unpredictabilities include droughts and excessive rainfall. Researchers in Thailand discovered that during prolonged periods of drought and dry spells cause more than half of the trees on rubber farms to be incapable of being tapped, with roughly 5% of the trees dying outright (Chin, 2023). Excessive rain raises an entirely different problem, it causes the fungal pathogens that thrive in humidity to become plentiful and destroy entire plantations at a time (Lim, 2023). </p>
-  <p>Climate change, with specific regards to rising temperatures can also be considered a driving disease for natural rubber supply shortages. A study in 2023 found a strong positive correlation between rising temperatures and rubber leaf fall disease, an occurrence that causes premature death in previously unaffected rubber trees (Azizan, 2023). Considering all of this, it can be suggested that without rapid adaptation, natural rubber production will decline despite increases in global demand (Gohet, 2021). </p>
-  <p>This projection follows a similar pattern that has been observed in previous years. For instance, years of continuous underinvestment result in a nonexistent commodity supply base, and when markets can react, it is already too late. Rubber prices spiked by 24-50% in some Asian markets throughout 2024 causing prices to reach a brief seven year high (Moss, 2025). The price surge in 2024 is not just a random peak, it is instead the market finally responding to the structural reality of natural rubber shortages. </p>
-  <p>The main fix for rubber shortages (although it may seem obvious) is the replanting of subsidies for smallhold farmers, manufacturers allocating greater funding to the supply chains, and greater investment in climate-resilient tree types. Up to that time, every glove, every tyre, every aircraft will be built on a crumbling foundation. </p>
+  <p>A clear example of this can be seen in Indonesia. Natural rubber output fell by approximately 20% in the four years leading up to and including 2023, this was mainly attributed to farmers switching to crops that were proving to be more profitable, such as palm oil (Moss, 2025). Combined with the extensive time required for rubber trees to mature (5-7 years), a fast recovery to typical production rates is therefore unattainable. As of 2026, it has now been forecasted that an annual supply deficit for natural rubber will reach around 600,000 to 800,000 tonnes, which will most likely persist until 2028 and potentially onwards (Herve, 2026). Additionally, supply deficits are already being experienced globally as 2026 alone saw demand outstrip supply by roughly 400,000 tonnes (Herve, 2026).</p>
+  <p>Environmental conditions also play a significant role in the production of rubber. Rubber trees are highly susceptible to weather changes, they require temperatures to be precisely between 25℃ and 28℃ combined with consistent rainfall, unfortunately these previously reliable weather conditions are becoming increasingly unpredictable across Southeast Asia (Diwyanjalee, 2024). Some of the most common emerging environmental unpredictabilities include droughts and excessive rainfall. Researchers in Thailand discovered that during prolonged periods of drought and dry spells cause more than half of the trees on rubber farms to be incapable of being tapped, with roughly 5% of the trees dying outright (Chin, 2023). Excessive rain raises an entirely different problem, it causes the fungal pathogens that thrive in humidity to become plentiful and destroy entire plantations at a time (Lim, 2023).</p>
+  <p>Climate change, with specific regards to rising temperatures can also be considered a driving disease for natural rubber supply shortages. A study in 2023 found a strong positive correlation between rising temperatures and rubber leaf fall disease, an occurrence that causes premature death in previously unaffected rubber trees (Azizan, 2023). Considering all of this, it can be suggested that without rapid adaptation, natural rubber production will decline despite increases in global demand (Gohet, 2021).</p>
+  <p>This projection follows a similar pattern that has been observed in previous years. For instance, years of continuous underinvestment result in a nonexistent commodity supply base, and when markets can react, it is already too late. Rubber prices spiked by 24-50% in some Asian markets throughout 2024 causing prices to reach a brief seven year high (Moss, 2025). The price surge in 2024 is not just a random peak, it is instead the market finally responding to the structural reality of natural rubber shortages.</p>
+  <p>The main fix for rubber shortages (although it may seem obvious) is the replanting of subsidies for smallhold farmers, manufacturers allocating greater funding to the supply chains, and greater investment in climate-resilient tree types. Up to that time, every glove, every tyre, every aircraft will be built on a crumbling foundation.</p>
   `,
   bib: `
   <div class="bib-entry">ANRPC (2025) 'Why is the global rubber market likely to see shortages in 2025?'. Available at: <a href="https://www.anrpc.org/news/why-is-the-global-rubber-market-likely-to-see-shortages-in-2025%3F" target="_blank">anrpc.org</a></div>
-  <div class="bib-entry">Azizan, F.A., Astuti, I.S., Young, A. and Abdul Aziz, A. (2023) 'Rubber leaf fall phenomenon linked to increased temperature', <em>Agriculture, Ecosystems &amp; Environment</em>, 352, p.108531. Available at: <a href="https://doi.org/10.1016/j.agee.2023.108531" target="_blank">doi.org</a></div>
-  <div class="bib-entry">Chai-Chin, N. (2020) 'Drought, deluge, disease: How should the natural rubber industry respond to climate change?', <em>Eco-Business</em>. Available at: <a href="https://www.eco-business.com/news/drought-deluge-disease-how-should-the-natural-rubber-industry-respond-to-climate-change/" target="_blank">eco-business.com</a></div>
-  <div class="bib-entry">Diwyanjalee, R. (2024) 'The Impact of Climate Change on Rubber Cultivation: Challenges, Adaptations, and Sustainability', <em>Climate Fact Checks</em>. Available at: <a href="https://climatefactchecks.org/the-impact-of-climate-change-on-rubber-cultivation-challenges-adaptations-and-sustainability/" target="_blank">climatefactchecks.org</a></div>
-  <div class="bib-entry">Gohet, E., Thaler, P., Nouvellon, Y. and Gay, F. (2021) 'Worldwide climate typologies of rubber tree cultivation: Risks and opportunities linked to climate change', <em>ResearchGate</em>. Available at: <a href="https://www.researchgate.net/publication/351903599_Worldwide_climate_typologies_of_rubber_tree_cultivation_Risks_and_opportunities_linked_to_climate_change" target="_blank">researchgate.net</a></div>
-  <div class="bib-entry">Herve (2026) 'Natural Rubber Deficit 2026: 400,000 Tons Missing on the Global Market', <em>CAPMAD</em>. Available at: <a href="https://www.capmad.com/agribusiness-en/natural-rubber-deficit-2026-400000-tons-missing-on-the-global-market/" target="_blank">capmad.com</a></div>
-  <div class="bib-entry">Lim, J.A., Yaacob, J.S., Mohd, A., Eyahmalay, J.E., El, A. and Mohd (2023) 'Mitigating the repercussions of climate change on diseases affecting important crop commodities in Southeast Asia', <em>Frontiers in Sustainable Food Systems</em>, 6. Available at: <a href="https://doi.org/10.3389/fsufs.2022.1030540" target="_blank">doi.org</a></div>
-  <div class="bib-entry">Moss, J. (2025) 'Will Rubber Prices Continue Their Slide from Seven-Year Highs This Year?', <em>International Banker</em>. Available at: <a href="https://internationalbanker.com/brokerage/will-rubber-prices-continue-their-slide-from-seven-year-highs-this-year/" target="_blank">internationalbanker.com</a></div>
+  <div class="bib-entry">Azizan, F.A. et al. (2023) 'Rubber leaf fall phenomenon linked to increased temperature', <em>Agriculture, Ecosystems &amp; Environment</em>, 352, p.108531.</div>
+  <div class="bib-entry">Diwyanjalee, R. (2024) 'The Impact of Climate Change on Rubber Cultivation', <em>Climate Fact Checks</em>.</div>
+  <div class="bib-entry">Gohet, E. et al. (2021) 'Worldwide climate typologies of rubber tree cultivation', <em>ResearchGate</em>.</div>
+  <div class="bib-entry">Herve (2026) 'Natural Rubber Deficit 2026', <em>CAPMAD</em>.</div>
+  <div class="bib-entry">Lim, J.A. et al. (2023) 'Mitigating the repercussions of climate change on diseases affecting important crop commodities in Southeast Asia', <em>Frontiers in Sustainable Food Systems</em>, 6.</div>
+  <div class="bib-entry">Moss, J. (2025) 'Will Rubber Prices Continue Their Slide from Seven-Year Highs This Year?', <em>International Banker</em>.</div>
   `
 },
 
@@ -1320,21 +1499,21 @@ post4: {
   summary: 'Adverse possession allows squatters to claim legal ownership after 12 years of occupation. Drawing on Pye v Graham and the Land Registration Act 2002, this article asks whether the doctrine serves any defensible purpose.',
   refs: 7,
   body: `
-  <p>Adverse possession refers to the occupation of land with the intention of possession, despite another person owning the property (Oxford, 2025). Initially, this appears to be one of the most counterintuitive principles in English property law. According to the Limitation Act of 1980, a squatter who publicly occupies land continuously without the owner's consent for twelve years, can claim legal ownership of the property (legislation.gov.uk, 2011). </p>
+  <p>Adverse possession refers to the occupation of land with the intention of possession, despite another person owning the property (Oxford, 2025). Initially, this appears to be one of the most counterintuitive principles in English property law. According to the Limitation Act of 1980, a squatter who publicly occupies land continuously without the owner's consent for twelve years, can claim legal ownership of the property (legislation.gov.uk, 2011).</p>
   <p>Supporters of the doctrine argue that it is legally coherent and an economically rational progression in property ownership. This is justified through the belief that possession of land should indicate productive engagement with land, as a lack of engagement causes social costs through passed up opportunities for productivity (Epstein, 1979). Although this argument appears airtight, it proves too much, the same logic could be used to justify one occupying any asset by claiming that they can make more productive use of it. As the law does not apply this reasoning to other assets, its exclusive application to land is rooted in the immovability of land, which can be argued is not a significant enough reason to justify theft. The defence of adverse possession typically invokes Blackstone's Commentaries, arguing that occupancy is the true determinant of property ownership title (Blackstone, 1776). However, it must be taken into account that Blackstone's principles are outdated and are only in reference to the original acquisition of unknown land and not the reallocation of privately held land.</p>
-  <p>Additionally, the case of Pye V Graham exposes the significant faults and implications involved with adverse possession (Balli, 2002). This case revolves around Pye, who was a registered landowner that lost over £10 million worth of land due to administrative issues regarding a grazing license. Upon this, the Graham family moved into the land but did not purchase it, were not gifted it and made no attempt to negotiate for it, they were simply occupying the land. Nonetheless, by way of following doctrines, the House of Lords appointed the land to be under the Graham family name. A critical detail of this case is that Lord Brown Wilkinson himself said that the outcome of the case was unjust, thus illustrating an indictment of the adverse possession doctrine. </p>
+  <p>Additionally, the case of Pye V Graham exposes the significant faults and implications involved with adverse possession (Balli, 2002). This case revolves around Pye, who was a registered landowner that lost over £10 million worth of land due to administrative issues regarding a grazing license. Upon this, the Graham family moved into the land but did not purchase it, were not gifted it and made no attempt to negotiate for it, they were simply occupying the land. Nonetheless, by way of following doctrines, the House of Lords appointed the land to be under the Graham family name. A critical detail of this case is that Lord Brown Wilkinson himself said that the outcome of the case was unjust, thus illustrating an indictment of the adverse possession doctrine.</p>
   <p>The doctrine does retain one defensible application: genuine boundary disputes, where neighbouring owners have disagreed for decades over the precise location of a dividing feature and no paper title can resolve it. The Law Commission explicitly designed the 2002 exceptions with this scenario in mind (Law Commission, 2001). Beyond this narrow circumstance, the justification collapses entirely.</p>
   <p>As concluded by the UK Law Commission, the balance between a squatter and landowner needed fundamental altering and significant adjustment (Law Commission, 2002). This led to the Land Registration act of 2002, which contained necessary corrections through the implementation of more complex mechanisms such as applicants being required to notify registered land owners as well as allowing the recovery of ownership when property titles have changed due to squatting. This clarifies the purpose of legal institutions, it emphasizes that the protection and security of paper titles is not just another component of the system, but instead the fundamental purpose.</p>
   <p>In all, it can be said that adverse possession is not an economic necessity. As of today, it is nothing more than a legal policy that amounts to nothing greater than the legal transfer of property from absent owners to determined occupiers.</p>
   `,
   bib: `
-  <div class="bib-entry">Blackstone, W. (1766) <em>Commentaries on the Laws of England</em>, Book II, Ch.1. Oxford: Clarendon Press. Available at: <a href="https://avalon.law.yale.edu/18th_century/blackstone_bk2ch1.asp" target="_blank">avalon.law.yale.edu</a></div>
-  <div class="bib-entry">Epstein, R.A. (1979) 'Possession as the Root of Title', <em>Georgia Law Review</em>, 13, pp.1221–1243. Available at: <a href="https://chicagounbound.uchicago.edu/journal_articles/1236/" target="_blank">chicagounbound.uchicago.edu</a></div>
-  <div class="bib-entry"><em>J.A. Pye (Oxford) Ltd v Graham</em> [2002] UKHL 30. Available at: <a href="https://www.bailii.org/uk/cases/UKHL/2002/30.html" target="_blank">bailii.org</a></div>
+  <div class="bib-entry">Blackstone, W. (1766) <em>Commentaries on the Laws of England</em>, Book II, Ch.1.</div>
+  <div class="bib-entry">Epstein, R.A. (1979) 'Possession as the Root of Title', <em>Georgia Law Review</em>, 13, pp.1221–1243.</div>
+  <div class="bib-entry"><em>J.A. Pye (Oxford) Ltd v Graham</em> [2002] UKHL 30.</div>
   <div class="bib-entry">Land Registration Act 2002. Available at: <a href="https://www.legislation.gov.uk/ukpga/2002/9/contents" target="_blank">legislation.gov.uk</a></div>
-  <div class="bib-entry">Law Commission and HM Land Registry (2001) <em>Land Registration for the Twenty-First Century: A Conveyancing Revolution</em>, Law Com No. 271. Available at: <a href="https://lawcom.gov.uk/wp-content/uploads/2015/04/Lc271.pdf" target="_blank">lawcom.gov.uk</a></div>
+  <div class="bib-entry">Law Commission and HM Land Registry (2001) <em>Land Registration for the Twenty-First Century</em>, Law Com No. 271.</div>
   <div class="bib-entry">Limitation Act 1980. Available at: <a href="https://www.legislation.gov.uk/ukpga/1980/58/contents" target="_blank">legislation.gov.uk</a></div>
-  <div class="bib-entry">Oxford University Press (2025) 'Adverse Possession', <em>Oxford Reference</em>. Available at: <a href="https://www.oxfordreference.com" target="_blank">oxfordreference.com</a></div>
+  <div class="bib-entry">Oxford University Press (2025) 'Adverse Possession', <em>Oxford Reference</em>.</div>
   `
 },
 
@@ -1382,16 +1561,20 @@ post1: {
 
 };
 
-const postOrder = ['post7','post6','post5','post4','post3','post2','post1'];
+const postOrder = ['post8','post7','post6','post5','post4','post3','post2','post1'];
+const papersOrder = ['post8','post7'];
 
+// ── RENDER HOME ───────────────────────────────────────────────────────────────
 function renderHome() {
-  const featured = posts[postOrder[0]];
-  const sideIds = postOrder.slice(1, 4);
+  // Featured: most recent non-papers post for homepage lead
+  const allPosts = postOrder.filter(id => posts[id].tag !== 'Published Papers');
+  const featuredId = postOrder[0]; // post8 is still featured
+  const featured = posts[featuredId];
+  const sideIds = postOrder.filter(id => id !== featuredId).slice(0, 3);
   const gridIds = postOrder;
 
   const researchBadge = featured.isResearch
-    ? `<div class="research-badge">◆ Working Paper · Zenodo Preprint</div>`
-    : '';
+    ? `<div class="research-badge">◆ Working Paper · Zenodo Preprint</div>` : '';
 
   document.getElementById('featuredMain').innerHTML = `
     ${featured.img ? `<img class="featured-img" src="${featured.img}" alt="${featured.title}" loading="lazy">` : ''}
@@ -1408,7 +1591,7 @@ function renderHome() {
       </div>
     </div>
   `;
-  document.getElementById('featuredMain').onclick = () => openPost(postOrder[0]);
+  document.getElementById('featuredMain').onclick = () => openPost(featuredId);
 
   document.getElementById('featuredSide').innerHTML = sideIds.map(id => {
     const p = posts[id];
@@ -1424,8 +1607,7 @@ function renderHome() {
   document.getElementById('articleGrid').innerHTML = gridIds.map(id => {
     const p = posts[id];
     const rBadge = p.isResearch
-      ? `<div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;color:var(--bg);background:var(--accent);display:inline-block;padding:2px 7px;border-radius:2px;margin-bottom:8px;">Working Paper</div>`
-      : '';
+      ? `<div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;color:var(--bg);background:var(--accent);display:inline-block;padding:2px 7px;border-radius:2px;margin-bottom:8px;">Working Paper</div>` : '';
     return `
       <div class="grid-card" onclick="openPost('${id}')">
         ${p.img ? `<img class="grid-img" src="${p.img}" alt="${p.title}" loading="lazy" style="margin:-28px -24px 18px;width:calc(100% + 48px);">` : ''}
@@ -1442,6 +1624,47 @@ function renderHome() {
   }).join('');
 }
 
+// ── RENDER PAPERS PAGE ────────────────────────────────────────────────────────
+function renderPapers() {
+  document.getElementById('papersCount').textContent = papersOrder.length + ' paper' + (papersOrder.length !== 1 ? 's' : '');
+  document.getElementById('papersGrid').innerHTML = papersOrder.map(id => {
+    const p = posts[id];
+    const authorName = p.author || 'Ahmed Iaseer Sobhan';
+    const authorInit = p.authorInitials || 'AIS';
+    const authorStyle = p.authorStyle || 'background:linear-gradient(135deg,var(--acc2),var(--accent));';
+    const doiShort = p.zenodoDoiShort || '';
+    return `
+      <div class="paper-card" onclick="openPost('${id}', 'Published Papers')">
+        <div class="paper-img-wrap">
+          ${p.img ? `<img class="paper-img" src="${p.img}" alt="${p.title}" loading="lazy">` : ''}
+          <div class="paper-img-overlay"></div>
+        </div>
+        <div class="paper-body">
+          <div>
+            <div class="paper-top-meta">
+              <span class="paper-type-badge">◆ Working Paper</span>
+              <span class="paper-journal-badge">Zenodo Preprint</span>
+            </div>
+            <div class="paper-title">${p.title}</div>
+            <div class="paper-abstract">${p.summary}</div>
+          </div>
+          <div class="paper-footer">
+            <div class="paper-author-row">
+              <div class="paper-avatar" style="${authorStyle}">${authorInit}</div>
+              <div class="paper-author-info">
+                <span class="paper-author-name">${authorName}</span>
+                <span class="paper-author-date">${p.date}</span>
+              </div>
+            </div>
+            ${doiShort ? `<span class="paper-doi">${doiShort} →</span>` : ''}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ── NAVIGATION ────────────────────────────────────────────────────────────────
 let prevPage = 'home';
 
 function hideAll() {
@@ -1458,6 +1681,15 @@ function showHome(el) {
   document.getElementById('page-home').classList.add('visible');
   setActiveBtn(el || document.querySelector('.cat-btn'));
   prevPage = 'home';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showPapers(el) {
+  hideAll();
+  setActiveBtn(el);
+  renderPapers();
+  document.getElementById('page-papers').classList.add('visible');
+  prevPage = 'papers';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -1495,6 +1727,10 @@ function openPost(id, fromCat) {
   const shareText = encodeURIComponent(p.title + ' — I3 Skyline Economics Weekly');
   const shareUrl = encodeURIComponent(url);
 
+  const primaryAuthorName = p.author || 'Ahmed Iaseer Sobhan';
+  const primaryAuthorInit = p.authorInitials || 'AIS';
+  const primaryAuthorStyle = p.authorStyle || 'background:linear-gradient(135deg,var(--acc2),var(--accent));';
+
   const coauthorHtml = p.coauthor ? `
     <div class="byline-sep"></div>
     <div class="author-chip" onclick="showAbout()">
@@ -1502,9 +1738,9 @@ function openPost(id, fromCat) {
       <span class="author-name-link">${p.coauthor}</span>
     </div>` : '';
 
-  const zenodoBtn = p.isResearch ? `
-    <a class="share-btn" href="https://doi.org/10.5281/zenodo.19468256" target="_blank" rel="noopener" style="color:var(--accent);border-color:var(--acc2);">Full Paper (Zenodo) →</a>
-  ` : '';
+  const zenodoDoi = p.zenodoDoi || '';
+  const zenodoBtn = zenodoDoi ? `
+    <a class="share-btn" href="${zenodoDoi}" target="_blank" rel="noopener" style="color:var(--accent);border-color:var(--acc2);">Full Paper (Zenodo) →</a>` : '';
 
   document.getElementById('articleContent').innerHTML = `
     ${p.img ? `<img class="article-hero" src="${p.img}" alt="${p.title}" loading="lazy"><div class="photo-credit">Photo: Unsplash</div>` : ''}
@@ -1518,8 +1754,8 @@ function openPost(id, fromCat) {
       <h2>${p.title}</h2>
       <div class="article-byline">
         <div class="author-chip" onclick="showAbout()">
-          <div class="author-avatar">AIS</div>
-          <span class="author-name-link">Ahmed Iaseer Sobhan</span>
+          <div class="author-avatar" style="${primaryAuthorStyle}">${primaryAuthorInit}</div>
+          <span class="author-name-link">${primaryAuthorName}</span>
         </div>
         ${coauthorHtml}
         <div class="byline-sep"></div>
@@ -1540,7 +1776,9 @@ function openPost(id, fromCat) {
     </div>
   `;
 
-  if (fromCat) {
+  if (fromCat === 'Published Papers') {
+    document.getElementById('articleBack').onclick = () => showPapers(null);
+  } else if (fromCat) {
     document.getElementById('articleBack').onclick = () => filterCat(fromCat, null);
   } else {
     document.getElementById('articleBack').onclick = goBack;
@@ -1554,7 +1792,9 @@ function openPost(id, fromCat) {
 
 function goBack() {
   document.title = 'I3 Skyline Economics Weekly — Independent Commentary on Economics, Law & Property';
-  if (prevPage.startsWith('cat:')) {
+  if (prevPage === 'papers') {
+    showPapers(null);
+  } else if (prevPage.startsWith('cat:')) {
     const tag = prevPage.replace('cat:', '');
     const btn = Array.from(document.querySelectorAll('.cat-btn')).find(b => b.textContent.trim() === tag);
     filterCat(tag, btn || null);
@@ -1576,77 +1816,54 @@ function showPremium() {
   document.getElementById('page-premium').classList.add('visible');
   window.scrollTo({ top: 0, behavior: 'smooth' });
   const params = new URLSearchParams(window.location.search);
-  if (params.get('premium') === 'success') {
-    showCheckoutSuccess();
-  }
+  if (params.get('premium') === 'success') showCheckoutSuccess();
 }
 
 function copyLink(btn) {
   navigator.clipboard.writeText(window.location.href).then(() => {
     btn.textContent = 'Copied ✓';
     setTimeout(() => { btn.textContent = 'Copy link'; }, 2000);
-  }).catch(() => { btn.textContent = 'Copy link'; });
+  }).catch(() => {});
 }
 
 async function subscribeNewsletter() {
   const email = document.getElementById('newsletterEmail').value.trim();
-  if (!email || !email.includes('@')) {
-    document.getElementById('newsletterEmail').focus(); return;
-  }
+  if (!email || !email.includes('@')) { document.getElementById('newsletterEmail').focus(); return; }
   const btn = document.querySelector('.newsletter-btn');
   btn.textContent = '...'; btn.disabled = true;
   try {
     const res = await fetch('https://i3-subscribe.iaseersobhan333.workers.dev/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
     });
     if (res.ok) {
       document.getElementById('newsletterForm').style.display = 'none';
       document.getElementById('newsletterSuccess').style.display = 'inline';
-    } else {
-      btn.textContent = 'Try again'; btn.disabled = false;
-    }
-  } catch(e) {
-    btn.textContent = 'Try again'; btn.disabled = false;
-  }
+    } else { btn.textContent = 'Try again'; btn.disabled = false; }
+  } catch(e) { btn.textContent = 'Try again'; btn.disabled = false; }
 }
 
 function openPremiumModal() {
   document.getElementById('premiumModal').classList.add('open');
   setTimeout(() => document.getElementById('premiumEmail').focus(), 200);
 }
-
-function closeModal() {
-  document.getElementById('premiumModal').classList.remove('open');
-}
-
-function closeModalOutside(e) {
-  if (e.target === document.getElementById('premiumModal')) closeModal();
-}
+function closeModal() { document.getElementById('premiumModal').classList.remove('open'); }
+function closeModalOutside(e) { if (e.target === document.getElementById('premiumModal')) closeModal(); }
 
 async function startCheckout() {
   const email = document.getElementById('premiumEmail').value.trim();
-  if (!email || !email.includes('@')) {
-    document.getElementById('premiumEmail').focus(); return;
-  }
+  if (!email || !email.includes('@')) { document.getElementById('premiumEmail').focus(); return; }
   const btn = document.getElementById('checkoutBtn');
   btn.textContent = 'Redirecting...'; btn.disabled = true;
   try {
     const res = await fetch('https://i3-subscribe.iaseersobhan333.workers.dev/subscribe-premium', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email })
     });
     const data = await res.json();
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      btn.textContent = 'Try again'; btn.disabled = false;
-    }
-  } catch(e) {
-    btn.textContent = 'Try again'; btn.disabled = false;
-  }
+    if (data.url) { window.location.href = data.url; }
+    else { btn.textContent = 'Try again'; btn.disabled = false; }
+  } catch(e) { btn.textContent = 'Try again'; btn.disabled = false; }
 }
 
 function showCheckoutSuccess() {
@@ -1655,14 +1872,10 @@ function showCheckoutSuccess() {
       <div class="checkout-success-icon">◆</div>
       <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">Premium active</div>
       <p style="font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--text);line-height:1.7;">Welcome to I3 Skyline Economics Premium. You'll receive your first alert within the week.</p>
-    </div>
-  `;
+    </div>`;
   openPremiumModal();
   window.history.replaceState({}, '', window.location.pathname);
 }
-
-const _params = new URLSearchParams(window.location.search);
-if (_params.get('confirmed') === 'true') {}
 
 renderHome();
 </script>
