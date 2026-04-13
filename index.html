@@ -162,18 +162,6 @@ body::after {
 .cat-btn:hover { color: var(--text); }
 .cat-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-.cat-btn-premium {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--bg); background: var(--accent);
-  border: none; padding: 8px 16px; cursor: pointer;
-  border-radius: 2px; margin-left: 8px; flex-shrink: 0;
-  transition: opacity 0.15s;
-  -webkit-tap-highlight-color: transparent;
-  align-self: center;
-}
-.cat-btn-premium:hover { opacity: 0.85; }
-
 /* ── MAIN LAYOUT ── */
 .page { display: none; }
 .page.visible { display: block; }
@@ -604,338 +592,6 @@ body::after {
 }
 .about-tag:hover { border-color: var(--acc2); color: var(--accent); }
 
-.premium-wrap {
-  max-width: 860px; margin: 0 auto;
-  padding: 60px max(24px, env(safe-area-inset-left)) 96px;
-}
-.premium-header {
-  text-align: center; margin-bottom: 56px;
-  padding-bottom: 40px; border-bottom: 1px solid var(--border);
-  position: relative;
-}
-.premium-header::after {
-  content: ''; position: absolute; bottom: -1px;
-  left: 50%; transform: translateX(-50%);
-  width: 80px; height: 3px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-}
-.premium-eyebrow {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.28em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 18px;
-}
-.premium-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 5vw, 54px);
-  font-weight: 300; font-style: italic;
-  color: var(--white); line-height: 1.05; margin-bottom: 16px;
-}
-.premium-sub {
-  font-family: 'DM Sans', sans-serif; font-size: 15px;
-  color: var(--muted); max-width: 500px; margin: 0 auto;
-  line-height: 1.7;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px; background: var(--border);
-  border: 1px solid var(--border);
-  margin-bottom: 48px;
-}
-.pricing-card {
-  background: var(--surface);
-  padding: 36px 32px;
-  position: relative;
-}
-.pricing-card.featured-plan { background: var(--surf2); }
-.pricing-card.featured-plan::before {
-  content: 'Recommended';
-  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
-  font-family: 'DM Mono', monospace; font-size: 8px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--bg); background: var(--accent);
-  padding: 3px 14px; border-radius: 0 0 4px 4px;
-}
-.pricing-tier {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 14px;
-}
-.pricing-price {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 44px; font-weight: 400; color: var(--white);
-  line-height: 1; margin-bottom: 4px;
-}
-.pricing-price span {
-  font-size: 16px; font-weight: 300; color: var(--muted);
-  vertical-align: super; font-family: 'DM Sans', sans-serif;
-}
-.pricing-cadence {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.1em; color: var(--muted2); margin-bottom: 24px;
-}
-.pricing-features { list-style: none; margin-bottom: 28px; }
-.pricing-features li {
-  font-family: 'DM Sans', sans-serif; font-size: 13px;
-  color: var(--muted); line-height: 1.6; padding: 5px 0;
-  padding-left: 18px; position: relative;
-}
-.pricing-features li::before {
-  content: ''; position: absolute; left: 0; top: 50%;
-  transform: translateY(-50%);
-  width: 5px; height: 1px; background: var(--muted2);
-}
-.pricing-features li.included { color: var(--text); }
-.pricing-features li.included::before {
-  content: '✓'; width: auto; height: auto;
-  transform: none; top: auto;
-  font-size: 10px; color: var(--accent);
-  background: none;
-}
-.pricing-btn {
-  width: 100%;
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  padding: 12px; cursor: pointer; border-radius: 2px;
-  transition: all 0.15s;
-}
-.pricing-btn-free {
-  color: var(--muted); background: none;
-  border: 1px solid var(--border2);
-}
-.pricing-btn-free:hover { color: var(--text); border-color: var(--muted); }
-.pricing-btn-premium {
-  color: var(--bg); background: var(--accent); border: none;
-}
-.pricing-btn-premium:hover { opacity: 0.88; }
-.pricing-btn-premium:disabled { opacity: 0.5; cursor: wait; }
-
-.alert-preview {
-  border: 1px solid var(--border);
-  border-radius: 4px; overflow: hidden; margin-bottom: 48px;
-}
-.alert-preview-header {
-  background: var(--surface);
-  padding: 14px 20px;
-  display: flex; align-items: center; justify-content: space-between;
-  border-bottom: 1px solid var(--border);
-}
-.alert-preview-label {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent);
-  display: flex; align-items: center; gap: 8px;
-}
-.alert-preview-label::before { content: ''; width: 14px; height: 1px; background: var(--accent); }
-.alert-preview-lock {
-  font-family: 'DM Mono', monospace; font-size: 8px;
-  letter-spacing: 0.1em; color: var(--muted2);
-}
-.alert-item {
-  padding: 20px 20px;
-  border-bottom: 1px solid var(--border);
-  position: relative;
-}
-.alert-item:last-child { border-bottom: none; }
-.alert-item-type {
-  font-family: 'DM Mono', monospace; font-size: 8px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 7px;
-  display: flex; align-items: center; gap: 6px;
-}
-.alert-item-type::before { content: '▪'; font-size: 6px; }
-.alert-item-headline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px; font-weight: 500; line-height: 1.3;
-  color: var(--text); margin-bottom: 8px;
-}
-.alert-item-summary {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px; font-style: italic; font-weight: 300;
-  color: var(--muted); line-height: 1.6;
-}
-.alert-blur {
-  filter: blur(5px);
-  pointer-events: none;
-  user-select: none;
-}
-
-.modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(8,8,10,0.92);
-  backdrop-filter: blur(8px);
-  z-index: 1000;
-  display: flex; align-items: center; justify-content: center;
-  padding: 24px;
-  opacity: 0; pointer-events: none;
-  transition: opacity 0.2s;
-}
-.modal-overlay.open { opacity: 1; pointer-events: all; }
-.modal-box {
-  background: var(--surface);
-  border: 1px solid var(--border2);
-  border-top: 3px solid var(--accent);
-  border-radius: 4px;
-  padding: 40px;
-  max-width: 420px; width: 100%;
-  transform: translateY(16px);
-  transition: transform 0.2s;
-}
-.modal-overlay.open .modal-box { transform: translateY(0); }
-.modal-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px; font-weight: 400; font-style: italic;
-  color: var(--white); margin-bottom: 8px;
-}
-.modal-sub {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.12em; color: var(--muted2);
-  margin-bottom: 28px;
-}
-.modal-input {
-  width: 100%;
-  font-family: 'DM Mono', monospace; font-size: 12px;
-  letter-spacing: 0.06em; color: var(--text);
-  background: var(--surf2); border: 1px solid var(--border2);
-  border-radius: 2px; padding: 11px 14px; outline: none;
-  margin-bottom: 12px; transition: border-color 0.15s;
-}
-.modal-input::placeholder { color: var(--muted2); }
-.modal-input:focus { border-color: var(--acc2); }
-.modal-btn {
-  width: 100%;
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--bg); background: var(--accent);
-  border: none; border-radius: 2px;
-  padding: 13px; cursor: pointer;
-  transition: opacity 0.15s; margin-bottom: 12px;
-}
-.modal-btn:hover { opacity: 0.88; }
-.modal-btn:disabled { opacity: 0.5; cursor: wait; }
-.modal-note {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.08em; color: var(--muted2);
-  text-align: center; line-height: 1.6;
-}
-.modal-note a { color: var(--acc2); text-decoration: none; }
-.modal-close {
-  position: absolute; top: 14px; right: 14px;
-  font-family: 'DM Mono', monospace; font-size: 11px;
-  color: var(--muted2); cursor: pointer;
-  background: none; border: none;
-  transition: color 0.15s; padding: 4px 8px;
-}
-.modal-close:hover { color: var(--text); }
-
-.checkout-success { text-align: center; padding: 16px 0; }
-.checkout-success-icon { font-size: 32px; margin-bottom: 12px; }
-.checkout-success p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px; color: var(--text); line-height: 1.6;
-}
-
-footer {
-  border-top: 3px solid var(--accent);
-  padding: 36px max(24px, env(safe-area-inset-left));
-  padding-bottom: max(36px, env(safe-area-inset-bottom));
-}
-.footer-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr auto 1fr;
-  align-items: center; gap: 24px;
-}
-.footer-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px; font-weight: 400; font-style: italic;
-  color: var(--white); cursor: pointer;
-}
-.footer-social { display: flex; align-items: center; gap: 8px; justify-content: center; }
-.social-link {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--muted2); text-decoration: none;
-  border: 1px solid var(--border); border-radius: 2px;
-  padding: 5px 12px; transition: color 0.15s, border-color 0.15s;
-}
-.social-link:hover { color: var(--accent); border-color: var(--acc2); }
-.footer-copy {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; color: var(--muted2); letter-spacing: 0.1em;
-  text-align: right;
-}
-.footer-newsletter {
-  max-width: 1200px; margin: 28px auto 0;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; flex-wrap: wrap;
-  padding-top: 24px; border-top: 1px solid var(--border);
-}
-.newsletter-left { display: flex; flex-direction: column; gap: 4px; }
-.newsletter-heading {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px; font-weight: 400; color: var(--text);
-}
-.newsletter-sub {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--muted2);
-}
-.newsletter-form { display: flex; gap: 0; }
-.newsletter-input {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; letter-spacing: 0.08em;
-  color: var(--text); background: var(--surface);
-  border: 1px solid var(--border2); border-right: none;
-  border-radius: 2px 0 0 2px;
-  padding: 8px 14px; width: 220px; outline: none;
-  transition: border-color 0.15s;
-}
-.newsletter-input::placeholder { color: var(--muted2); }
-.newsletter-input:focus { border-color: var(--acc2); }
-.newsletter-btn {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--bg); background: var(--accent);
-  border: none; border-radius: 0 2px 2px 0;
-  padding: 8px 18px; cursor: pointer;
-  white-space: nowrap; transition: opacity 0.15s; flex-shrink: 0;
-}
-.newsletter-btn:hover { opacity: 0.85; }
-.newsletter-success {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px; letter-spacing: 0.12em; color: var(--accent);
-}
-
-.featured-img {
-  width: 100%; aspect-ratio: 16/9;
-  object-fit: cover; display: block;
-  border-bottom: 1px solid var(--border);
-  filter: grayscale(20%) contrast(1.05);
-  transition: filter 0.3s;
-}
-.featured-main:hover .featured-img { filter: grayscale(0%) contrast(1.1); }
-.grid-img {
-  width: 100%; aspect-ratio: 16/9;
-  object-fit: cover; display: block;
-  border-bottom: 1px solid var(--border);
-  filter: grayscale(15%);
-  transition: filter 0.25s;
-}
-.grid-card:hover .grid-img { filter: grayscale(0%); }
-.article-hero {
-  width: 100%; aspect-ratio: 21/9;
-  object-fit: cover; display: block;
-  margin-bottom: 0;
-  border-bottom: 1px solid var(--border);
-  filter: grayscale(10%) contrast(1.05);
-}
-.photo-credit {
-  font-family: 'DM Mono', monospace;
-  font-size: 8px; letter-spacing: 0.1em;
-  color: var(--muted2); padding: 6px 0 20px;
-  text-align: right;
-}
-
 /* research paper badge */
 .research-badge {
   display: inline-flex; align-items: center; gap: 8px;
@@ -1104,7 +760,6 @@ footer {
   .footer-social { justify-content: center; }
   .masthead { flex-direction: column; align-items: flex-start; }
   .masthead-right { text-align: left; }
-  .pricing-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .masthead-title { font-size: 32px; }
@@ -1116,7 +771,6 @@ footer {
   .newsletter-form { flex-direction: column; }
   .newsletter-input { border-right: 1px solid var(--border2); border-bottom: none; border-radius: 2px 2px 0 0; width: 100%; }
   .newsletter-btn { border-radius: 0 0 2px 2px; text-align: center; }
-  .modal-box { padding: 28px 20px; }
 }
 </style>
 </head>
@@ -1147,7 +801,6 @@ footer {
     <button class="cat-btn" onclick="filterCat('Climate', this)">Climate</button>
     <button class="cat-btn" onclick="filterCat('Commodities', this)">Commodities</button>
     <button class="cat-btn" onclick="showAbout(this)">About</button>
-    <button class="cat-btn-premium" onclick="showPremium()">Premium ◆</button>
   </div>
 </nav>
 
@@ -1266,85 +919,6 @@ footer {
   </div>
 </div>
 
-<div id="page-premium" class="page">
-  <div class="back" onclick="showHome()">Back to home</div>
-  <div class="premium-wrap">
-    <div class="premium-header">
-      <div class="premium-eyebrow">I3 Skyline Economics — Premium</div>
-      <h1 class="premium-title">Policy intelligence.<br>Delivered first.</h1>
-      <p class="premium-sub">Real-time alerts on planning reform, land policy changes and housing data releases — automatically sourced and analysed across the UK, US, UAE, Singapore and EU.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <div class="pricing-tier">Free</div>
-        <div class="pricing-price"><span>£</span>0</div>
-        <div class="pricing-cadence">Forever free</div>
-        <ul class="pricing-features">
-          <li class="included">Weekly long-form articles</li>
-          <li class="included">Full article archive</li>
-          <li class="included">Email digest (new articles)</li>
-          <li>Policy change alerts</li>
-          <li>Housing data releases</li>
-          <li>Academic paper alerts</li>
-          <li>Priority source access</li>
-        </ul>
-        <button class="pricing-btn pricing-btn-free" onclick="showHome()">Continue reading →</button>
-      </div>
-      <div class="pricing-card featured-plan">
-        <div class="pricing-tier">Premium</div>
-        <div class="pricing-price"><span>$</span>5</div>
-        <div class="pricing-cadence">per month · cancel anytime</div>
-        <ul class="pricing-features">
-          <li class="included">Everything in Free</li>
-          <li class="included">Policy change alerts (real-time)</li>
-          <li class="included">Housing data release alerts</li>
-          <li class="included">Academic paper alerts (NBER, SSRN)</li>
-          <li class="included">UK · US · UAE · Singapore · EU coverage</li>
-          <li class="included">AI-analysed significance summaries</li>
-          <li class="included">Source links included</li>
-        </ul>
-        <button class="pricing-btn pricing-btn-premium" onclick="openPremiumModal()">Subscribe for $5/mo →</button>
-      </div>
-    </div>
-    <div>
-      <div class="grid-header" style="margin-bottom:20px;">
-        <span class="grid-label">Sample alerts</span>
-        <div class="grid-rule"></div>
-      </div>
-      <div class="alert-preview">
-        <div class="alert-preview-header">
-          <span class="alert-preview-label">Policy Alert · 24 Mar 2026</span>
-          <span class="alert-preview-lock">Premium</span>
-        </div>
-        <div class="alert-item">
-          <div class="alert-item-type">Planning Policy · UK</div>
-          <div class="alert-item-headline">DLUHC Revises Affordable Housing Thresholds for Major Developments</div>
-          <div class="alert-item-summary">The Department has quietly updated planning guidance to lower the affordable housing contribution threshold for major residential developments from 10 to 6 units in designated housing pressure zones. The change takes effect immediately and affects live planning applications in 47 local authority areas.</div>
-        </div>
-        <div class="alert-item alert-blur">
-          <div class="alert-item-type">Housing Data · US</div>
-          <div class="alert-item-headline">US Housing Starts Drop 8.4% — Third Consecutive Monthly Decline</div>
-          <div class="alert-item-summary">Census Bureau data shows residential construction starts fell sharply in February, with single-family starts down 11.2%. Economists cite sustained mortgage rates above 7% and builder sentiment at 14-month lows as primary drivers.</div>
-        </div>
-        <div class="alert-item alert-blur" style="border-bottom:none;">
-          <div class="alert-item-type">Academic · Global</div>
-          <div class="alert-item-headline">New NBER Paper: Zoning Reform and Housing Supply Elasticity</div>
-          <div class="alert-item-summary">Working paper from Harvard economists finds that upzoning within 800m of transit corridors increases housing supply elasticity by 0.34 — but only in markets where land value capture mechanisms are absent. Direct implications for UK infrastructure levy design.</div>
-        </div>
-        <div style="padding:24px;text-align:center;border-top:1px solid var(--border);background:var(--surface);">
-          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted2);margin-bottom:12px;">2 more alerts in this issue</div>
-          <button class="pricing-btn pricing-btn-premium" style="max-width:240px;margin:0 auto;display:block;" onclick="openPremiumModal()">Unlock alerts for $5/mo →</button>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:40px;padding-top:32px;border-top:1px solid var(--border);">
-      <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted2);line-height:2;">
-        Stripe-secured payments · Cancel anytime · No ads, ever
-      </p>
-    </div>
-  </div>
-</div>
-
 <div id="page-papers" class="page">
   <div class="back" onclick="showHome()">Back to home</div>
   <div class="papers-page-wrap">
@@ -1353,22 +927,6 @@ footer {
       <div class="papers-page-count" id="papersCount"></div>
     </div>
     <div class="papers-grid" id="papersGrid"></div>
-  </div>
-</div>
-
-<div class="modal-overlay" id="premiumModal" onclick="closeModalOutside(event)">
-  <div class="modal-box" style="position:relative;">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div id="modalContent">
-      <div class="modal-title">Subscribe to Premium</div>
-      <div class="modal-sub">$5 / month · Stripe-secured · Cancel anytime</div>
-      <input type="email" id="premiumEmail" class="modal-input" placeholder="your@email.com" autocomplete="email">
-      <button class="modal-btn" id="checkoutBtn" onclick="startCheckout()">Continue to payment →</button>
-      <div class="modal-note">
-        You'll be taken to Stripe to complete payment.<br>
-        By subscribing you agree to our <a href="#">terms</a>.
-      </div>
-    </div>
   </div>
 </div>
 
@@ -1394,6 +952,107 @@ footer {
   </div>
 </footer>
 
+<style>
+footer {
+  border-top: 3px solid var(--accent);
+  padding: 36px max(24px, env(safe-area-inset-left));
+  padding-bottom: max(36px, env(safe-area-inset-bottom));
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr auto 1fr;
+  align-items: center; gap: 24px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 400; font-style: italic;
+  color: var(--white); cursor: pointer;
+}
+.footer-social { display: flex; align-items: center; gap: 8px; justify-content: center; }
+.social-link {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted2); text-decoration: none;
+  border: 1px solid var(--border); border-radius: 2px;
+  padding: 5px 12px; transition: color 0.15s, border-color 0.15s;
+}
+.social-link:hover { color: var(--accent); border-color: var(--acc2); }
+.footer-copy {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; color: var(--muted2); letter-spacing: 0.1em;
+  text-align: right;
+}
+.footer-newsletter {
+  max-width: 1200px; margin: 28px auto 0;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  padding-top: 24px; border-top: 1px solid var(--border);
+}
+.newsletter-left { display: flex; flex-direction: column; gap: 4px; }
+.newsletter-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-weight: 400; color: var(--text);
+}
+.newsletter-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted2);
+}
+.newsletter-form { display: flex; gap: 0; }
+.newsletter-input {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; letter-spacing: 0.08em;
+  color: var(--text); background: var(--surface);
+  border: 1px solid var(--border2); border-right: none;
+  border-radius: 2px 0 0 2px;
+  padding: 8px 14px; width: 220px; outline: none;
+  transition: border-color 0.15s;
+}
+.newsletter-input::placeholder { color: var(--muted2); }
+.newsletter-input:focus { border-color: var(--acc2); }
+.newsletter-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--bg); background: var(--accent);
+  border: none; border-radius: 0 2px 2px 0;
+  padding: 8px 18px; cursor: pointer;
+  white-space: nowrap; transition: opacity 0.15s; flex-shrink: 0;
+}
+.newsletter-btn:hover { opacity: 0.85; }
+.newsletter-success {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; letter-spacing: 0.12em; color: var(--accent);
+}
+.featured-img {
+  width: 100%; aspect-ratio: 16/9;
+  object-fit: cover; display: block;
+  border-bottom: 1px solid var(--border);
+  filter: grayscale(20%) contrast(1.05);
+  transition: filter 0.3s;
+}
+.featured-main:hover .featured-img { filter: grayscale(0%) contrast(1.1); }
+.grid-img {
+  width: 100%; aspect-ratio: 16/9;
+  object-fit: cover; display: block;
+  border-bottom: 1px solid var(--border);
+  filter: grayscale(15%);
+  transition: filter 0.25s;
+}
+.grid-card:hover .grid-img { filter: grayscale(0%); }
+.article-hero {
+  width: 100%; aspect-ratio: 21/9;
+  object-fit: cover; display: block;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--border);
+  filter: grayscale(10%) contrast(1.05);
+}
+.photo-credit {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px; letter-spacing: 0.1em;
+  color: var(--muted2); padding: 6px 0 20px;
+  text-align: right;
+}
+</style>
 
 <script>
 const posts = {
@@ -1565,11 +1224,8 @@ post1: {
 const postOrder = ['post8','post7','post6','post5','post4','post3','post2','post1'];
 const papersOrder = ['post8','post7'];
 
-// ── RENDER HOME ───────────────────────────────────────────────────────────────
 function renderHome() {
-  // Featured: most recent non-papers post for homepage lead
-  const allPosts = postOrder.filter(id => posts[id].tag !== 'Published Papers');
-  const featuredId = postOrder[0]; // post8 is still featured
+  const featuredId = postOrder[0];
   const featured = posts[featuredId];
   const sideIds = postOrder.filter(id => id !== featuredId).slice(0, 3);
   const gridIds = postOrder;
@@ -1625,7 +1281,6 @@ function renderHome() {
   }).join('');
 }
 
-// ── RENDER PAPERS PAGE ────────────────────────────────────────────────────────
 function renderPapers() {
   document.getElementById('papersCount').textContent = papersOrder.length + ' paper' + (papersOrder.length !== 1 ? 's' : '');
   document.getElementById('papersGrid').innerHTML = papersOrder.map(id => {
@@ -1665,7 +1320,6 @@ function renderPapers() {
   }).join('');
 }
 
-// ── NAVIGATION ────────────────────────────────────────────────────────────────
 let prevPage = 'home';
 
 function hideAll() {
@@ -1811,15 +1465,6 @@ function showAbout(el) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function showPremium() {
-  hideAll();
-  setActiveBtn(null);
-  document.getElementById('page-premium').classList.add('visible');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('premium') === 'success') showCheckoutSuccess();
-}
-
 function copyLink(btn) {
   navigator.clipboard.writeText(window.location.href).then(() => {
     btn.textContent = 'Copied ✓';
@@ -1842,40 +1487,6 @@ async function subscribeNewsletter() {
       document.getElementById('newsletterSuccess').style.display = 'inline';
     } else { btn.textContent = 'Try again'; btn.disabled = false; }
   } catch(e) { btn.textContent = 'Try again'; btn.disabled = false; }
-}
-
-function openPremiumModal() {
-  document.getElementById('premiumModal').classList.add('open');
-  setTimeout(() => document.getElementById('premiumEmail').focus(), 200);
-}
-function closeModal() { document.getElementById('premiumModal').classList.remove('open'); }
-function closeModalOutside(e) { if (e.target === document.getElementById('premiumModal')) closeModal(); }
-
-async function startCheckout() {
-  const email = document.getElementById('premiumEmail').value.trim();
-  if (!email || !email.includes('@')) { document.getElementById('premiumEmail').focus(); return; }
-  const btn = document.getElementById('checkoutBtn');
-  btn.textContent = 'Redirecting...'; btn.disabled = true;
-  try {
-    const res = await fetch('https://i3-subscribe.iaseersobhan333.workers.dev/subscribe-premium', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email })
-    });
-    const data = await res.json();
-    if (data.url) { window.location.href = data.url; }
-    else { btn.textContent = 'Try again'; btn.disabled = false; }
-  } catch(e) { btn.textContent = 'Try again'; btn.disabled = false; }
-}
-
-function showCheckoutSuccess() {
-  document.getElementById('modalContent').innerHTML = `
-    <div class="checkout-success">
-      <div class="checkout-success-icon">◆</div>
-      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;">Premium active</div>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--text);line-height:1.7;">Welcome to I3 Skyline Economics Premium. You'll receive your first alert within the week.</p>
-    </div>`;
-  openPremiumModal();
-  window.history.replaceState({}, '', window.location.pathname);
 }
 
 renderHome();
