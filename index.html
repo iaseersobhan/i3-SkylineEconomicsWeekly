@@ -44,7 +44,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-
 <style>
 :root {
   --bg:      #08080a;
@@ -62,7 +61,6 @@
   --white:   #f8f5ee;
   --red:     #c0392b;
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
@@ -80,668 +78,306 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
   pointer-events: none; z-index: 9999;
 }
-
-/* ── TOP BAR ── */
-.top-bar {
-  background: var(--accent);
-  padding: 6px max(24px, env(safe-area-inset-left));
-  display: flex; align-items: center; justify-content: space-between;
-}
-.top-bar-left {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--bg);
-}
-.top-bar-right {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--bg); opacity: 0.7;
-}
-
-/* ── MASTHEAD ── */
-.masthead {
-  border-bottom: 3px solid var(--accent);
-  padding: 24px max(24px, env(safe-area-inset-left));
-  display: flex; align-items: flex-end; justify-content: space-between;
-  gap: 16px;
-}
+.top-bar { background: var(--accent); padding: 6px max(24px, env(safe-area-inset-left)); display: flex; align-items: center; justify-content: space-between; }
+.top-bar-left { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bg); }
+.top-bar-right { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bg); opacity: 0.7; }
+.masthead { border-bottom: 3px solid var(--accent); padding: 24px max(24px, env(safe-area-inset-left)); display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
 .masthead-brand { cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.masthead-i3 {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; font-weight: 500;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 4px;
-}
-.masthead-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 6vw, 58px);
-  font-weight: 600; line-height: 0.9;
-  letter-spacing: -0.02em; color: var(--white);
-}
+.masthead-i3 { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+.masthead-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 6vw, 58px); font-weight: 600; line-height: 0.9; letter-spacing: -0.02em; color: var(--white); }
 .masthead-title em { font-style: italic; font-weight: 300; color: var(--accent); }
-.masthead-right {
-  text-align: right; padding-bottom: 4px;
-}
-.masthead-date {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 6px;
-}
-.masthead-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px; font-style: italic; font-weight: 300;
-  color: var(--muted); max-width: 220px; line-height: 1.5;
-}
-
-/* ── CATEGORY NAV ── */
-.cat-nav {
-  border-bottom: 1px solid var(--border);
-  padding: 0 max(24px, env(safe-area-inset-left));
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(8,8,10,0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  overflow-x: auto;
-  scrollbar-width: none;
-}
+.masthead-right { text-align: right; padding-bottom: 4px; }
+.masthead-date { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.masthead-sub { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; font-weight: 300; color: var(--muted); max-width: 220px; line-height: 1.5; }
+.cat-nav { border-bottom: 1px solid var(--border); padding: 0 max(24px, env(safe-area-inset-left)); position: sticky; top: 0; z-index: 100; background: rgba(8,8,10,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); overflow-x: auto; scrollbar-width: none; }
 .cat-nav::-webkit-scrollbar { display: none; }
-.cat-nav-inner {
-  display: flex; align-items: center; gap: 0;
-  white-space: nowrap;
-}
-.cat-btn {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--muted); background: none; border: none;
-  padding: 14px 18px; cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s, border-color 0.15s;
-  -webkit-tap-highlight-color: transparent;
-  flex-shrink: 0;
-}
+.cat-nav-inner { display: flex; align-items: center; gap: 0; white-space: nowrap; }
+.cat-btn { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); background: none; border: none; padding: 14px 18px; cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; -webkit-tap-highlight-color: transparent; flex-shrink: 0; }
 .cat-btn:hover { color: var(--text); }
 .cat-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
-
-/* ── MAIN LAYOUT ── */
 .page { display: none; }
 .page.visible { display: block; }
-
-.home-wrap {
-  max-width: 1200px; margin: 0 auto;
-  padding: 0 max(24px, env(safe-area-inset-left));
-}
-
-.featured {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0;
-  border-bottom: 1px solid var(--border);
-  margin-top: 0;
-}
-.featured-main {
-  padding: 40px 40px 40px 0;
-  border-right: 1px solid var(--border);
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
+.home-wrap { max-width: 1200px; margin: 0 auto; padding: 0 max(24px, env(safe-area-inset-left)); }
+.featured { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid var(--border); margin-top: 0; }
+.featured-main { padding: 40px 40px 40px 0; border-right: 1px solid var(--border); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .featured-main:hover .featured-title { color: var(--accent); }
-.featured-label {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 18px;
-}
+.featured-label { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
 .featured-label::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
-.featured-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(28px, 4vw, 46px);
-  font-weight: 400; line-height: 1.08;
-  letter-spacing: -0.02em; color: var(--white);
-  margin-bottom: 16px; transition: color 0.15s;
-}
-.featured-summary {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px; font-weight: 300; font-style: italic;
-  color: var(--muted); line-height: 1.7; max-width: 480px;
-  margin-bottom: 20px;
-}
-.featured-meta {
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-}
-.featured-date {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted2);
-}
-.featured-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--accent); border: 1px solid var(--acc3);
-  background: rgba(200,164,90,0.06); padding: 2px 8px; border-radius: 2px;
-}
-.featured-read {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted); margin-left: auto;
-}
-
-.featured-side {
-  padding: 40px 0 40px 40px;
-  display: flex; flex-direction: column; gap: 0;
-}
-.side-article {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
+.featured-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 46px); font-weight: 400; line-height: 1.08; letter-spacing: -0.02em; color: var(--white); margin-bottom: 16px; transition: color 0.15s; }
+.featured-summary { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 300; font-style: italic; color: var(--muted); line-height: 1.7; max-width: 480px; margin-bottom: 20px; }
+.featured-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.featured-date { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted2); }
+.featured-tag { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--acc3); background: rgba(200,164,90,0.06); padding: 2px 8px; border-radius: 2px; }
+.featured-read { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-left: auto; }
+.featured-side { padding: 40px 0 40px 40px; display: flex; flex-direction: column; gap: 0; }
+.side-article { padding: 20px 0; border-bottom: 1px solid var(--border); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .side-article:last-child { border-bottom: none; }
 .side-article:hover .side-title { color: var(--accent); }
-.side-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 8px;
-  display: flex; align-items: center; gap: 6px;
-}
+.side-tag { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
 .side-tag::before { content: ''; width: 14px; height: 1px; background: var(--accent); }
-.side-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(16px, 2vw, 20px);
-  font-weight: 500; line-height: 1.2;
-  color: var(--text); margin-bottom: 8px; transition: color 0.15s;
-}
-.side-summary {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px; font-style: italic; font-weight: 300;
-  color: var(--muted); line-height: 1.5;
-}
-
+.side-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2vw, 20px); font-weight: 500; line-height: 1.2; color: var(--text); margin-bottom: 8px; transition: color 0.15s; }
+.side-summary { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; font-weight: 300; color: var(--muted); line-height: 1.5; }
 .grid-section { padding: 40px 0 80px; }
-.grid-header {
-  display: flex; align-items: center; gap: 14px;
-  margin-bottom: 28px;
-}
-.grid-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase;
-  color: var(--muted2); white-space: nowrap;
-}
+.grid-header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+.grid-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted2); white-space: nowrap; }
 .grid-rule { flex: 1; height: 1px; background: var(--border); }
-
-.article-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-.grid-card {
-  background: var(--surface);
-  padding: 28px 24px;
-  cursor: pointer;
-  transition: background 0.15s;
-  position: relative;
-  -webkit-tap-highlight-color: transparent;
-}
-.grid-card::after {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px; background: var(--accent);
-  opacity: 0; transition: opacity 0.15s;
-}
+.article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+.grid-card { background: var(--surface); padding: 28px 24px; cursor: pointer; transition: background 0.15s; position: relative; -webkit-tap-highlight-color: transparent; }
+.grid-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); opacity: 0; transition: opacity 0.15s; }
 .grid-card:hover { background: var(--surf2); }
 .grid-card:hover::after { opacity: 1; }
 .grid-card:hover .grid-title { color: var(--white); }
-.grid-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 12px;
-  display: flex; align-items: center; gap: 6px;
-}
+.grid-tag { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
 .grid-tag::before { content: '▪'; font-size: 6px; }
-.grid-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 19px; font-weight: 500; line-height: 1.2;
-  color: var(--text); margin-bottom: 10px; transition: color 0.15s;
-}
-.grid-summary {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px; font-style: italic; font-weight: 300;
-  color: var(--muted); line-height: 1.55; margin-bottom: 16px;
-}
-.grid-meta {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-top: auto;
-}
-.grid-date {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--muted2);
-}
-.grid-refs {
-  font-family: 'DM Mono', monospace;
-  font-size: 8px; letter-spacing: 0.08em;
-  color: var(--muted2); border: 1px solid var(--border2);
-  padding: 2px 6px; border-radius: 2px;
-}
+.grid-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 500; line-height: 1.2; color: var(--text); margin-bottom: 10px; transition: color 0.15s; }
+.grid-summary { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; font-weight: 300; color: var(--muted); line-height: 1.55; margin-bottom: 16px; }
+.grid-meta { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+.grid-date { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2); }
+.grid-refs { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.08em; color: var(--muted2); border: 1px solid var(--border2); padding: 2px 6px; border-radius: 2px; }
 
-.cat-page-wrap {
-  max-width: 1200px; margin: 0 auto;
-  padding: 40px max(24px, env(safe-area-inset-left)) 80px;
-}
+/* ════════════════════════════════════════
+   CATEGORY PAGE — EXTRAVAGANT REDESIGN
+════════════════════════════════════════ */
+.cat-page-wrap { max-width: 1200px; margin: 0 auto; padding: 40px max(24px, env(safe-area-inset-left)) 80px; }
 .cat-page-header {
-  padding-bottom: 28px; margin-bottom: 36px;
+  padding-bottom: 36px; margin-bottom: 52px;
   border-bottom: 3px solid var(--accent);
   display: flex; align-items: flex-end; justify-content: space-between;
+  position: relative;
+}
+.cat-page-header::after {
+  content: '';
+  position: absolute; bottom: -3px; right: 0;
+  width: 80px; height: 3px;
+  background: linear-gradient(270deg, transparent, var(--accent));
 }
 .cat-page-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(28px, 5vw, 48px);
-  font-weight: 400; font-style: italic;
+  font-size: clamp(40px, 7vw, 72px);
+  font-weight: 300; font-style: italic;
   color: var(--white); line-height: 1;
+  letter-spacing: -0.025em;
 }
-.cat-page-count {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--muted2); padding-bottom: 4px;
-}
-.cat-list {
-  display: flex; flex-direction: column;
-  border: 1px solid var(--border); border-radius: 4px;
-  overflow: hidden; background: var(--border); gap: 1px;
-}
+.cat-page-count { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted2); padding-bottom: 8px; }
+
+/* Extravagant list */
+.cat-list { display: flex; flex-direction: column; gap: 3px; }
 .cat-list-item {
   background: var(--surface);
-  padding: 24px 28px;
   cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between; gap: 20px;
-  transition: background 0.15s;
+  display: grid;
+  grid-template-columns: 88px 1fr 200px 56px;
+  align-items: stretch;
+  gap: 0;
+  transition: background 0.3s;
   position: relative;
+  overflow: hidden;
   -webkit-tap-highlight-color: transparent;
+  min-height: 180px;
+  border: 1px solid var(--border);
 }
 .cat-list-item::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-  width: 3px; background: var(--accent);
-  opacity: 0; transition: opacity 0.15s;
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--acc2) 100%);
+  opacity: 0; transition: opacity 0.3s;
+}
+.cat-list-item::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(200,164,90,0.03) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.3s;
+  pointer-events: none;
 }
 .cat-list-item:hover { background: var(--surf2); }
 .cat-list-item:hover::before { opacity: 1; }
-.cat-list-item:hover .cli-title { color: var(--white); }
-.cli-content { flex: 1; min-width: 0; }
-.cli-meta {
-  display: flex; align-items: center; gap: 8px;
-  margin-bottom: 7px;
+.cat-list-item:hover::after { opacity: 1; }
+.cat-list-item:hover .cli-title { color: var(--accent); }
+.cat-list-item:hover .cli-index-num { opacity: 1; color: var(--accent); }
+.cat-list-item:hover .cli-arrow { color: var(--accent); transform: translateX(5px); }
+.cat-list-item:hover .cli-arrow-wrap { border-left-color: var(--acc3); }
+
+/* Index column */
+.cli-index {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 24px 0;
+  border-right: 1px solid var(--border);
+  gap: 8px;
 }
-.cli-date {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--muted);
+.cli-index-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 300; font-style: italic;
+  color: var(--border2); opacity: 0.8;
+  line-height: 1; letter-spacing: -3px;
+  transition: color 0.3s, opacity 0.3s;
 }
-.cli-dot { width: 2px; height: 2px; border-radius: 50%; background: var(--muted2); }
-.cli-refs {
-  font-family: 'DM Mono', monospace;
-  font-size: 8px; letter-spacing: 0.08em;
-  color: var(--muted2); border: 1px solid var(--border2);
-  padding: 2px 6px; border-radius: 2px;
+.cli-index-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: var(--border2);
+  transition: background 0.3s;
 }
+.cat-list-item:hover .cli-index-dot { background: var(--accent); }
+
+/* Content */
+.cli-content {
+  padding: 28px 40px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+.cli-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.cli-date { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.cli-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted2); }
+.cli-refs { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.08em; color: var(--muted2); border: 1px solid var(--border2); padding: 2px 8px; border-radius: 2px; }
+.cli-research-pill { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 2px 8px; border-radius: 2px; }
 .cli-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(17px, 2.5vw, 22px); font-weight: 500;
-  line-height: 1.2; color: var(--text); margin-bottom: 6px;
-  transition: color 0.15s;
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 500; line-height: 1.12;
+  color: var(--white); margin-bottom: 14px;
+  transition: color 0.3s; letter-spacing: -0.01em;
 }
 .cli-summary {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 13px; font-style: italic; font-weight: 300;
-  color: var(--muted); line-height: 1.5;
+  font-size: 15px; font-style: italic; font-weight: 300;
+  color: var(--muted); line-height: 1.7; max-width: 700px;
 }
-.cli-arrow {
-  font-size: 16px; color: var(--muted2);
-  transition: all 0.2s; flex-shrink: 0;
+.cli-bottom {
+  display: flex; align-items: center; gap: 12px;
+  margin-top: 22px; padding-top: 16px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
 }
-.cat-list-item:hover .cli-arrow { color: var(--accent); transform: translateX(4px); }
+.cli-author-chip { display: flex; align-items: center; gap: 8px; }
+.cli-author-dot {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Mono', monospace; font-size: 6px; font-weight: 500;
+  color: var(--bg); flex-shrink: 0;
+  background: linear-gradient(135deg, var(--acc2), var(--accent));
+}
+.cli-author-name { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--muted); }
+.cli-read-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted2); margin-left: auto; }
 
+/* Arrow column */
+.cli-arrow-wrap {
+  display: flex; align-items: center; justify-content: center;
+  border-left: 1px solid var(--border);
+  transition: border-color 0.3s;
+}
+.cli-arrow { font-size: 18px; color: var(--muted2); transition: all 0.3s; }
+
+/* ── ARTICLE PAGE ── */
 #page-article { display: none; }
 #page-article.visible { display: block; }
-.article-wrap {
-  max-width: 720px; margin: 0 auto;
-  padding: 52px max(24px, env(safe-area-inset-left)) 96px;
-}
-.article-top {
-  padding-bottom: 36px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 44px; position: relative;
-}
-.article-top::after {
-  content: '';
-  position: absolute; bottom: -1px; left: 0;
-  width: 60px; height: 3px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-}
-.article-top h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(26px, 4.5vw, 46px);
-  font-weight: 400; font-style: italic;
-  line-height: 1.1; letter-spacing: -0.015em;
-  color: var(--white); margin-top: 16px;
-}
-.article-byline {
-  display: flex; align-items: center; gap: 12px;
-  margin-top: 18px; flex-wrap: wrap;
-}
-.author-chip {
-  display: flex; align-items: center; gap: 8px;
-  cursor: pointer; padding: 4px 0;
-  -webkit-tap-highlight-color: transparent;
-}
-.author-avatar {
-  width: 26px; height: 26px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--acc2), var(--accent));
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'DM Mono', monospace; font-size: 7px; font-weight: 500;
-  color: var(--bg); flex-shrink: 0;
-}
-.author-name-link {
-  font-family: 'DM Mono', monospace; font-size: 10px;
-  color: var(--muted); letter-spacing: 0.08em;
-  border-bottom: 1px solid transparent;
-  transition: color 0.15s, border-color 0.15s; padding-bottom: 1px;
-}
+.article-wrap { max-width: 720px; margin: 0 auto; padding: 52px max(24px, env(safe-area-inset-left)) 96px; }
+.article-top { padding-bottom: 36px; border-bottom: 1px solid var(--border); margin-bottom: 44px; position: relative; }
+.article-top::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--accent), transparent); }
+.article-top h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4.5vw, 46px); font-weight: 400; font-style: italic; line-height: 1.1; letter-spacing: -0.015em; color: var(--white); margin-top: 16px; }
+.article-byline { display: flex; align-items: center; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+.author-chip { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 4px 0; -webkit-tap-highlight-color: transparent; }
+.author-avatar { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg, var(--acc2), var(--accent)); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 7px; font-weight: 500; color: var(--bg); flex-shrink: 0; }
+.author-name-link { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.08em; border-bottom: 1px solid transparent; transition: color 0.15s, border-color 0.15s; padding-bottom: 1px; }
 .author-chip:hover .author-name-link { color: var(--accent); border-bottom-color: var(--acc2); }
 .byline-sep { width: 1px; height: 13px; background: var(--border2); }
-.byline-date {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase;
-}
-.article-body p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(17px, 2.2vw, 19px);
-  font-weight: 400; line-height: 1.9;
-  color: #ccc8be; margin-bottom: 1.5em;
-}
-.article-body p:first-of-type::first-letter {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 4.4em; font-weight: 600;
-  float: left; line-height: 0.7;
-  margin-right: 6px; margin-top: 10px;
-  color: var(--accent);
-}
+.byline-date { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+.article-body p { font-family: 'Cormorant Garamond', serif; font-size: clamp(17px, 2.2vw, 19px); font-weight: 400; line-height: 1.9; color: #ccc8be; margin-bottom: 1.5em; }
+.article-body p:first-of-type::first-letter { font-family: 'Cormorant Garamond', serif; font-size: 4.4em; font-weight: 600; float: left; line-height: 0.7; margin-right: 6px; margin-top: 10px; color: var(--accent); }
 .article-body em { font-style: italic; color: var(--text); }
 .article-bib { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--border); }
-.bib-label {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 18px;
-  display: flex; align-items: center; gap: 10px;
-}
+.bib-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
 .bib-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.bib-entry {
-  font-family: 'DM Sans', sans-serif; font-size: 12px;
-  font-weight: 300; color: var(--muted); line-height: 1.7;
-  margin-bottom: 10px; padding-left: 14px;
-  border-left: 1px solid var(--border2);
-}
+.bib-entry { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 10px; padding-left: 14px; border-left: 1px solid var(--border2); }
 .bib-entry em { font-style: italic; color: #888; }
 .bib-entry a { color: var(--acc2); text-decoration: none; border-bottom: 1px solid var(--acc3); }
 .bib-entry a:hover { color: var(--accent); }
-.share-bar {
-  display: flex; align-items: center; gap: 8px;
-  margin-top: 36px; padding-top: 24px;
-  border-top: 1px solid var(--border);
-}
-.share-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--muted2); margin-right: 4px;
-}
-.share-btn {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.1em;
-  color: var(--muted); background: none;
-  border: 1px solid var(--border2); border-radius: 3px;
-  padding: 5px 11px; cursor: pointer;
-  text-decoration: none; transition: color 0.15s, border-color 0.15s;
-}
+.share-bar { display: flex; align-items: center; gap: 8px; margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+.share-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted2); margin-right: 4px; }
+.share-btn { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--muted); background: none; border: 1px solid var(--border2); border-radius: 3px; padding: 5px 11px; cursor: pointer; text-decoration: none; transition: color 0.15s, border-color 0.15s; }
 .share-btn:hover { color: var(--accent); border-color: var(--acc2); }
 .ornament { display: flex; align-items: center; gap: 14px; margin: 44px 0 0; }
 .ornament::before, .ornament::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 .ornament span { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--acc2); letter-spacing: 0.3em; }
-
-.back {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--muted); cursor: pointer;
-  transition: color 0.15s; padding: 20px 0 0;
-  max-width: 1200px; margin: 0 auto;
-  display: flex;
-  padding: 20px max(24px, env(safe-area-inset-left)) 0;
-}
+.back { display: flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); cursor: pointer; transition: color 0.15s; padding: 20px max(24px, env(safe-area-inset-left)) 0; max-width: 1200px; margin: 0 auto; }
 .back::before { content: '←'; font-size: 12px; }
 .back:hover { color: var(--accent); }
-
-.about-wrap {
-  max-width: 720px; margin: 0 auto;
-  padding: 52px max(24px, env(safe-area-inset-left)) 96px;
-}
-.about-top {
-  padding-bottom: 36px; border-bottom: 1px solid var(--border);
-  margin-bottom: 44px; position: relative;
-}
-.about-top::after {
-  content: ''; position: absolute; bottom: -1px; left: 0;
-  width: 60px; height: 3px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-}
-.about-eyebrow {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 22px;
-  display: flex; align-items: center; gap: 10px;
-}
+.about-wrap { max-width: 720px; margin: 0 auto; padding: 52px max(24px, env(safe-area-inset-left)) 96px; }
+.about-top { padding-bottom: 36px; border-bottom: 1px solid var(--border); margin-bottom: 44px; position: relative; }
+.about-top::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 60px; height: 3px; background: linear-gradient(90deg, var(--accent), transparent); }
+.about-eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 22px; display: flex; align-items: center; gap: 10px; }
 .about-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--accent); }
 .about-identity { display: flex; align-items: center; gap: 18px; }
-.about-avatar-lg {
-  width: 60px; height: 60px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--acc2), var(--accent));
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500;
-  color: var(--bg); flex-shrink: 0;
-  box-shadow: 0 0 0 1px var(--acc2), 0 6px 20px rgba(200,164,90,0.1);
-}
-.about-name-block h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(24px, 4.5vw, 42px);
-  font-weight: 400; font-style: italic;
-  letter-spacing: -0.01em; line-height: 1.05; color: var(--white);
-}
-.about-role {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted); margin-top: 7px;
-}
-.about-body p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(17px, 2.2vw, 19px);
-  font-weight: 400; line-height: 1.9;
-  color: #ccc8be; margin-bottom: 1.4em;
-}
-.about-stats {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 1px; background: var(--border);
-  border: 1px solid var(--border); border-radius: 6px;
-  overflow: hidden; margin: 36px 0;
-}
-.about-stat { background: var(--surface); padding: 20px 14px; text-align: center; }
-.stat-val {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px; font-weight: 500; font-style: italic;
-  color: var(--accent); line-height: 1;
-}
-.stat-lbl {
-  font-family: 'DM Mono', monospace; font-size: 8px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted); margin-top: 6px;
-}
+.about-avatar-lg { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, var(--acc2), var(--accent)); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; color: var(--bg); flex-shrink: 0; box-shadow: 0 0 0 1px var(--acc2), 0 6px 20px rgba(200,164,90,0.1); }
+.about-name-block h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 4.5vw, 42px); font-weight: 400; font-style: italic; letter-spacing: -0.01em; line-height: 1.05; color: var(--white); }
+.about-role { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 7px; }
+.about-body p { font-family: 'Cormorant Garamond', serif; font-size: clamp(17px, 2.2vw, 19px); font-weight: 400; line-height: 1.9; color: #ccc8be; margin-bottom: 1.4em; }
 .about-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 24px; }
-.about-tag {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--muted); border: 1px solid var(--border2);
-  padding: 5px 10px; border-radius: 2px; transition: all 0.15s;
-}
+.about-tag { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--border2); padding: 5px 10px; border-radius: 2px; transition: all 0.15s; }
 .about-tag:hover { border-color: var(--acc2); color: var(--accent); }
+.research-badge { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 3px 10px; border-radius: 2px; margin-bottom: 14px; }
 
-/* research paper badge */
-.research-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'DM Mono', monospace; font-size: 8px;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--bg); background: var(--accent);
-  padding: 3px 10px; border-radius: 2px; margin-bottom: 14px;
-}
-
-/* ── PUBLISHED PAPERS SECTION ── */
-.papers-page-wrap {
-  max-width: 1200px; margin: 0 auto;
-  padding: 40px max(24px, env(safe-area-inset-left)) 80px;
-}
-.papers-page-header {
-  padding-bottom: 28px; margin-bottom: 48px;
-  border-bottom: 3px solid var(--accent);
-  display: flex; align-items: flex-end; justify-content: space-between;
-}
-.papers-page-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(28px, 5vw, 48px);
-  font-weight: 400; font-style: italic;
-  color: var(--white); line-height: 1;
-}
-.papers-page-count {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--muted2); padding-bottom: 4px;
-}
-.papers-grid {
-  display: flex; flex-direction: column; gap: 2px;
-  background: var(--border);
-  border: 1px solid var(--border);
-}
-.paper-card {
-  background: var(--surface);
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 0;
-  cursor: pointer;
-  transition: background 0.2s;
-  position: relative;
-  overflow: hidden;
-  -webkit-tap-highlight-color: transparent;
-  min-height: 260px;
-}
-.paper-card::before {
-  content: '';
-  position: absolute; left: 0; top: 0; bottom: 0;
-  width: 4px;
-  background: linear-gradient(180deg, var(--accent), var(--acc2));
-  opacity: 0; transition: opacity 0.2s;
-}
+/* PAPERS */
+.papers-page-wrap { max-width: 1200px; margin: 0 auto; padding: 40px max(24px, env(safe-area-inset-left)) 80px; }
+.papers-page-header { padding-bottom: 28px; margin-bottom: 48px; border-bottom: 3px solid var(--accent); display: flex; align-items: flex-end; justify-content: space-between; }
+.papers-page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 400; font-style: italic; color: var(--white); line-height: 1; }
+.papers-page-count { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted2); padding-bottom: 4px; }
+.papers-grid { display: flex; flex-direction: column; gap: 2px; background: var(--border); border: 1px solid var(--border); }
+.paper-card { background: var(--surface); display: grid; grid-template-columns: 320px 1fr; gap: 0; cursor: pointer; transition: background 0.2s; position: relative; overflow: hidden; -webkit-tap-highlight-color: transparent; min-height: 260px; }
+.paper-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, var(--accent), var(--acc2)); opacity: 0; transition: opacity 0.2s; }
 .paper-card:hover { background: var(--surf2); }
 .paper-card:hover::before { opacity: 1; }
 .paper-card:hover .paper-title { color: var(--accent); }
-.paper-img-wrap {
-  position: relative; overflow: hidden;
-}
-.paper-img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: grayscale(30%) contrast(1.1);
-  transition: filter 0.3s, transform 0.4s;
-}
-.paper-card:hover .paper-img {
-  filter: grayscale(0%) contrast(1.15);
-  transform: scale(1.03);
-}
-.paper-img-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg, transparent 60%, var(--surface));
-  pointer-events: none;
-}
-.paper-card:hover .paper-img-overlay {
-  background: linear-gradient(90deg, transparent 60%, var(--surf2));
-}
-.paper-body {
-  padding: 36px 40px;
-  display: flex; flex-direction: column; justify-content: space-between;
-}
-.paper-top-meta {
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 16px; flex-wrap: wrap;
-}
-.paper-type-badge {
-  font-family: 'DM Mono', monospace; font-size: 8px;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--bg); background: var(--accent);
-  padding: 3px 10px; border-radius: 2px;
-}
-.paper-journal-badge {
-  font-family: 'DM Mono', monospace; font-size: 8px;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent); border: 1px solid var(--acc3);
-  background: rgba(200,164,90,0.05);
-  padding: 3px 10px; border-radius: 2px;
-}
-.paper-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(20px, 2.5vw, 28px);
-  font-weight: 400; line-height: 1.15;
-  color: var(--white); margin-bottom: 14px;
-  transition: color 0.2s;
-  letter-spacing: -0.01em;
-}
-.paper-abstract {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 14px; font-weight: 300; font-style: italic;
-  color: var(--muted); line-height: 1.7;
-  margin-bottom: 24px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.paper-footer {
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 12px;
-}
-.paper-author-row {
-  display: flex; align-items: center; gap: 10px;
-}
-.paper-avatar {
-  width: 28px; height: 28px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'DM Mono', monospace; font-size: 8px; font-weight: 500;
-  color: var(--bg); flex-shrink: 0;
-}
+.paper-img-wrap { position: relative; overflow: hidden; }
+.paper-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%) contrast(1.1); transition: filter 0.3s, transform 0.4s; }
+.paper-card:hover .paper-img { filter: grayscale(0%) contrast(1.15); transform: scale(1.03); }
+.paper-img-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, var(--surface)); pointer-events: none; }
+.paper-card:hover .paper-img-overlay { background: linear-gradient(90deg, transparent 60%, var(--surf2)); }
+.paper-body { padding: 36px 40px; display: flex; flex-direction: column; justify-content: space-between; }
+.paper-top-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.paper-type-badge { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 3px 10px; border-radius: 2px; }
+.paper-journal-badge { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--acc3); background: rgba(200,164,90,0.05); padding: 3px 10px; border-radius: 2px; }
+.paper-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.5vw, 28px); font-weight: 400; line-height: 1.15; color: var(--white); margin-bottom: 14px; transition: color 0.2s; letter-spacing: -0.01em; }
+.paper-abstract { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 300; font-style: italic; color: var(--muted); line-height: 1.7; margin-bottom: 24px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.paper-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.paper-author-row { display: flex; align-items: center; gap: 10px; }
+.paper-avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 8px; font-weight: 500; color: var(--bg); flex-shrink: 0; }
 .paper-author-info { display: flex; flex-direction: column; gap: 2px; }
-.paper-author-name {
-  font-family: 'DM Mono', monospace; font-size: 10px;
-  letter-spacing: 0.08em; color: var(--text);
+.paper-author-name { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--text); }
+.paper-author-date { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2); }
+.paper-dois { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.paper-doi { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.08em; color: var(--acc2); border: 1px solid var(--acc3); border-radius: 2px; padding: 5px 12px; background: rgba(200,164,90,0.04); transition: color 0.15s, border-color 0.15s, background 0.15s; white-space: nowrap; }
+.paper-card:hover .paper-doi { color: var(--accent); border-color: var(--acc2); background: rgba(200,164,90,0.08); }
+
+
+/* Image column in cat list */
+.cli-img-wrap {
+  position: relative;
+  overflow: hidden;
+  border-left: 1px solid var(--border);
 }
-.paper-author-date {
-  font-family: 'DM Mono', monospace; font-size: 8px;
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2);
+.cli-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(25%) contrast(1.08);
+  transition: filter 0.35s, transform 0.4s;
+  display: block;
 }
-.paper-doi {
-  font-family: 'DM Mono', monospace; font-size: 9px;
-  letter-spacing: 0.08em; color: var(--acc2);
-  border: 1px solid var(--acc3); border-radius: 2px;
-  padding: 5px 12px; background: rgba(200,164,90,0.04);
-  transition: color 0.15s, border-color 0.15s, background 0.15s;
-  white-space: nowrap;
+.cat-list-item:hover .cli-img {
+  filter: grayscale(0%) contrast(1.12);
+  transform: scale(1.05);
 }
-.paper-card:hover .paper-doi {
-  color: var(--accent); border-color: var(--acc2);
-  background: rgba(200,164,90,0.08);
+.cli-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--surface) 0%, transparent 40%);
+  pointer-events: none;
+  transition: background 0.3s;
+}
+.cat-list-item:hover .cli-img-overlay {
+  background: linear-gradient(90deg, var(--surf2) 0%, transparent 40%);
 }
 @media (max-width: 900px) {
   .paper-card { grid-template-columns: 1fr; }
@@ -749,7 +385,6 @@ body::after {
   .paper-img-overlay { background: linear-gradient(180deg, transparent 60%, var(--surface)); }
   .paper-body { padding: 24px; }
 }
-
 @media (max-width: 768px) {
   .featured { grid-template-columns: 1fr; }
   .featured-main { padding: 28px 0; border-right: none; border-bottom: 1px solid var(--border); }
@@ -760,6 +395,9 @@ body::after {
   .footer-social { justify-content: center; }
   .masthead { flex-direction: column; align-items: flex-start; }
   .masthead-right { text-align: left; }
+  .cat-list-item { grid-template-columns: 60px 1fr 160px 44px; }
+  .cli-index-num { font-size: 30px; }
+  .cli-content { padding: 20px 20px; }
 }
 @media (max-width: 600px) {
   .masthead-title { font-size: 32px; }
@@ -771,6 +409,10 @@ body::after {
   .newsletter-form { flex-direction: column; }
   .newsletter-input { border-right: 1px solid var(--border2); border-bottom: none; border-radius: 2px 2px 0 0; width: 100%; }
   .newsletter-btn { border-radius: 0 0 2px 2px; text-align: center; }
+  .cat-list-item { grid-template-columns: 1fr 44px; }
+  .cli-index { display: none; }
+  .cli-img-wrap { display: none; }
+  .cli-content { padding: 20px; }
 }
 </style>
 </head>
@@ -846,75 +488,24 @@ body::after {
         <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:300;letter-spacing:-0.02em;line-height:0.95;color:var(--accent);"><em>Ahmed Iaseer Sobhan</em></h2>
       </div>
       <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-        <div style="display:flex;align-items:center;gap:8px;">
-          <div style="width:6px;height:6px;border-radius:50%;background:var(--accent);"></div>
-          <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">I3 Skyline Economics</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;">
-          <div style="width:6px;height:6px;border-radius:50%;background:var(--acc2);"></div>
-          <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Est. 2026</span>
-        </div>
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:var(--accent);"></div><span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">I3 Skyline Economics</span></div>
+        <div style="display:flex;align-items:center;gap:8px;"><div style="width:6px;height:6px;border-radius:50%;background:var(--acc2);"></div><span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);">Est. 2026</span></div>
       </div>
     </div>
     <div class="about-body">
       <p>Ahmed Iaseer Sobhan is the founder of I3 Skyline Economics Weekly, an independent publication focused on the intersections of economics, law, property and public policy.</p>
       <p>Each week, Iaseer explores how institutions, incentives and legal frameworks shape the economic world — from inheritance tax and land ownership to climate governance and market failure. His writing draws on primary legal sources, academic literature and empirical evidence.</p>
       <p>I3 Skyline Economics reflects an ongoing commitment to independent, evidence-driven commentary on the forces that govern modern economic life.</p>
-      <div style="display:flex;align-items:center;gap:16px;margin:36px 0 28px;">
-        <div style="background:var(--surface);border:1px solid var(--border2);border-radius:3px;padding:14px 22px;text-align:center;">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;font-style:italic;color:var(--accent);line-height:1;">2026</div>
-          <div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:5px;">Founded</div>
-        </div>
-      </div>
-      <div class="about-tags">
-        <span class="about-tag">Property Rights</span>
-        <span class="about-tag">Tax Policy</span>
-        <span class="about-tag">Climate Economics</span>
-        <span class="about-tag">Urban Land</span>
-        <span class="about-tag">Institutional Analysis</span>
-        <span class="about-tag">Law &amp; Governance</span>
-        <span class="about-tag">Real Estate</span>
-      </div>
+      <div style="display:flex;align-items:center;gap:16px;margin:36px 0 28px;"><div style="background:var(--surface);border:1px solid var(--border2);border-radius:3px;padding:14px 22px;text-align:center;"><div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;font-style:italic;color:var(--accent);line-height:1;">2026</div><div style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:5px;">Founded</div></div></div>
+      <div class="about-tags"><span class="about-tag">Property Rights</span><span class="about-tag">Tax Policy</span><span class="about-tag">Climate Economics</span><span class="about-tag">Urban Land</span><span class="about-tag">Institutional Analysis</span><span class="about-tag">Law &amp; Governance</span><span class="about-tag">Real Estate</span></div>
     </div>
-
     <div style="margin-top:56px;padding-top:44px;border-top:1px solid var(--border);">
-      <div class="about-identity">
-        <div class="about-avatar-lg" style="background:linear-gradient(135deg,#2a4a7f,#4a7fbf);">SC</div>
-        <div class="about-name-block">
-          <h2>Siwoo Choi</h2>
-          <div class="about-role">Contributing Writer · I3 Skyline Economics Weekly</div>
-        </div>
-      </div>
-      <div class="about-body" style="margin-top:32px;">
-        <p>Siwoo Choi is a contributing writer at I3 Skyline Economics Weekly, with a focus on behavioural economics and marketing. He brings an analytical perspective on how cognitive biases, incentive structures and consumer behaviour shape economic outcomes.</p>
-        <p>His writing examines the intersection of behavioural science and real-world economic and policy questions — exploring why people and institutions consistently deviate from rational models, and what that means for markets and governance.</p>
-        <div class="about-tags" style="margin-top:20px;">
-          <span class="about-tag">Behavioural Economics</span>
-          <span class="about-tag">Marketing</span>
-          <span class="about-tag">Consumer Behaviour</span>
-          <span class="about-tag">Incentive Design</span>
-        </div>
-      </div>
+      <div class="about-identity"><div class="about-avatar-lg" style="background:linear-gradient(135deg,#2a4a7f,#4a7fbf);">SC</div><div class="about-name-block"><h2>Siwoo Choi</h2><div class="about-role">Contributing Writer · I3 Skyline Economics Weekly</div></div></div>
+      <div class="about-body" style="margin-top:32px;"><p>Siwoo Choi is a contributing writer at I3 Skyline Economics Weekly, with a focus on behavioural economics and marketing. He brings an analytical perspective on how cognitive biases, incentive structures and consumer behaviour shape economic outcomes.</p><p>His writing examines the intersection of behavioural science and real-world economic and policy questions — exploring why people and institutions consistently deviate from rational models, and what that means for markets and governance.</p><div class="about-tags" style="margin-top:20px;"><span class="about-tag">Behavioural Economics</span><span class="about-tag">Marketing</span><span class="about-tag">Consumer Behaviour</span><span class="about-tag">Incentive Design</span></div></div>
     </div>
-
     <div style="margin-top:56px;padding-top:44px;border-top:1px solid var(--border);">
-      <div class="about-identity">
-        <div class="about-avatar-lg" style="background:linear-gradient(135deg,#1a3a2a,#2e6b4a);">RC</div>
-        <div class="about-name-block">
-          <h2>Ronan Connolly</h2>
-          <div class="about-role">Data &amp; Econometrics Editor · I3 Skyline Economics Weekly</div>
-        </div>
-      </div>
-      <div class="about-body" style="margin-top:32px;">
-        <p>Ronan Connolly is the Data &amp; Econometrics Editor at I3 Skyline Economics Weekly, bringing rigorous quantitative analysis to the publication's coverage of economics, law and property. Proficient in econometrics, statistical inference and empirical research methods, his work applies regression analysis and statistical modelling to examine how markets, institutions and policy decisions manifest in data.</p>
-        <p>His editorial work underpins the publication's research with quantitative rigour — translating complex econometric findings into clear, accessible commentary without sacrificing analytical precision.</p>
-        <div class="about-tags" style="margin-top:20px;">
-          <span class="about-tag">Quantitative Economics</span>
-          <span class="about-tag">Econometrics</span>
-          <span class="about-tag">Statistical Modelling</span>
-          <span class="about-tag">Empirical Analysis</span>
-        </div>
-      </div>
+      <div class="about-identity"><div class="about-avatar-lg" style="background:linear-gradient(135deg,#1a3a2a,#2e6b4a);">RC</div><div class="about-name-block"><h2>Ronan Connolly</h2><div class="about-role">Data &amp; Econometrics Editor · I3 Skyline Economics Weekly</div></div></div>
+      <div class="about-body" style="margin-top:32px;"><p>Ronan Connolly is the Data &amp; Econometrics Editor at I3 Skyline Economics Weekly, bringing rigorous quantitative analysis to the publication's coverage of economics, law and property. Proficient in econometrics, statistical inference and empirical research methods, his work applies regression analysis and statistical modelling to examine how markets, institutions and policy decisions manifest in data.</p><p>His editorial work underpins the publication's research with quantitative rigour — translating complex econometric findings into clear, accessible commentary without sacrificing analytical precision.</p><div class="about-tags" style="margin-top:20px;"><span class="about-tag">Quantitative Economics</span><span class="about-tag">Econometrics</span><span class="about-tag">Statistical Modelling</span><span class="about-tag">Empirical Analysis</span></div></div>
     </div>
   </div>
 </div>
@@ -953,105 +544,30 @@ body::after {
 </footer>
 
 <style>
-footer {
-  border-top: 3px solid var(--accent);
-  padding: 36px max(24px, env(safe-area-inset-left));
-  padding-bottom: max(36px, env(safe-area-inset-bottom));
-}
-.footer-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr auto 1fr;
-  align-items: center; gap: 24px;
-}
-.footer-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px; font-weight: 400; font-style: italic;
-  color: var(--white); cursor: pointer;
-}
+footer { border-top: 3px solid var(--accent); padding: 36px max(24px, env(safe-area-inset-left)); padding-bottom: max(36px, env(safe-area-inset-bottom)); }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
+.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; font-style: italic; color: var(--white); cursor: pointer; }
 .footer-social { display: flex; align-items: center; gap: 8px; justify-content: center; }
-.social-link {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--muted2); text-decoration: none;
-  border: 1px solid var(--border); border-radius: 2px;
-  padding: 5px 12px; transition: color 0.15s, border-color 0.15s;
-}
+.social-link { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2); text-decoration: none; border: 1px solid var(--border); border-radius: 2px; padding: 5px 12px; transition: color 0.15s, border-color 0.15s; }
 .social-link:hover { color: var(--accent); border-color: var(--acc2); }
-.footer-copy {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; color: var(--muted2); letter-spacing: 0.1em;
-  text-align: right;
-}
-.footer-newsletter {
-  max-width: 1200px; margin: 28px auto 0;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; flex-wrap: wrap;
-  padding-top: 24px; border-top: 1px solid var(--border);
-}
+.footer-copy { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted2); letter-spacing: 0.1em; text-align: right; }
+.footer-newsletter { max-width: 1200px; margin: 28px auto 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--border); }
 .newsletter-left { display: flex; flex-direction: column; gap: 4px; }
-.newsletter-heading {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px; font-weight: 400; color: var(--text);
-}
-.newsletter-sub {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--muted2);
-}
+.newsletter-heading { font-family: 'Cormorant Garamond', serif; font-size: 17px; font-weight: 400; color: var(--text); }
+.newsletter-sub { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted2); }
 .newsletter-form { display: flex; gap: 0; }
-.newsletter-input {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; letter-spacing: 0.08em;
-  color: var(--text); background: var(--surface);
-  border: 1px solid var(--border2); border-right: none;
-  border-radius: 2px 0 0 2px;
-  padding: 8px 14px; width: 220px; outline: none;
-  transition: border-color 0.15s;
-}
+.newsletter-input { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--text); background: var(--surface); border: 1px solid var(--border2); border-right: none; border-radius: 2px 0 0 2px; padding: 8px 14px; width: 220px; outline: none; transition: border-color 0.15s; }
 .newsletter-input::placeholder { color: var(--muted2); }
 .newsletter-input:focus { border-color: var(--acc2); }
-.newsletter-btn {
-  font-family: 'DM Mono', monospace;
-  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--bg); background: var(--accent);
-  border: none; border-radius: 0 2px 2px 0;
-  padding: 8px 18px; cursor: pointer;
-  white-space: nowrap; transition: opacity 0.15s; flex-shrink: 0;
-}
+.newsletter-btn { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bg); background: var(--accent); border: none; border-radius: 0 2px 2px 0; padding: 8px 18px; cursor: pointer; white-space: nowrap; transition: opacity 0.15s; flex-shrink: 0; }
 .newsletter-btn:hover { opacity: 0.85; }
-.newsletter-success {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px; letter-spacing: 0.12em; color: var(--accent);
-}
-.featured-img {
-  width: 100%; aspect-ratio: 16/9;
-  object-fit: cover; display: block;
-  border-bottom: 1px solid var(--border);
-  filter: grayscale(20%) contrast(1.05);
-  transition: filter 0.3s;
-}
+.newsletter-success { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--accent); }
+.featured-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-bottom: 1px solid var(--border); filter: grayscale(20%) contrast(1.05); transition: filter 0.3s; }
 .featured-main:hover .featured-img { filter: grayscale(0%) contrast(1.1); }
-.grid-img {
-  width: 100%; aspect-ratio: 16/9;
-  object-fit: cover; display: block;
-  border-bottom: 1px solid var(--border);
-  filter: grayscale(15%);
-  transition: filter 0.25s;
-}
+.grid-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; border-bottom: 1px solid var(--border); filter: grayscale(15%); transition: filter 0.25s; }
 .grid-card:hover .grid-img { filter: grayscale(0%); }
-.article-hero {
-  width: 100%; aspect-ratio: 21/9;
-  object-fit: cover; display: block;
-  margin-bottom: 0;
-  border-bottom: 1px solid var(--border);
-  filter: grayscale(10%) contrast(1.05);
-}
-.photo-credit {
-  font-family: 'DM Mono', monospace;
-  font-size: 8px; letter-spacing: 0.1em;
-  color: var(--muted2); padding: 6px 0 20px;
-  text-align: right;
-}
+.article-hero { width: 100%; aspect-ratio: 21/9; object-fit: cover; display: block; margin-bottom: 0; border-bottom: 1px solid var(--border); filter: grayscale(10%) contrast(1.05); }
+.photo-credit { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 0.1em; color: var(--muted2); padding: 6px 0 20px; text-align: right; }
 </style>
 
 <script>
@@ -1066,13 +582,16 @@ post8: {
   isResearch: true,
   zenodoDoi: 'https://doi.org/10.5281/zenodo.19468256',
   zenodoDoiShort: 'doi.org/10.5281/zenodo.19468256',
+  ssrnDoi: 'http://dx.doi.org/10.2139/ssrn.6547478',
+  ssrnDoiShort: 'ssrn.com/abstract=6547478',
   body: `
   <p>This paper examines the extent to which land use regulations impact long-run housing supply elasticity in major global cities. Through comparative analysis of London, New York and Singapore, the study will combine urban economic theory with the in-depth examination of institutions to accurately assess how regulatory frameworks shape supply elasticity. In contrast to widely agreed upon literature, this paper argues that elasticity is determined less by the existence of regulations and more so by its coordination mechanisms and structural design. Evidence from London and New York indicates that overly restrictive land release and administrative barriers mitigate housing supply responsiveness and warp demand growth into higher prices. Singapore presents an opposing conclusion, the evidence suggests that state coordinated land release and streamlined administrative processes can actively enhance long run housing responsiveness. The findings suggest that hybrid regulatory models such as private development combined with coordinated state intervention may be the most effective method in maintaining a sustainable long run housing supply responsiveness in high-demand urban markets.</p>
   <p>This preprint is currently under review at the International Journal of Urban Sustainable Development (Taylor &amp; Francis).</p>
   <p>The full paper is freely available on Zenodo: <a href="https://doi.org/10.5281/zenodo.19468256" target="_blank" rel="noopener" style="color:var(--accent);border-bottom:1px solid var(--acc2);">doi.org/10.5281/zenodo.19468256</a></p>
+  <p>Also available on SSRN: <a href="http://dx.doi.org/10.2139/ssrn.6547478" target="_blank" rel="noopener" style="color:var(--accent);border-bottom:1px solid var(--acc2);">ssrn.com/abstract=6547478</a></p>
   `,
   bib: `
-  <div class="bib-entry">Sobhan, A. I. (2026). <em>Regulatory Design, Not Regulatory Presence: Investigating Long-Run Housing Supply Elasticity in Global Cities.</em> Zenodo. <a href="https://doi.org/10.5281/zenodo.19468256" target="_blank">doi.org/10.5281/zenodo.19468256</a></div>
+  <div class="bib-entry">Sobhan, A. I. (2026). <em>Regulatory Design, Not Regulatory Presence: Investigating Long-Run Housing Supply Elasticity in Global Cities.</em> Zenodo. <a href="https://doi.org/10.5281/zenodo.19468256" target="_blank">doi.org/10.5281/zenodo.19468256</a> · SSRN. <a href="http://dx.doi.org/10.2139/ssrn.6547478" target="_blank">ssrn.com/abstract=6547478</a></div>
   `
 },
 
@@ -1103,26 +622,8 @@ post6: {
   refs: 10,
   coauthor: 'Ronan Connolly',
   coauthorInitials: 'RC',
-  body: `
-  <p>Economists often argue about what causes recessions, these discussions typically result in blame being pointed to inflation, interest rates and financial contagion. Despite this, one key indicator sits silently in plain sight and goes overlooked: the housing market. When looking at past recessions, housing prices have consistently turned south prior to the broader economy. It is because of this that the question regarding whether this is a coincidence, correlation, or truly a meaningful indicator becomes something more meaningful. </p>
-  <p>To effectively comprehend why it is the housing market that leads market recession cycles, three pillars in which property markets bend to macroeconomic conditions must be considered. </p>
-  <p>Firstly, the wealth effect. Developed economies typically have housing as the largest asset on household balance sheets. Therefore, if housing prices fall, consumption and net worth contracts tend to follow. A 2005 study found that the impact of housing wealth on consumption is far greater than the impact of financial wealth on consumption (Quigley, 2005). This suggests that property price declines can carry significant macroeconomic consequences even when compared to equivalent falls in equity markets. </p>
-  <p>Secondly, is residential construction. It has been argued that "housing is the business cycle" because declines in residential investment have been historically observed to precede downturns in US GDP, these declines in investment often occur several quarters prior to the full on recession (Leamer, 2007). Additionally, housing starts (the number of new residential projects that begin in a given period of time) are a component of aggregate demand that is incredibly sensitive to interest rates, indicating that housing prices respond to macroeconomic monetary tightening before the rest of the economy is able to respond. </p>
-  <p>Thirdly, and most dangerously, is the credit channel. Homes are often used as collateral. For that reason, when prices fall, resulting in borrowing capacity to shrink, ultimately causing credit conditions to tighten and thus starting a constant feedback loop. This financial framework showcases how the falling value of assets can amplify shocks through both the balance sheet of the borrower as well as the lender (Gertler, 1999). Moreover, this has been repeatedly proven to be true as across 30 countries expansions in household debt were among the most effective predictors of future recessions, through precisely this collateral and credit exchange mechanism (Mian, 2017). </p>
-  <p>When examining past major post-war recessions, a clear pattern emerges. In the early 1990s, the United Kingdom and the United States both experienced significant downturns in housing prices, which was followed by sharp GDP contractions. Regions in the UK saw housing prices drop by nearly 20% before the recession evened out (Muellbauer, 1997). However, the clearest example that exemplifies the importance of housing in regards to economic recessions can be seen in the form of the 2008 Global Financial Crisis. US housing prices peaked in early 2006, which was a full 2 years before the beginning of the recession (S&P, 2012). As found in a cross country analysis over 130 years and 18 developed economies, this was not unique to the US and was a common occurrence across time and different geographies (Reinhart, 2009). Looking back, price to rent ratios had reached historical highs in 2005, a warning sign that went overlooked and received little attention from institutions. </p>
-  <p>In spite of all this, house prices still fail to provide a fully reliable recession predictor on their own. This can mainly be attributed to reverse causality, the presence of a recession also causes house prices to fall, hindering the ability to isolate the direction of the relationship without extensive econometric analysis. The lag structures must also be taken into account before conclusions can be drawn. The timing between a housing market peak or dip and a recession can vary widely, historically this range has been anywhere from six months to over two years (Leung, 2004). </p>
-  <p>In all, house prices are not the be-all and end-all of recession indicators. But, they are more useful and require more attention than they have received. They are a structurally grounded indicator with historical records that are able to provide context as to where the economy may be going next. Continuing to ignore them as policymakers have done in the past, will only result in greater economic loss. </p>
-  `,
-  bib: `
-  <div class="bib-entry">Bernanke, B., Gertler, M. and Gilchrist, S. (1998) 'The financial accelerator in a quantitative business cycle framework', <em>NBER Working Paper No. 6455</em>. Available at: <a href="https://www.nber.org/papers/w6455" target="_blank">nber.org</a></div>
-  <div class="bib-entry">Case, K.E., Quigley, J.M. and Shiller, R.J. (2001) 'Comparing wealth effects: the stock market versus the housing market', <em>NBER Working Paper No. 8606</em>. Available at: <a href="https://www.nber.org/papers/w8606" target="_blank">nber.org</a></div>
-  <div class="bib-entry">Leamer, E.E. (2007) 'Housing is the business cycle', <em>NBER Working Paper No. 13428</em>. Available at: <a href="https://www.nber.org/papers/w13428" target="_blank">nber.org</a></div>
-  <div class="bib-entry">Leung, C. (2004) 'Macroeconomics and housing: a review of the literature', <em>Journal of Housing Economics</em>, 13(4), pp. 249–267. Available at: <a href="https://doi.org/10.1016/j.jhe.2004.09.002" target="_blank">doi.org</a></div>
-  <div class="bib-entry">Mian, A., Sufi, A. and Verner, E. (2017) 'Household debt and business cycles worldwide', <em>The Quarterly Journal of Economics</em>, 132(4), pp. 1755–1817. Available at: <a href="https://doi.org/10.1093/qje/qjx017" target="_blank">doi.org</a></div>
-  <div class="bib-entry">Muellbauer, J. and Murphy, A. (1997) 'Booms and busts in the UK housing market', <em>The Economic Journal</em>, 107(445), pp. 1701–1727. Available at: <a href="https://doi.org/10.1111/j.1468-0297.1997.tb00076.x" target="_blank">doi.org</a></div>
-  <div class="bib-entry">Reinhart, C.M. and Rogoff, K.S. (2009) <em>This Time Is Different: Eight Centuries of Financial Folly</em>. Princeton: Princeton University Press.</div>
-  <div class="bib-entry">S&amp;P Dow Jones Indices (2025) 'S&amp;P Cotality Case-Shiller U.S. National Home Price NSA Index'. Available at: <a href="https://www.spglobal.com/spdji/en/indices/indicators/sp-cotality-case-shiller-us-national-home-price-nsa-index/" target="_blank">spglobal.com</a></div>
-  `
+  body: `<p>Economists often argue about what causes recessions, these discussions typically result in blame being pointed to inflation, interest rates and financial contagion. Despite this, one key indicator sits silently in plain sight and goes overlooked: the housing market. When looking at past recessions, housing prices have consistently turned south prior to the broader economy. It is because of this that the question regarding whether this is a coincidence, correlation, or truly a meaningful indicator becomes something more meaningful. </p><p>To effectively comprehend why it is the housing market that leads market recession cycles, three pillars in which property markets bend to macroeconomic conditions must be considered. </p><p>Firstly, the wealth effect. Developed economies typically have housing as the largest asset on household balance sheets. Therefore, if housing prices fall, consumption and net worth contracts tend to follow. A 2005 study found that the impact of housing wealth on consumption is far greater than the impact of financial wealth on consumption (Quigley, 2005). This suggests that property price declines can carry significant macroeconomic consequences even when compared to equivalent falls in equity markets. </p><p>Secondly, is residential construction. It has been argued that "housing is the business cycle" because declines in residential investment have been historically observed to precede downturns in US GDP, these declines in investment often occur several quarters prior to the full on recession (Leamer, 2007). Additionally, housing starts (the number of new residential projects that begin in a given period of time) are a component of aggregate demand that is incredibly sensitive to interest rates, indicating that housing prices respond to macroeconomic monetary tightening before the rest of the economy is able to respond. </p><p>Thirdly, and most dangerously, is the credit channel. Homes are often used as collateral. For that reason, when prices fall, resulting in borrowing capacity to shrink, ultimately causing credit conditions to tighten and thus starting a constant feedback loop. This financial framework showcases how the falling value of assets can amplify shocks through both the balance sheet of the borrower as well as the lender (Gertler, 1999). Moreover, this has been repeatedly proven to be true as across 30 countries expansions in household debt were among the most effective predictors of future recessions, through precisely this collateral and credit exchange mechanism (Mian, 2017). </p><p>When examining past major post-war recessions, a clear pattern emerges. In the early 1990s, the United Kingdom and the United States both experienced significant downturns in housing prices, which was followed by sharp GDP contractions. Regions in the UK saw housing prices drop by nearly 20% before the recession evened out (Muellbauer, 1997). However, the clearest example that exemplifies the importance of housing in regards to economic recessions can be seen in the form of the 2008 Global Financial Crisis. US housing prices peaked in early 2006, which was a full 2 years before the beginning of the recession (S&P, 2012). As found in a cross country analysis over 130 years and 18 developed economies, this was not unique to the US and was a common occurrence across time and different geographies (Reinhart, 2009). Looking back, price to rent ratios had reached historical highs in 2005, a warning sign that went overlooked and received little attention from institutions. </p><p>In spite of all this, house prices still fail to provide a fully reliable recession predictor on their own. This can mainly be attributed to reverse causality, the presence of a recession also causes house prices to fall, hindering the ability to isolate the direction of the relationship without extensive econometric analysis. The lag structures must also be taken into account before conclusions can be drawn. The timing between a housing market peak or dip and a recession can vary widely, historically this range has been anywhere from six months to over two years (Leung, 2004). </p><p>In all, house prices are not the be-all and end-all of recession indicators. But, they are more useful and require more attention than they have received. They are a structurally grounded indicator with historical records that are able to provide context as to where the economy may be going next. Continuing to ignore them as policymakers have done in the past, will only result in greater economic loss. </p>`,
+  bib: `<div class="bib-entry">Bernanke, B., Gertler, M. and Gilchrist, S. (1998) 'The financial accelerator in a quantitative business cycle framework', <em>NBER Working Paper No. 6455</em>. Available at: <a href="https://www.nber.org/papers/w6455" target="_blank">nber.org</a></div><div class="bib-entry">Case, K.E., Quigley, J.M. and Shiller, R.J. (2001) 'Comparing wealth effects: the stock market versus the housing market', <em>NBER Working Paper No. 8606</em>. Available at: <a href="https://www.nber.org/papers/w8606" target="_blank">nber.org</a></div><div class="bib-entry">Leamer, E.E. (2007) 'Housing is the business cycle', <em>NBER Working Paper No. 13428</em>. Available at: <a href="https://www.nber.org/papers/w13428" target="_blank">nber.org</a></div><div class="bib-entry">Leung, C. (2004) 'Macroeconomics and housing: a review of the literature', <em>Journal of Housing Economics</em>, 13(4), pp. 249–267. Available at: <a href="https://doi.org/10.1016/j.jhe.2004.09.002" target="_blank">doi.org</a></div><div class="bib-entry">Mian, A., Sufi, A. and Verner, E. (2017) 'Household debt and business cycles worldwide', <em>The Quarterly Journal of Economics</em>, 132(4), pp. 1755–1817. Available at: <a href="https://doi.org/10.1093/qje/qjx017" target="_blank">doi.org</a></div><div class="bib-entry">Muellbauer, J. and Murphy, A. (1997) 'Booms and busts in the UK housing market', <em>The Economic Journal</em>, 107(445), pp. 1701–1727. Available at: <a href="https://doi.org/10.1111/j.1468-0297.1997.tb00076.x" target="_blank">doi.org</a></div><div class="bib-entry">Reinhart, C.M. and Rogoff, K.S. (2009) <em>This Time Is Different: Eight Centuries of Financial Folly</em>. Princeton: Princeton University Press.</div><div class="bib-entry">S&amp;P Dow Jones Indices (2025) 'S&amp;P Cotality Case-Shiller U.S. National Home Price NSA Index'. Available at: <a href="https://www.spglobal.com/spdji/en/indices/indicators/sp-cotality-case-shiller-us-national-home-price-nsa-index/" target="_blank">spglobal.com</a></div>`
 },
 
 post5: {
@@ -1131,25 +632,8 @@ post5: {
   title: 'Are We Running Out of Natural Rubber?',
   summary: 'Over a decade of depressed prices, climate shocks and market neglect threaten to collapse the global natural rubber supply chain — a commodity the modern world cannot function without.',
   refs: 8,
-  body: `
-  <p>Natural rubber is a key component in the essential goods that allow the modern world to function. Whether this be the planes we fly on, the ships that carry our goods, the cars we sit in every day, and even medical equipment we trust our lives with, rubber sits quietly as a foundation for all of them. Despite this, the millions of small farmers throughout Southeast Asia producing it are barely surviving, earning less than ever before, and slowly starting to abandon their crops. Over a decade of depressed prices, climate shocks and unstable weather patterns have resulted in a tightening of natural rubber supply. This is no longer a distant warning - it is an early sign of a global commodity crisis.</p>
-  <p>For over a decade now, natural rubber prices have remained consistently low. This trend has been long interpreted as a sign of stability, abundant supply, and thus low concern. In reality, it is quite the opposite. Continuously low prices were a sign of farmers unable to maintain crops, invest in future crops or replace aging trees, ultimately slowing production and weakening the foundations of the industry. Global manufacturers and industries overlooked these low prices as nothing but advantageous for their production, continuing to benefit from cheap natural rubber prices for as long as they could while overlooking the long term detriment to natural rubber supply. The consequences are starting to reveal themselves as a hollow supply base alongside significant structural weaknesses, which have served as strong indicators for past global commodity crises, such as the 2022 global wheat crisis.</p>
-  <p>Unlike other commodities in which production is structured around large firms, approximately 80% of natural rubber is produced by millions of smallhold farmers working in small plots. Also, these farmers do not have any market power whatsoever, meaning they are unable to simply stop production or reduce production output when natural rubber prices fall. Instead, they are forced to continue operating at a loss or simply abandon their crops (ANRPC, 2025). This relation creates an imbalance while posing as a sustainable dynamic. Global markets benefit from low natural rubber prices, however, adjustment risks the livelihoods of those that are most essential to production and can bear it the least. In the coming years, this unstable and neglectful relationship will weaken the foundations of the natural rubber supply chain and depict an even stronger warning sign for imminent structural failure.</p>
-  <p>A clear example of this can be seen in Indonesia. Natural rubber output fell by approximately 20% in the four years leading up to and including 2023, this was mainly attributed to farmers switching to crops that were proving to be more profitable, such as palm oil (Moss, 2025). Combined with the extensive time required for rubber trees to mature (5-7 years), a fast recovery to typical production rates is therefore unattainable. As of 2026, it has now been forecasted that an annual supply deficit for natural rubber will reach around 600,000 to 800,000 tonnes, which will most likely persist until 2028 and potentially onwards (Herve, 2026). Additionally, supply deficits are already being experienced globally as 2026 alone saw demand outstrip supply by roughly 400,000 tonnes (Herve, 2026).</p>
-  <p>Environmental conditions also play a significant role in the production of rubber. Rubber trees are highly susceptible to weather changes, they require temperatures to be precisely between 25℃ and 28℃ combined with consistent rainfall, unfortunately these previously reliable weather conditions are becoming increasingly unpredictable across Southeast Asia (Diwyanjalee, 2024). Some of the most common emerging environmental unpredictabilities include droughts and excessive rainfall. Researchers in Thailand discovered that during prolonged periods of drought and dry spells cause more than half of the trees on rubber farms to be incapable of being tapped, with roughly 5% of the trees dying outright (Chin, 2023). Excessive rain raises an entirely different problem, it causes the fungal pathogens that thrive in humidity to become plentiful and destroy entire plantations at a time (Lim, 2023).</p>
-  <p>Climate change, with specific regards to rising temperatures can also be considered a driving disease for natural rubber supply shortages. A study in 2023 found a strong positive correlation between rising temperatures and rubber leaf fall disease, an occurrence that causes premature death in previously unaffected rubber trees (Azizan, 2023). Considering all of this, it can be suggested that without rapid adaptation, natural rubber production will decline despite increases in global demand (Gohet, 2021).</p>
-  <p>This projection follows a similar pattern that has been observed in previous years. For instance, years of continuous underinvestment result in a nonexistent commodity supply base, and when markets can react, it is already too late. Rubber prices spiked by 24-50% in some Asian markets throughout 2024 causing prices to reach a brief seven year high (Moss, 2025). The price surge in 2024 is not just a random peak, it is instead the market finally responding to the structural reality of natural rubber shortages.</p>
-  <p>The main fix for rubber shortages (although it may seem obvious) is the replanting of subsidies for smallhold farmers, manufacturers allocating greater funding to the supply chains, and greater investment in climate-resilient tree types. Up to that time, every glove, every tyre, every aircraft will be built on a crumbling foundation.</p>
-  `,
-  bib: `
-  <div class="bib-entry">ANRPC (2025) 'Why is the global rubber market likely to see shortages in 2025?'. Available at: <a href="https://www.anrpc.org/news/why-is-the-global-rubber-market-likely-to-see-shortages-in-2025%3F" target="_blank">anrpc.org</a></div>
-  <div class="bib-entry">Azizan, F.A. et al. (2023) 'Rubber leaf fall phenomenon linked to increased temperature', <em>Agriculture, Ecosystems &amp; Environment</em>, 352, p.108531.</div>
-  <div class="bib-entry">Diwyanjalee, R. (2024) 'The Impact of Climate Change on Rubber Cultivation', <em>Climate Fact Checks</em>.</div>
-  <div class="bib-entry">Gohet, E. et al. (2021) 'Worldwide climate typologies of rubber tree cultivation', <em>ResearchGate</em>.</div>
-  <div class="bib-entry">Herve (2026) 'Natural Rubber Deficit 2026', <em>CAPMAD</em>.</div>
-  <div class="bib-entry">Lim, J.A. et al. (2023) 'Mitigating the repercussions of climate change on diseases affecting important crop commodities in Southeast Asia', <em>Frontiers in Sustainable Food Systems</em>, 6.</div>
-  <div class="bib-entry">Moss, J. (2025) 'Will Rubber Prices Continue Their Slide from Seven-Year Highs This Year?', <em>International Banker</em>.</div>
-  `
+  body: `<p>Natural rubber is a key component in the essential goods that allow the modern world to function. Whether this be the planes we fly on, the ships that carry our goods, the cars we sit in every day, and even medical equipment we trust our lives with, rubber sits quietly as a foundation for all of them. Despite this, the millions of small farmers throughout Southeast Asia producing it are barely surviving, earning less than ever before, and slowly starting to abandon their crops. Over a decade of depressed prices, climate shocks and unstable weather patterns have resulted in a tightening of natural rubber supply. This is no longer a distant warning - it is an early sign of a global commodity crisis.</p><p>For over a decade now, natural rubber prices have remained consistently low. This trend has been long interpreted as a sign of stability, abundant supply, and thus low concern. In reality, it is quite the opposite. Continuously low prices were a sign of farmers unable to maintain crops, invest in future crops or replace aging trees, ultimately slowing production and weakening the foundations of the industry. Global manufacturers and industries overlooked these low prices as nothing but advantageous for their production, continuing to benefit from cheap natural rubber prices for as long as they could while overlooking the long term detriment to natural rubber supply. The consequences are starting to reveal themselves as a hollow supply base alongside significant structural weaknesses, which have served as strong indicators for past global commodity crises, such as the 2022 global wheat crisis.</p><p>Unlike other commodities in which production is structured around large firms, approximately 80% of natural rubber is produced by millions of smallhold farmers working in small plots. Also, these farmers do not have any market power whatsoever, meaning they are unable to simply stop production or reduce production output when natural rubber prices fall. Instead, they are forced to continue operating at a loss or simply abandon their crops (ANRPC, 2025). This relation creates an imbalance while posing as a sustainable dynamic. Global markets benefit from low natural rubber prices, however, adjustment risks the livelihoods of those that are most essential to production and can bear it the least. In the coming years, this unstable and neglectful relationship will weaken the foundations of the natural rubber supply chain and depict an even stronger warning sign for imminent structural failure.</p><p>A clear example of this can be seen in Indonesia. Natural rubber output fell by approximately 20% in the four years leading up to and including 2023, this was mainly attributed to farmers switching to crops that were proving to be more profitable, such as palm oil (Moss, 2025). Combined with the extensive time required for rubber trees to mature (5-7 years), a fast recovery to typical production rates is therefore unattainable. As of 2026, it has now been forecasted that an annual supply deficit for natural rubber will reach around 600,000 to 800,000 tonnes, which will most likely persist until 2028 and potentially onwards (Herve, 2026). Additionally, supply deficits are already being experienced globally as 2026 alone saw demand outstrip supply by roughly 400,000 tonnes (Herve, 2026).</p><p>Environmental conditions also play a significant role in the production of rubber. Rubber trees are highly susceptible to weather changes, they require temperatures to be precisely between 25℃ and 28℃ combined with consistent rainfall, unfortunately these previously reliable weather conditions are becoming increasingly unpredictable across Southeast Asia (Diwyanjalee, 2024). Some of the most common emerging environmental unpredictabilities include droughts and excessive rainfall. Researchers in Thailand discovered that during prolonged periods of drought and dry spells cause more than half of the trees on rubber farms to be incapable of being tapped, with roughly 5% of the trees dying outright (Chin, 2023). Excessive rain raises an entirely different problem, it causes the fungal pathogens that thrive in humidity to become plentiful and destroy entire plantations at a time (Lim, 2023).</p><p>Climate change, with specific regards to rising temperatures can also be considered a driving disease for natural rubber supply shortages. A study in 2023 found a strong positive correlation between rising temperatures and rubber leaf fall disease, an occurrence that causes premature death in previously unaffected rubber trees (Azizan, 2023). Considering all of this, it can be suggested that without rapid adaptation, natural rubber production will decline despite increases in global demand (Gohet, 2021).</p><p>This projection follows a similar pattern that has been observed in previous years. For instance, years of continuous underinvestment result in a nonexistent commodity supply base, and when markets can react, it is already too late. Rubber prices spiked by 24-50% in some Asian markets throughout 2024 causing prices to reach a brief seven year high (Moss, 2025). The price surge in 2024 is not just a random peak, it is instead the market finally responding to the structural reality of natural rubber shortages.</p><p>The main fix for rubber shortages (although it may seem obvious) is the replanting of subsidies for smallhold farmers, manufacturers allocating greater funding to the supply chains, and greater investment in climate-resilient tree types. Up to that time, every glove, every tyre, every aircraft will be built on a crumbling foundation.</p>`,
+  bib: `<div class="bib-entry">ANRPC (2025) 'Why is the global rubber market likely to see shortages in 2025?'. Available at: <a href="https://www.anrpc.org/news/why-is-the-global-rubber-market-likely-to-see-shortages-in-2025%3F" target="_blank">anrpc.org</a></div><div class="bib-entry">Azizan, F.A. et al. (2023) 'Rubber leaf fall phenomenon linked to increased temperature', <em>Agriculture, Ecosystems &amp; Environment</em>, 352, p.108531.</div><div class="bib-entry">Diwyanjalee, R. (2024) 'The Impact of Climate Change on Rubber Cultivation', <em>Climate Fact Checks</em>.</div><div class="bib-entry">Gohet, E. et al. (2021) 'Worldwide climate typologies of rubber tree cultivation', <em>ResearchGate</em>.</div><div class="bib-entry">Herve (2026) 'Natural Rubber Deficit 2026', <em>CAPMAD</em>.</div><div class="bib-entry">Lim, J.A. et al. (2023) 'Mitigating the repercussions of climate change on diseases affecting important crop commodities in Southeast Asia', <em>Frontiers in Sustainable Food Systems</em>, 6.</div><div class="bib-entry">Moss, J. (2025) 'Will Rubber Prices Continue Their Slide from Seven-Year Highs This Year?', <em>International Banker</em>.</div>`
 },
 
 post4: {
@@ -1158,23 +642,8 @@ post4: {
   title: 'Adverse Possession: Legal Theft or Economic Necessity?',
   summary: 'Adverse possession allows squatters to claim legal ownership after 12 years of occupation. Drawing on Pye v Graham and the Land Registration Act 2002, this article asks whether the doctrine serves any defensible purpose.',
   refs: 7,
-  body: `
-  <p>Adverse possession refers to the occupation of land with the intention of possession, despite another person owning the property (Oxford, 2025). Initially, this appears to be one of the most counterintuitive principles in English property law. According to the Limitation Act of 1980, a squatter who publicly occupies land continuously without the owner's consent for twelve years, can claim legal ownership of the property (legislation.gov.uk, 2011).</p>
-  <p>Supporters of the doctrine argue that it is legally coherent and an economically rational progression in property ownership. This is justified through the belief that possession of land should indicate productive engagement with land, as a lack of engagement causes social costs through passed up opportunities for productivity (Epstein, 1979). Although this argument appears airtight, it proves too much, the same logic could be used to justify one occupying any asset by claiming that they can make more productive use of it. As the law does not apply this reasoning to other assets, its exclusive application to land is rooted in the immovability of land, which can be argued is not a significant enough reason to justify theft. The defence of adverse possession typically invokes Blackstone's Commentaries, arguing that occupancy is the true determinant of property ownership title (Blackstone, 1776). However, it must be taken into account that Blackstone's principles are outdated and are only in reference to the original acquisition of unknown land and not the reallocation of privately held land.</p>
-  <p>Additionally, the case of Pye V Graham exposes the significant faults and implications involved with adverse possession (Balli, 2002). This case revolves around Pye, who was a registered landowner that lost over £10 million worth of land due to administrative issues regarding a grazing license. Upon this, the Graham family moved into the land but did not purchase it, were not gifted it and made no attempt to negotiate for it, they were simply occupying the land. Nonetheless, by way of following doctrines, the House of Lords appointed the land to be under the Graham family name. A critical detail of this case is that Lord Brown Wilkinson himself said that the outcome of the case was unjust, thus illustrating an indictment of the adverse possession doctrine.</p>
-  <p>The doctrine does retain one defensible application: genuine boundary disputes, where neighbouring owners have disagreed for decades over the precise location of a dividing feature and no paper title can resolve it. The Law Commission explicitly designed the 2002 exceptions with this scenario in mind (Law Commission, 2001). Beyond this narrow circumstance, the justification collapses entirely.</p>
-  <p>As concluded by the UK Law Commission, the balance between a squatter and landowner needed fundamental altering and significant adjustment (Law Commission, 2002). This led to the Land Registration act of 2002, which contained necessary corrections through the implementation of more complex mechanisms such as applicants being required to notify registered land owners as well as allowing the recovery of ownership when property titles have changed due to squatting. This clarifies the purpose of legal institutions, it emphasizes that the protection and security of paper titles is not just another component of the system, but instead the fundamental purpose.</p>
-  <p>In all, it can be said that adverse possession is not an economic necessity. As of today, it is nothing more than a legal policy that amounts to nothing greater than the legal transfer of property from absent owners to determined occupiers.</p>
-  `,
-  bib: `
-  <div class="bib-entry">Blackstone, W. (1766) <em>Commentaries on the Laws of England</em>, Book II, Ch.1.</div>
-  <div class="bib-entry">Epstein, R.A. (1979) 'Possession as the Root of Title', <em>Georgia Law Review</em>, 13, pp.1221–1243.</div>
-  <div class="bib-entry"><em>J.A. Pye (Oxford) Ltd v Graham</em> [2002] UKHL 30.</div>
-  <div class="bib-entry">Land Registration Act 2002. Available at: <a href="https://www.legislation.gov.uk/ukpga/2002/9/contents" target="_blank">legislation.gov.uk</a></div>
-  <div class="bib-entry">Law Commission and HM Land Registry (2001) <em>Land Registration for the Twenty-First Century</em>, Law Com No. 271.</div>
-  <div class="bib-entry">Limitation Act 1980. Available at: <a href="https://www.legislation.gov.uk/ukpga/1980/58/contents" target="_blank">legislation.gov.uk</a></div>
-  <div class="bib-entry">Oxford University Press (2025) 'Adverse Possession', <em>Oxford Reference</em>.</div>
-  `
+  body: `<p>Adverse possession refers to the occupation of land with the intention of possession, despite another person owning the property (Oxford, 2025). Initially, this appears to be one of the most counterintuitive principles in English property law. According to the Limitation Act of 1980, a squatter who publicly occupies land continuously without the owner's consent for twelve years, can claim legal ownership of the property (legislation.gov.uk, 2011).</p><p>Supporters of the doctrine argue that it is legally coherent and an economically rational progression in property ownership. This is justified through the belief that possession of land should indicate productive engagement with land, as a lack of engagement causes social costs through passed up opportunities for productivity (Epstein, 1979). Although this argument appears airtight, it proves too much, the same logic could be used to justify one occupying any asset by claiming that they can make more productive use of it. As the law does not apply this reasoning to other assets, its exclusive application to land is rooted in the immovability of land, which can be argued is not a significant enough reason to justify theft. The defence of adverse possession typically invokes Blackstone's Commentaries, arguing that occupancy is the true determinant of property ownership title (Blackstone, 1776). However, it must be taken into account that Blackstone's principles are outdated and are only in reference to the original acquisition of unknown land and not the reallocation of privately held land.</p><p>Additionally, the case of Pye V Graham exposes the significant faults and implications involved with adverse possession (Balli, 2002). This case revolves around Pye, who was a registered landowner that lost over £10 million worth of land due to administrative issues regarding a grazing license. Upon this, the Graham family moved into the land but did not purchase it, were not gifted it and made no attempt to negotiate for it, they were simply occupying the land. Nonetheless, by way of following doctrines, the House of Lords appointed the land to be under the Graham family name. A critical detail of this case is that Lord Brown Wilkinson himself said that the outcome of the case was unjust, thus illustrating an indictment of the adverse possession doctrine.</p><p>The doctrine does retain one defensible application: genuine boundary disputes, where neighbouring owners have disagreed for decades over the precise location of a dividing feature and no paper title can resolve it. The Law Commission explicitly designed the 2002 exceptions with this scenario in mind (Law Commission, 2001). Beyond this narrow circumstance, the justification collapses entirely.</p><p>As concluded by the UK Law Commission, the balance between a squatter and landowner needed fundamental altering and significant adjustment (Law Commission, 2002). This led to the Land Registration act of 2002, which contained necessary corrections through the implementation of more complex mechanisms such as applicants being required to notify registered land owners as well as allowing the recovery of ownership when property titles have changed due to squatting. This clarifies the purpose of legal institutions, it emphasizes that the protection and security of paper titles is not just another component of the system, but instead the fundamental purpose.</p><p>In all, it can be said that adverse possession is not an economic necessity. As of today, it is nothing more than a legal policy that amounts to nothing greater than the legal transfer of property from absent owners to determined occupiers.</p>`,
+  bib: `<div class="bib-entry">Blackstone, W. (1766) <em>Commentaries on the Laws of England</em>, Book II, Ch.1.</div><div class="bib-entry">Epstein, R.A. (1979) 'Possession as the Root of Title', <em>Georgia Law Review</em>, 13, pp.1221–1243.</div><div class="bib-entry"><em>J.A. Pye (Oxford) Ltd v Graham</em> [2002] UKHL 30.</div><div class="bib-entry">Land Registration Act 2002. Available at: <a href="https://www.legislation.gov.uk/ukpga/2002/9/contents" target="_blank">legislation.gov.uk</a></div><div class="bib-entry">Law Commission and HM Land Registry (2001) <em>Land Registration for the Twenty-First Century</em>, Law Com No. 271.</div><div class="bib-entry">Limitation Act 1980. Available at: <a href="https://www.legislation.gov.uk/ukpga/1980/58/contents" target="_blank">legislation.gov.uk</a></div><div class="bib-entry">Oxford University Press (2025) 'Adverse Possession', <em>Oxford Reference</em>.</div>`
 },
 
 post3: {
@@ -1182,15 +651,7 @@ post3: {
   date: '27 Feb 2026', tag: 'Tax Policy',
   title: 'Should Inheritance Tax on Land be Higher Than Financial Assets?',
   summary: 'The theoretical case for taxing inherited land more heavily than stocks and cash collapses when tested against behavioural responses, liquidity constraints and the institutional reality of estate planning.',
-  body: `
-  <p>Modern debates on equality, wealth and intergenerational maneuverability have been increasingly centered around inheritance taxation. Many argue that due to land being an immobile asset and its historical relevance in regard to wealth accumulation, that it should face heavier taxation than financial assets like stocks and cash. At face value, the logic seems to facilitate efficiency and equitability. The value of land is derived from societal development instead of individual effort, thus the heavy taxation on it during transfer appears to be equitable, especially when compared to assets that maintain entrepreneurial risk (PWC, 2026).</p>
-  <p>While the argument can be justified using basic economic reasoning, it weakens significantly when applied to real-world scenarios that take institutional realities and empirical evidence into account. This can be mainly attributed to inheritance tax referring to a form of transfer tax and not a land rent tax, the distinction between the two introduces several confounding factors.</p>
-  <p>First, inheritance taxes throughout advanced economies raises minimal total revenue for governments compared to wealth stocks. In fact, inheritance tax combined with estate taxes typically only account for less than 1% of the total tax revenue of a country (OECD, 2021). Despite rates appearing high on paper, extensive exceptions, behaviour responses and planning strategies ultimately limit overall collection. If the aim of a policy is meaningful redistribution, differentiating rates based on asset class is unlikely to increase revenue substantially without broader institutional reform.</p>
-  <p>Secondly, behavioural responses which refers to the way individuals economically respond to taxation completely undermines specific asset targeting. Empirical research depicts that high income households tend to adjust portfolios in anticipation of transfer taxing through mechanisms such as inter vivos gifting, corporate restructuring and trust arrangements (Saez, 2019). Responses such as these allow high net-worth individuals to protect the wealth they have acquired throughout their lifetime. Therefore, if land were taxed more heavily at inheritance, individuals would use rational estate planning to simply shift the structures of ownership before death (Saez, 2019). This would result in higher inheritance taxes causing greater administrative complexity, as opposed to more significant redistribution.</p>
-  <p>Even in the case of unexpected mortality where opportunities for planning are limited, most high value properties are already held in trusts or under corporate structures that have succession plans in place (Sturrock, 2025). Consequently, unexpected deaths do not eliminate opportunities for tax avoidance, but instead cause variations in tax outcomes.</p>
-  <p>Lastly, constraints regarding the liquidity of land create unique market distortions. While shares and bonds can be sold in increments to meet inheritance tax liabilities, family homes, farmland and small commercial properties cannot be partially disposed of without fundamentally altering the asset. Debates in the United Kingdom over agricultural property rights illustrate this concern — further tightening restrictions could disrupt business continuity and cause firms to prematurely dispose of assets (HM Treasury, 2023).</p>
-  <p>In all, the theoretical case for taxing the inheritance of land more heavily than financial assets is unable to withstand institutional and behavioral realities. Inheritance taxation raises limited revenue, instigates avoidant behavioral responses, and risks generating distortions due to forced asset sales. Differential inheritance tax on land would have minimal meaningful impact in reducing inequality.</p>
-  `
+  body: `<p>Modern debates on equality, wealth and intergenerational maneuverability have been increasingly centered around inheritance taxation. Many argue that due to land being an immobile asset and its historical relevance in regard to wealth accumulation, that it should face heavier taxation than financial assets like stocks and cash. At face value, the logic seems to facilitate efficiency and equitability. The value of land is derived from societal development instead of individual effort, thus the heavy taxation on it during transfer appears to be equitable, especially when compared to assets that maintain entrepreneurial risk (PWC, 2026).</p><p>While the argument can be justified using basic economic reasoning, it weakens significantly when applied to real-world scenarios that take institutional realities and empirical evidence into account. This can be mainly attributed to inheritance tax referring to a form of transfer tax and not a land rent tax, the distinction between the two introduces several confounding factors.</p><p>First, inheritance taxes throughout advanced economies raises minimal total revenue for governments compared to wealth stocks. In fact, inheritance tax combined with estate taxes typically only account for less than 1% of the total tax revenue of a country (OECD, 2021). Despite rates appearing high on paper, extensive exceptions, behaviour responses and planning strategies ultimately limit overall collection. If the aim of a policy is meaningful redistribution, differentiating rates based on asset class is unlikely to increase revenue substantially without broader institutional reform.</p><p>Secondly, behavioural responses which refers to the way individuals economically respond to taxation completely undermines specific asset targeting. Empirical research depicts that high income households tend to adjust portfolios in anticipation of transfer taxing through mechanisms such as inter vivos gifting, corporate restructuring and trust arrangements (Saez, 2019). Responses such as these allow high net-worth individuals to protect the wealth they have acquired throughout their lifetime. Therefore, if land were taxed more heavily at inheritance, individuals would use rational estate planning to simply shift the structures of ownership before death (Saez, 2019). This would result in higher inheritance taxes causing greater administrative complexity, as opposed to more significant redistribution.</p><p>Even in the case of unexpected mortality where opportunities for planning are limited, most high value properties are already held in trusts or under corporate structures that have succession plans in place (Sturrock, 2025). Consequently, unexpected deaths do not eliminate opportunities for tax avoidance, but instead cause variations in tax outcomes.</p><p>Lastly, constraints regarding the liquidity of land create unique market distortions. While shares and bonds can be sold in increments to meet inheritance tax liabilities, family homes, farmland and small commercial properties cannot be partially disposed of without fundamentally altering the asset. Debates in the United Kingdom over agricultural property rights illustrate this concern — further tightening restrictions could disrupt business continuity and cause firms to prematurely dispose of assets (HM Treasury, 2023).</p><p>In all, the theoretical case for taxing the inheritance of land more heavily than financial assets is unable to withstand institutional and behavioral realities. Inheritance taxation raises limited revenue, instigates avoidant behavioral responses, and risks generating distortions due to forced asset sales. Differential inheritance tax on land would have minimal meaningful impact in reducing inequality.</p>`
 },
 
 post2: {
@@ -1198,13 +659,7 @@ post2: {
   date: '20 Feb 2026', tag: 'Climate',
   title: 'Is climate change a failure of markets, or a failure of law and governance?',
   summary: 'Climate change is called the greatest market failure in history. But since markets operate within legal frameworks, the deeper question is whether it represents a failure of institutions rather than markets themselves.',
-  body: `
-  <p>Climate change is often described as the greatest failure of the free market in human history. Still, this label raises a more complex question: if markets must operate within institutional and legal frameworks designed by governments and administrations, is it possible for a market to fail independently of these structures? To uncover the root of the "greatest market failure in human history" one must first closely examine the relationship between institutional design and economic incentives.</p>
-  <p>Through a strictly economic perspective, climate change appears to fulfill all the criteria for a perfect example of market failure. Greenhouse gas emissions can be considered a negative externality, this is because they are a cost imposed on society that cannot be effectively or accurately reflected in the price of production or cost of consumption. Consequently, individuals and firms continue to emit carbon as it can be argued that it is economically rational, environmental costs cannot be accurately quantified, and thus cannot be internalized. When carbon carries little or no price, markets logically opt to overproduce emission intensive goods, and underinvest in more expensive clean alternatives. The result is a misallocation of resources on an international scale.</p>
-  <p>However, since markets do not emerge naturally but instead through rigorous construction and adherence to legal frameworks, this diagnosis only explains the systems involved with the problem, but not its true origin. Carbon remaining underpriced is not due to markets being unable to price it, but due to the failure of legal systems in imposing truly consequential carbon-specific mechanisms on firms. This includes high carbon taxes, emissions trading systems and strict environmental regulations. From this, climate change reflects less a market failure, and more an institutional failure in correcting predictable externalities.</p>
-  <p>All governments face obvious incentives to prioritize domestic economic growth over long term environmental stability. Although international agreements have been implemented to counteract these incentives, they are often symbolic and lack enforceability. States collectively benefit from global mitigation, yet must incur the costs individually. This undermines any authority capable of imposing international environmental constraints. Markets continue to respond rationally by allocating carbon intensive production wherever regulations permit.</p>
-  <p>In all, climate change cannot be considered a simple "market failure." Markets failed to price environmental costs, but did so under the legal regulations that permitted as such. Law and governance failed to correct externalities, but their decisions were shaped by political and economic pressures. Climate change represents the systemic failure of the very institutions that coordinate modern economic life — the point at which flawed incentives, weak global governance and absent market correction mechanisms produce outcomes that are economically rational yet environmentally catastrophic.</p>
-  `
+  body: `<p>Climate change is often described as the greatest failure of the free market in human history. Still, this label raises a more complex question: if markets must operate within institutional and legal frameworks designed by governments and administrations, is it possible for a market to fail independently of these structures? To uncover the root of the "greatest market failure in human history" one must first closely examine the relationship between institutional design and economic incentives.</p><p>Through a strictly economic perspective, climate change appears to fulfill all the criteria for a perfect example of market failure. Greenhouse gas emissions can be considered a negative externality, this is because they are a cost imposed on society that cannot be effectively or accurately reflected in the price of production or cost of consumption. Consequently, individuals and firms continue to emit carbon as it can be argued that it is economically rational, environmental costs cannot be accurately quantified, and thus cannot be internalized. When carbon carries little or no price, markets logically opt to overproduce emission intensive goods, and underinvest in more expensive clean alternatives. The result is a misallocation of resources on an international scale.</p><p>However, since markets do not emerge naturally but instead through rigorous construction and adherence to legal frameworks, this diagnosis only explains the systems involved with the problem, but not its true origin. Carbon remaining underpriced is not due to markets being unable to price it, but due to the failure of legal systems in imposing truly consequential carbon-specific mechanisms on firms. This includes high carbon taxes, emissions trading systems and strict environmental regulations. From this, climate change reflects less a market failure, and more an institutional failure in correcting predictable externalities.</p><p>All governments face obvious incentives to prioritize domestic economic growth over long term environmental stability. Although international agreements have been implemented to counteract these incentives, they are often symbolic and lack enforceability. States collectively benefit from global mitigation, yet must incur the costs individually. This undermines any authority capable of imposing international environmental constraints. Markets continue to respond rationally by allocating carbon intensive production wherever regulations permit.</p><p>In all, climate change cannot be considered a simple "market failure." Markets failed to price environmental costs, but did so under the legal regulations that permitted as such. Law and governance failed to correct externalities, but their decisions were shaped by political and economic pressures. Climate change represents the systemic failure of the very institutions that coordinate modern economic life — the point at which flawed incentives, weak global governance and absent market correction mechanisms produce outcomes that are economically rational yet environmentally catastrophic.</p>`
 },
 
 post1: {
@@ -1212,11 +667,7 @@ post1: {
   date: '13 Feb 2026', tag: 'Property',
   title: 'Who Really Owns A City? Property Rights, Legal Frameworks and the Price of Urban Land',
   summary: 'Urban land may be privately titled, but zoning laws, planning permissions and development controls mean the true owners of a city are the institutions that define and enforce property rights.',
-  body: `
-  <p>Throughout many decades, urban land has revealed itself as one of the most valuable economic assets in the world. Global cities such as London, New York and Singapore have experienced substantial increases in property prices, often at a rate surpassing that of income growth, ultimately resulting in significant affordability pressures for consumers. Although land is commonly viewed as privately owned, urban property ownership is far more complex in actuality. This is because property rights are essentially a mere subsection of the legal frameworks that allow governments to regulate and manipulate how land is developed, used and exchanged. As a result, the question of "who really owns a city?" refers more to the domain of law and public policy than just a private title.</p>
-  <p>Initially, ownership seems simple and straightforward. Individuals and firms hold the legal access to land through either freehold or leasing systems, effectively allowing them to buy, sell and develop property. Unfortunately, these rights are never absolute. Planning permissions, zoning laws and development controls are significant determinants of what landowners are permitted to do with "their own" land. Even if a landowner possesses formal ownership of a central plot, decisions in regard to building height, usage and density are determined by administrative institutions, most commonly the government. This makes it clear how legal systems and institutions are able to demonstrate influence over urban land despite the existence of private ownership.</p>
-  <p>Additionally, this suggests that the housing markets of modern cities are constantly molded by ongoing negotiations between private property owners and regulatory institutions. Land may be owned privately, but its value and uses are fundamentally structured by law. Therefore, it can be argued that the true owner of a city is not the individuals who hold a legal title, but the institutions that define and enforce the rights of the title.</p>
-  `
+  body: `<p>Throughout many decades, urban land has revealed itself as one of the most valuable economic assets in the world. Global cities such as London, New York and Singapore have experienced substantial increases in property prices, often at a rate surpassing that of income growth, ultimately resulting in significant affordability pressures for consumers. Although land is commonly viewed as privately owned, urban property ownership is far more complex in actuality. This is because property rights are essentially a mere subsection of the legal frameworks that allow governments to regulate and manipulate how land is developed, used and exchanged. As a result, the question of "who really owns a city?" refers more to the domain of law and public policy than just a private title.</p><p>Initially, ownership seems simple and straightforward. Individuals and firms hold the legal access to land through either freehold or leasing systems, effectively allowing them to buy, sell and develop property. Unfortunately, these rights are never absolute. Planning permissions, zoning laws and development controls are significant determinants of what landowners are permitted to do with "their own" land. Even if a landowner possesses formal ownership of a central plot, decisions in regard to building height, usage and density are determined by administrative institutions, most commonly the government. This makes it clear how legal systems and institutions are able to demonstrate influence over urban land despite the existence of private ownership.</p><p>Additionally, this suggests that the housing markets of modern cities are constantly molded by ongoing negotiations between private property owners and regulatory institutions. Land may be owned privately, but its value and uses are fundamentally structured by law. Therefore, it can be argued that the true owner of a city is not the individuals who hold a legal title, but the institutions that define and enforce the rights of the title.</p>`
 }
 
 };
@@ -1229,10 +680,7 @@ function renderHome() {
   const featured = posts[featuredId];
   const sideIds = postOrder.filter(id => id !== featuredId).slice(0, 3);
   const gridIds = postOrder;
-
-  const researchBadge = featured.isResearch
-    ? `<div class="research-badge">◆ Working Paper · Zenodo Preprint</div>` : '';
-
+  const researchBadge = featured.isResearch ? `<div class="research-badge">◆ Working Paper · Zenodo Preprint</div>` : '';
   document.getElementById('featuredMain').innerHTML = `
     ${featured.img ? `<img class="featured-img" src="${featured.img}" alt="${featured.title}" loading="lazy">` : ''}
     <div style="padding:32px 40px 32px 0;">
@@ -1246,38 +694,21 @@ function renderHome() {
         ${featured.refs ? `<span class="featured-tag">${featured.refs} sources</span>` : ''}
         <span class="featured-read">Read →</span>
       </div>
-    </div>
-  `;
+    </div>`;
   document.getElementById('featuredMain').onclick = () => openPost(featuredId);
-
   document.getElementById('featuredSide').innerHTML = sideIds.map(id => {
     const p = posts[id];
-    return `
-      <div class="side-article" onclick="openPost('${id}')">
-        <div class="side-tag">${p.tag}</div>
-        <div class="side-title">${p.title}</div>
-        <div class="side-summary">${p.summary}</div>
-      </div>
-    `;
+    return `<div class="side-article" onclick="openPost('${id}')"><div class="side-tag">${p.tag}</div><div class="side-title">${p.title}</div><div class="side-summary">${p.summary}</div></div>`;
   }).join('');
-
   document.getElementById('articleGrid').innerHTML = gridIds.map(id => {
     const p = posts[id];
-    const rBadge = p.isResearch
-      ? `<div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;color:var(--bg);background:var(--accent);display:inline-block;padding:2px 7px;border-radius:2px;margin-bottom:8px;">Working Paper</div>` : '';
-    return `
-      <div class="grid-card" onclick="openPost('${id}')">
-        ${p.img ? `<img class="grid-img" src="${p.img}" alt="${p.title}" loading="lazy" style="margin:-28px -24px 18px;width:calc(100% + 48px);">` : ''}
-        ${rBadge}
-        <div class="grid-tag">${p.tag}</div>
-        <div class="grid-title">${p.title}</div>
-        <div class="grid-summary">${p.summary}</div>
-        <div class="grid-meta">
-          <span class="grid-date">${p.date}</span>
-          ${p.refs ? `<span class="grid-refs">${p.refs} sources</span>` : ''}
-        </div>
-      </div>
-    `;
+    const rBadge = p.isResearch ? `<div style="font-family:'DM Mono',monospace;font-size:7px;letter-spacing:0.12em;text-transform:uppercase;color:var(--bg);background:var(--accent);display:inline-block;padding:2px 7px;border-radius:2px;margin-bottom:8px;">Working Paper</div>` : '';
+    return `<div class="grid-card" onclick="openPost('${id}')">
+      ${p.img ? `<img class="grid-img" src="${p.img}" alt="${p.title}" loading="lazy" style="margin:-28px -24px 18px;width:calc(100% + 48px);">` : ''}
+      ${rBadge}<div class="grid-tag">${p.tag}</div><div class="grid-title">${p.title}</div>
+      <div class="grid-summary">${p.summary}</div>
+      <div class="grid-meta"><span class="grid-date">${p.date}</span>${p.refs ? `<span class="grid-refs">${p.refs} sources</span>` : ''}</div>
+    </div>`;
   }).join('');
 }
 
@@ -1289,90 +720,105 @@ function renderPapers() {
     const authorInit = p.authorInitials || 'AIS';
     const authorStyle = p.authorStyle || 'background:linear-gradient(135deg,var(--acc2),var(--accent));';
     const doiShort = p.zenodoDoiShort || '';
-    return `
-      <div class="paper-card" onclick="openPost('${id}', 'Published Papers')">
-        <div class="paper-img-wrap">
-          ${p.img ? `<img class="paper-img" src="${p.img}" alt="${p.title}" loading="lazy">` : ''}
-          <div class="paper-img-overlay"></div>
-        </div>
-        <div class="paper-body">
-          <div>
-            <div class="paper-top-meta">
-              <span class="paper-type-badge">◆ Working Paper</span>
-              <span class="paper-journal-badge">Zenodo Preprint</span>
-            </div>
-            <div class="paper-title">${p.title}</div>
-            <div class="paper-abstract">${p.summary}</div>
+    const ssrnShort = p.ssrnDoiShort || '';
+    return `<div class="paper-card" onclick="openPost('${id}', 'Published Papers')">
+      <div class="paper-img-wrap">
+        ${p.img ? `<img class="paper-img" src="${p.img}" alt="${p.title}" loading="lazy">` : ''}
+        <div class="paper-img-overlay"></div>
+      </div>
+      <div class="paper-body">
+        <div>
+          <div class="paper-top-meta">
+            <span class="paper-type-badge">◆ Working Paper</span>
+            <span class="paper-journal-badge">Zenodo Preprint</span>
+            ${ssrnShort ? `<span class="paper-journal-badge">SSRN</span>` : ''}
           </div>
-          <div class="paper-footer">
-            <div class="paper-author-row">
-              <div class="paper-avatar" style="${authorStyle}">${authorInit}</div>
-              <div class="paper-author-info">
-                <span class="paper-author-name">${authorName}</span>
-                <span class="paper-author-date">${p.date}</span>
-              </div>
+          <div class="paper-title">${p.title}</div>
+          <div class="paper-abstract">${p.summary}</div>
+        </div>
+        <div class="paper-footer">
+          <div class="paper-author-row">
+            <div class="paper-avatar" style="${authorStyle}">${authorInit}</div>
+            <div class="paper-author-info">
+              <span class="paper-author-name">${authorName}</span>
+              <span class="paper-author-date">${p.date}</span>
             </div>
+          </div>
+          <div class="paper-dois">
             ${doiShort ? `<span class="paper-doi">${doiShort} →</span>` : ''}
+            ${ssrnShort ? `<span class="paper-doi" style="border-color:rgba(200,164,90,0.3);">${ssrnShort} →</span>` : ''}
           </div>
         </div>
       </div>
-    `;
+    </div>`;
   }).join('');
 }
 
 let prevPage = 'home';
 
-function hideAll() {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('visible'));
-}
-
-function setActiveBtn(el) {
-  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-  if (el) el.classList.add('active');
-}
+function hideAll() { document.querySelectorAll('.page').forEach(p => p.classList.remove('visible')); }
+function setActiveBtn(el) { document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active')); if (el) el.classList.add('active'); }
 
 function showHome(el) {
-  hideAll();
-  document.getElementById('page-home').classList.add('visible');
+  hideAll(); document.getElementById('page-home').classList.add('visible');
   setActiveBtn(el || document.querySelector('.cat-btn'));
-  prevPage = 'home';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  prevPage = 'home'; window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function showPapers(el) {
-  hideAll();
-  setActiveBtn(el);
-  renderPapers();
+  hideAll(); setActiveBtn(el); renderPapers();
   document.getElementById('page-papers').classList.add('visible');
-  prevPage = 'papers';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  prevPage = 'papers'; window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function filterCat(tag, el) {
-  hideAll();
-  setActiveBtn(el);
+  hideAll(); setActiveBtn(el);
   const filtered = postOrder.filter(id => posts[id].tag === tag);
   document.getElementById('catTitle').textContent = tag;
   document.getElementById('catCount').textContent = filtered.length + ' article' + (filtered.length !== 1 ? 's' : '');
-  document.getElementById('catList').innerHTML = filtered.map(id => {
+  document.getElementById('catList').innerHTML = filtered.map((id, i) => {
     const p = posts[id];
+    const authorName = p.author || 'Ahmed Iaseer Sobhan';
+    const authorInit = p.authorInitials || 'AIS';
+    const authorStyle = p.authorStyle || 'background:linear-gradient(135deg,var(--acc2),var(--accent));';
+    const coStr = p.coauthor
+      ? `<div class="cli-author-chip" style="margin-left:6px;"><div class="cli-author-dot" style="background:linear-gradient(135deg,#1a3a2a,#2e6b4a);">${p.coauthorInitials}</div><span class="cli-author-name">${p.coauthor}</span></div>`
+      : '';
+    const researchPill = p.isResearch ? `<span class="cli-research-pill">Working Paper</span>` : '';
     return `
       <div class="cat-list-item" onclick="openPost('${id}', '${tag}')">
-        <div class="cli-content">
-          <div class="cli-meta">
-            <span class="cli-date">${p.date}</span>
-            ${p.refs ? `<span class="cli-dot"></span><span class="cli-refs">${p.refs} sources</span>` : ''}
-          </div>
-          <div class="cli-title">${p.title}</div>
-          <div class="cli-summary">${p.summary}</div>
+        <div class="cli-index">
+          <span class="cli-index-num">${String(i + 1).padStart(2, '0')}</span>
+          <div class="cli-index-dot"></div>
         </div>
-        <span class="cli-arrow">→</span>
-      </div>
-    `;
-  }).join('') || '<div style="padding:40px;font-family:\'DM Mono\',monospace;font-size:11px;color:var(--muted);text-align:center;letter-spacing:0.12em;">No articles in this category yet.</div>';
+        <div class="cli-content">
+          <div>
+            <div class="cli-meta">
+              <span class="cli-date">${p.date}</span>
+              ${p.refs ? `<span class="cli-dot"></span><span class="cli-refs">${p.refs} sources</span>` : ''}
+              ${researchPill}
+            </div>
+            <div class="cli-title">${p.title}</div>
+            <div class="cli-summary">${p.summary}</div>
+          </div>
+          <div class="cli-bottom">
+            <div class="cli-author-chip">
+              <div class="cli-author-dot" style="${authorStyle}">${authorInit}</div>
+              <span class="cli-author-name">${authorName}</span>
+            </div>
+            ${coStr}
+            <span class="cli-read-label">Read article →</span>
+          </div>
+        </div>
+        <div class="cli-img-wrap">
+          ${p.img ? `<img class="cli-img" src="${p.img}" alt="" loading="lazy">` : '<div style="background:var(--surf3);width:100%;height:100%;"></div>'}
+          <div class="cli-img-overlay"></div>
+        </div>
+        <div class="cli-arrow-wrap"><span class="cli-arrow">→</span></div>
+      </div>`;
+  }).join('') || '<div style="padding:60px 40px;font-family:\'DM Mono\',monospace;font-size:11px;color:var(--muted);text-align:center;letter-spacing:0.12em;border:1px solid var(--border);">No articles in this category yet.</div>';
   document.getElementById('page-cat').classList.add('visible');
-  prevPage = 'cat:' + tag;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  prevPage = 'cat:' + tag; window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function openPost(id, fromCat) {
@@ -1381,22 +827,12 @@ function openPost(id, fromCat) {
   const url = 'https://i3skylineeconomics.com/#' + id;
   const shareText = encodeURIComponent(p.title + ' — I3 Skyline Economics Weekly');
   const shareUrl = encodeURIComponent(url);
-
   const primaryAuthorName = p.author || 'Ahmed Iaseer Sobhan';
   const primaryAuthorInit = p.authorInitials || 'AIS';
   const primaryAuthorStyle = p.authorStyle || 'background:linear-gradient(135deg,var(--acc2),var(--accent));';
-
-  const coauthorHtml = p.coauthor ? `
-    <div class="byline-sep"></div>
-    <div class="author-chip" onclick="showAbout()">
-      <div class="author-avatar" style="background:linear-gradient(135deg,#1a3a2a,#2e6b4a);">${p.coauthorInitials}</div>
-      <span class="author-name-link">${p.coauthor}</span>
-    </div>` : '';
-
-  const zenodoDoi = p.zenodoDoi || '';
-  const zenodoBtn = zenodoDoi ? `
-    <a class="share-btn" href="${zenodoDoi}" target="_blank" rel="noopener" style="color:var(--accent);border-color:var(--acc2);">Full Paper (Zenodo) →</a>` : '';
-
+  const coauthorHtml = p.coauthor ? `<div class="byline-sep"></div><div class="author-chip" onclick="showAbout()"><div class="author-avatar" style="background:linear-gradient(135deg,#1a3a2a,#2e6b4a);">${p.coauthorInitials}</div><span class="author-name-link">${p.coauthor}</span></div>` : '';
+  const zenodoBtn = p.zenodoDoi ? `<a class="share-btn" href="${p.zenodoDoi}" target="_blank" rel="noopener" style="color:var(--accent);border-color:var(--acc2);">Full Paper (Zenodo) →</a>` : '';
+  const ssrnBtn = p.ssrnDoi ? `<a class="share-btn" href="${p.ssrnDoi}" target="_blank" rel="noopener" style="color:var(--accent);border-color:var(--acc2);">SSRN →</a>` : '';
   document.getElementById('articleContent').innerHTML = `
     ${p.img ? `<img class="article-hero" src="${p.img}" alt="${p.title}" loading="lazy"><div class="photo-credit">Photo: Unsplash</div>` : ''}
     <div class="article-top">
@@ -1422,55 +858,31 @@ function openPost(id, fromCat) {
       ${bib}
       <div class="share-bar">
         <span class="share-label">Share</span>
-        ${zenodoBtn}
+        ${zenodoBtn}${ssrnBtn}
         <a class="share-btn" href="https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}" target="_blank" rel="noopener">X / Twitter</a>
         <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}" target="_blank" rel="noopener">LinkedIn</a>
         <button class="share-btn" onclick="copyLink(this)">Copy link</button>
       </div>
       <div class="ornament"><span>◆</span></div>
-    </div>
-  `;
-
-  if (fromCat === 'Published Papers') {
-    document.getElementById('articleBack').onclick = () => showPapers(null);
-  } else if (fromCat) {
-    document.getElementById('articleBack').onclick = () => filterCat(fromCat, null);
-  } else {
-    document.getElementById('articleBack').onclick = goBack;
-  }
-
+    </div>`;
+  if (fromCat === 'Published Papers') { document.getElementById('articleBack').onclick = () => showPapers(null); }
+  else if (fromCat) { document.getElementById('articleBack').onclick = () => filterCat(fromCat, null); }
+  else { document.getElementById('articleBack').onclick = goBack; }
   document.title = p.title + ' — I3 Skyline Economics Weekly';
-  hideAll();
-  document.getElementById('page-article').classList.add('visible');
+  hideAll(); document.getElementById('page-article').classList.add('visible');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function goBack() {
   document.title = 'I3 Skyline Economics Weekly — Independent Commentary on Economics, Law & Property';
-  if (prevPage === 'papers') {
-    showPapers(null);
-  } else if (prevPage.startsWith('cat:')) {
-    const tag = prevPage.replace('cat:', '');
-    const btn = Array.from(document.querySelectorAll('.cat-btn')).find(b => b.textContent.trim() === tag);
-    filterCat(tag, btn || null);
-  } else {
-    showHome();
-  }
+  if (prevPage === 'papers') { showPapers(null); }
+  else if (prevPage.startsWith('cat:')) { const tag = prevPage.replace('cat:', ''); const btn = Array.from(document.querySelectorAll('.cat-btn')).find(b => b.textContent.trim() === tag); filterCat(tag, btn || null); }
+  else { showHome(); }
 }
 
-function showAbout(el) {
-  hideAll();
-  setActiveBtn(el || null);
-  document.getElementById('page-about').classList.add('visible');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+function showAbout(el) { hideAll(); setActiveBtn(el || null); document.getElementById('page-about').classList.add('visible'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-function copyLink(btn) {
-  navigator.clipboard.writeText(window.location.href).then(() => {
-    btn.textContent = 'Copied ✓';
-    setTimeout(() => { btn.textContent = 'Copy link'; }, 2000);
-  }).catch(() => {});
-}
+function copyLink(btn) { navigator.clipboard.writeText(window.location.href).then(() => { btn.textContent = 'Copied ✓'; setTimeout(() => { btn.textContent = 'Copy link'; }, 2000); }).catch(() => {}); }
 
 async function subscribeNewsletter() {
   const email = document.getElementById('newsletterEmail').value.trim();
@@ -1478,14 +890,9 @@ async function subscribeNewsletter() {
   const btn = document.querySelector('.newsletter-btn');
   btn.textContent = '...'; btn.disabled = true;
   try {
-    const res = await fetch('https://i3-subscribe.iaseersobhan333.workers.dev/subscribe', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email })
-    });
-    if (res.ok) {
-      document.getElementById('newsletterForm').style.display = 'none';
-      document.getElementById('newsletterSuccess').style.display = 'inline';
-    } else { btn.textContent = 'Try again'; btn.disabled = false; }
+    const res = await fetch('https://i3-subscribe.iaseersobhan333.workers.dev/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
+    if (res.ok) { document.getElementById('newsletterForm').style.display = 'none'; document.getElementById('newsletterSuccess').style.display = 'inline'; }
+    else { btn.textContent = 'Try again'; btn.disabled = false; }
   } catch(e) { btn.textContent = 'Try again'; btn.disabled = false; }
 }
 
