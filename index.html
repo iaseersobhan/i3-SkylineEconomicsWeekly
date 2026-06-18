@@ -89,12 +89,19 @@ body::after {
 .masthead-right { text-align: right; padding-bottom: 4px; }
 .masthead-date { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
 .masthead-sub { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; font-weight: 300; color: var(--muted); max-width: 220px; line-height: 1.5; }
-.cat-nav { border-bottom: 1px solid var(--border); padding: 0 max(24px, env(safe-area-inset-left)); position: sticky; top: 0; z-index: 100; background: rgba(8,8,10,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); overflow-x: auto; scrollbar-width: none; }
-.cat-nav::-webkit-scrollbar { display: none; }
-.cat-nav-inner { display: flex; align-items: center; gap: 0; white-space: nowrap; }
-.cat-btn { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); background: none; border: none; padding: 14px 18px; cursor: pointer; border-bottom: 2px solid transparent; transition: color 0.15s, border-color 0.15s; -webkit-tap-highlight-color: transparent; flex-shrink: 0; }
-.cat-btn:hover { color: var(--text); }
-.cat-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+.cat-nav { border-bottom: 1px solid var(--border); padding: 0 max(24px, env(safe-area-inset-left)); position: sticky; top: 0; z-index: 100; background: rgba(8,8,10,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.hamburger { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 42px; height: 42px; padding: 11px 8px; margin: 4px 0; background: none; border: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.hamburger span { display: block; width: 100%; height: 2px; background: var(--accent); border-radius: 2px; transition: transform 0.25s ease, opacity 0.2s ease; }
+.hamburger:hover span { background: var(--white); }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-menu { position: absolute; top: 100%; left: max(16px, env(safe-area-inset-left)); min-width: 232px; background: var(--surface); border: 1px solid var(--border2); border-radius: 4px; box-shadow: 0 18px 50px rgba(0,0,0,0.55); padding: 6px; display: none; flex-direction: column; }
+.nav-menu.open { display: flex; animation: menuIn 0.18s ease; }
+@keyframes menuIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.nav-menu .cat-btn { display: block; width: 100%; text-align: left; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); background: none; border: none; padding: 11px 14px; border-radius: 3px; cursor: pointer; transition: color 0.15s, background 0.15s; -webkit-tap-highlight-color: transparent; }
+.nav-menu .cat-btn:hover { color: var(--text); background: var(--surf2); }
+.nav-menu .cat-btn.active { color: var(--accent); background: rgba(200,164,90,0.08); }
 .page { display: none; }
 .page.visible { display: block; }
 .home-wrap { max-width: 1200px; margin: 0 auto; padding: 0 max(24px, env(safe-area-inset-left)); }
@@ -434,15 +441,19 @@ body::after {
 </header>
 
 <nav class="cat-nav">
-  <div class="cat-nav-inner">
-    <button class="cat-btn active" onclick="showHome(this)">All</button>
-    <button class="cat-btn" onclick="showPapers(this)">Published Papers</button>
-    <button class="cat-btn" onclick="filterCat('Property', this)">Property</button>
-    <button class="cat-btn" onclick="filterCat('Property Law', this)">Property Law</button>
-    <button class="cat-btn" onclick="filterCat('Tax Policy', this)">Tax Policy</button>
-    <button class="cat-btn" onclick="filterCat('Climate', this)">Climate</button>
-    <button class="cat-btn" onclick="filterCat('Commodities', this)">Commodities</button>
-    <button class="cat-btn" onclick="showAbout(this)">About</button>
+  <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu(event)" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-menu" id="navMenu" role="menu">
+    <button class="cat-btn active" role="menuitem" onclick="showHome(this); closeMenu()">All</button>
+    <button class="cat-btn" role="menuitem" onclick="showPapers(this); closeMenu()">Published Papers</button>
+    <button class="cat-btn" role="menuitem" onclick="filterCat('Property', this); closeMenu()">Property</button>
+    <button class="cat-btn" role="menuitem" onclick="filterCat('Property Law', this); closeMenu()">Property Law</button>
+    <button class="cat-btn" role="menuitem" onclick="filterCat('Tax Policy', this); closeMenu()">Tax Policy</button>
+    <button class="cat-btn" role="menuitem" onclick="filterCat('Climate', this); closeMenu()">Climate</button>
+    <button class="cat-btn" role="menuitem" onclick="filterCat('Environment', this); closeMenu()">Environment</button>
+    <button class="cat-btn" role="menuitem" onclick="filterCat('Commodities', this); closeMenu()">Commodities</button>
+    <button class="cat-btn" role="menuitem" onclick="showAbout(this); closeMenu()">About</button>
   </div>
 </nav>
 
@@ -573,6 +584,17 @@ footer { border-top: 3px solid var(--accent); padding: 36px max(24px, env(safe-a
 <script>
 const posts = {
 
+post9: {
+  img: 'https://images.unsplash.com/photo-1683505316105-cdfbecab0c9c?auto=format&fit=crop&w=800&q=80',
+  date: '8 Apr – 8 Jul 2026', tag: 'Environment',
+  title: 'John Locke Essay Competition',
+  summary: 'Public Policy Question 1: how we ought to weigh the welfare of future generations against the costs of acting today — the problem of discounting the long-run future in environmental policy.',
+  body: `
+  <p>The blog has been quiet since early April for one reason: my entry for the John Locke Institute's 2026 essay competition — Public Policy Question 1, on how environmental policy should weigh the long-run future against the costs we bear today. It took up most of my writing time, and I would rather explain the gap than pretend it away.</p>
+  <p>The essay is now submitted. I will publish the full piece here once the competition has concluded, rather than before. In the meantime, normal service resumes: typical weekly uploads return in July, with the usual work on economics, law, property and the built environment picking up from there.</p>
+  `
+},
+
 post8: {
   img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80',
   date: '08 Apr 2026', tag: 'Published Papers',
@@ -672,7 +694,7 @@ post1: {
 
 };
 
-const postOrder = ['post8','post7','post6','post5','post4','post3','post2','post1'];
+const postOrder = ['post9','post8','post7','post6','post5','post4','post3','post2','post1'];
 const papersOrder = ['post8','post7'];
 
 function renderHome() {
@@ -758,6 +780,10 @@ let prevPage = 'home';
 
 function hideAll() { document.querySelectorAll('.page').forEach(p => p.classList.remove('visible')); }
 function setActiveBtn(el) { document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active')); if (el) el.classList.add('active'); }
+function toggleMenu(e) { e.stopPropagation(); const m = document.getElementById('navMenu'); const h = document.getElementById('hamburgerBtn'); const open = m.classList.toggle('open'); h.classList.toggle('open', open); h.setAttribute('aria-expanded', open ? 'true' : 'false'); }
+function closeMenu() { const m = document.getElementById('navMenu'); const h = document.getElementById('hamburgerBtn'); if (!m) return; m.classList.remove('open'); h.classList.remove('open'); h.setAttribute('aria-expanded', 'false'); }
+document.addEventListener('click', function(e) { const nav = document.querySelector('.cat-nav'); if (nav && !nav.contains(e.target)) closeMenu(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
 
 function showHome(el) {
   hideAll(); document.getElementById('page-home').classList.add('visible');
